@@ -1,0 +1,52 @@
+- topic: regression choice
+  q: >-
+    Why not ordinary least squares for method comparison?
+  a: |
+    OLS assumes the comparator has no error; with error in x the slope is attenuated and the intercept biased. Deming (known error ratio) or Passing-Bablok (nonparametric) account for error in both methods.
+- topic: Deming vs PaBa
+  q: >-
+    When Deming and when Passing-Bablok?
+  a: |
+    Deming: roughly normal errors, no gross outliers, error ratio known or estimated from replicates (weighted version when CV is constant). Passing-Bablok: robust to outliers and distribution, needs a linear relationship and positively correlated measurements; its CI can be wide and is usually bootstrapped for bias.
+- topic: bias at decision level
+  q: >-
+    How do you get the bias and CI at a medical decision level?
+  a: |
+    From the regression: bias(Xc) = a + (b - 1) Xc, with CI from jackknife (Deming) or bootstrap (Passing-Bablok), not by combining slope and intercept CIs separately (they are correlated). Compare against allowable bias at that level.
+  hard: true
+- topic: Bland-Altman
+  q: >-
+    What does Bland-Altman add, and what are its limits?
+  a: |
+    Visualises agreement and the distribution of differences with limits of agreement; use relative differences when error scales with level. It does not provide bias at specific levels with CIs and mixes constant and proportional bias.
+- topic: outliers
+  q: >-
+    Three outliers in 100 samples - what do you do?
+  a: |
+    Never drop them silently. Investigate (sample mix-up, interference), report the analysis with and without them, and prefer a robust estimator. Pre-specify the outlier rule in the plan.
+- topic: sample selection
+  q: >-
+    Which concentration range and how many samples for a method comparison?
+  a: |
+    Spread across the measuring interval and around decision levels, patient samples, not spiked pools only. Exact counts and distribution rules are in EP09c (not verified: paywalled); I would justify n by the CI width of bias at decision levels via simulation.
+- topic: interference
+  q: >-
+    How do you decide that an interferent does not matter?
+  a: |
+    Compare paired results with and without interferent (EP07 Ed3 style), estimate the difference with CI and require the entire CI within the allowable error at relevant levels; test several interferent concentrations. Non-significance is not equivalence.
+- topic: stability
+  q: >-
+    How is a shelf life set from a stability study?
+  a: |
+    Regress response on time, compute a one-sided 95% bound for the mean, and take the time where the bound meets the acceptance limit. EP25 Ed2 (2023) is regression-based; its exact acceptance rules are paywalled (not verified).
+  hard: true
+- topic: lots
+  q: >-
+    What does an EP26-style lot-to-lot evaluation test and why use patient samples?
+  a: |
+    Whether new-lot minus old-lot differences exceed a medically acceptable difference; patient samples because control materials may not be commutable. Stage 1 sets the acceptable difference and risk; Stage 2 is the routine per-lot check (EP26 Ed2, 2022).
+- topic: Annex I
+  q: >-
+    Which IVDR GSPR statistics do these studies feed?
+  a: |
+    Annex I 9.1(a): trueness (bias), precision, analytical specificity (interference), limits of detection/quantitation, measuring range, linearity. Each maps to an EP document.

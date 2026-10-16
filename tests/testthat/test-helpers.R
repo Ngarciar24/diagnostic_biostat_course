@@ -84,3 +84,20 @@ test_that("linearity_check flags curvature and not a straight line", {
   expect_gt(linearity_check(x, 2 * x + rnorm(27, 0, 0.3))$p_nonlinear, 0.01)
   expect_lt(linearity_check(x, 2 * x - 0.08 * x^2 + rnorm(27, 0, 0.1))$p_nonlinear, 1e-6)
 })
+
+test_that("Deming hand estimate matches mcr and recovers truth without noise bias", {
+  set.seed(4); t <- runif(200, 10, 100)
+  x <- t + rnorm(200, 0, 2); y <- 3 + 1.1 * t + rnorm(200, 0, 2)
+  h <- deming_hand(x, y, 1)
+  expect_equal(unname(h["slope"]), 1.1, tolerance = 0.05)
+  skip_if_not_installed("mcr")
+  m <- mcr::mcreg(x, y, method.reg = "Deming", error.ratio = 1, method.ci = "analytical")
+  expect_equal(unname(h), unname(m@para[, "EST"]), tolerance = 1e-6)
+})
+
+test_that("Passing-Bablok hand estimate matches mcr", {
+  set.seed(5); x <- runif(60, 5, 80); y <- 1 + 1.05 * x + rnorm(60, 0, 2)
+  skip_if_not_installed("mcr")
+  m <- mcr::mcreg(x, y, method.reg = "PaBa", method.ci = "analytical")
+  expect_equal(unname(paba_hand(x, y)), unname(m@para[, "EST"]), tolerance = 1e-6)
+})

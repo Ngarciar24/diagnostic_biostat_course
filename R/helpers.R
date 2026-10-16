@@ -128,3 +128,25 @@ linearity_check <- function(x, y, degree = 3) {
     predict(poly_fit, data.frame(x = lv))
   list(p_nonlinear = a$`Pr(>F)`[2], F = a$F[2], deviation_pct = setNames(dev, lv))
 }
+
+# ---- Method comparison: hand implementations used as cross-checks ----------
+# delta = var(error_y) / var(error_x); delta = 1 is orthogonal regression.
+deming_hand <- function(x, y, delta = 1) {
+  sxx <- var(x); syy <- var(y); sxy <- cov(x, y)
+  b <- (syy - delta * sxx + sqrt((syy - delta * sxx)^2 + 4 * delta * sxy^2)) / (2 * sxy)
+  c(intercept = mean(y) - b * mean(x), slope = b)
+}
+
+# Passing-Bablok point estimates (shifted median of pairwise slopes)
+paba_hand <- function(x, y) {
+  n <- length(x)
+  idx <- which(upper.tri(matrix(0, n, n)), arr.ind = TRUE)
+  dx <- x[idx[, 2]] - x[idx[, 1]]; dy <- y[idx[, 2]] - y[idx[, 1]]
+  keep <- !(dx == 0 & dy == 0)
+  s <- ifelse(dx == 0, ifelse(dy > 0, Inf, -Inf), dy / dx)[keep]
+  s <- s[s != -1]                       # slopes of exactly -1 are discarded
+  N <- length(s); K <- sum(s < -1)
+  s <- sort(s)
+  b <- if (N %% 2 == 1) s[(N + 1) / 2 + K] else mean(s[N / 2 + K + 0:1])
+  c(intercept = median(y - b * x), slope = b)
+}
