@@ -1,0 +1,52 @@
+- topic: vocabulary
+  q: >-
+    Distinguish analytical performance, clinical performance and scientific validity as the IVDR uses them.
+  a: |
+    Analytical performance = ability to correctly detect or measure an analyte (Art 2(40)). Clinical performance = ability to yield results correlated with a clinical condition in the target population (Art 2(41)). Scientific validity is defined for the analyte: the association of the analyte with a clinical condition or physiological state (Art 2(38)). Art 56(3) makes the three pillars of a performance evaluation.
+- topic: vocabulary
+  q: >-
+    Clinical validity versus clinical utility - what is the difference, and which one does an IVD CE-mark require?
+  a: |
+    Clinical validity: does the result correlate with / discriminate the condition (sens, spec, PPV, NPV...). Clinical utility: does using the test improve patient outcomes or decisions. IVDR requires scientific validity plus analytical and clinical performance; it speaks of clinical benefit/evidence generally, but does not require outcome trials for typical IVDs. (My synthesis; the IVDR defines no term 'clinical utility'.)
+- topic: classification
+  q: >-
+    Why are companion diagnostics class C, and what is special about their conformity assessment?
+  a: |
+    Annex VIII Rule 3(f) lists devices 'to be used as companion diagnostics' under class C. Beyond a notified body, the NB must consult a medicines authority (a competent authority under Directive 2001/83/EC or the EMA, as applicable) on suitability of the CDx for the medicinal product - Art 48(7) for class C via Annex IX 5.2, Art 48(8) via Annex X 3(k). (The brief says Rule 3(f), class C: confirmed.)
+  hard: true
+- topic: classification
+  q: >-
+    Name the IVDR classes and give an example rule for each.
+  a: |
+    A: general lab products, instruments, specimen receptacles (Rule 5). B: default class (Rule 6) and controls without assigned values (Rule 7). C: Rule 3 group (e.g. cancer screening/diagnosis/staging 3(h), human genetic testing 3(i), CDx 3(f)), also most self-tests (Rule 4). D: Rule 1 (e.g. transmissible agents in blood donations); ABO/Rhesus blood group markers under Rule 2.
+- topic: IVDR structure
+  q: >-
+    What do Articles 47-48 versus Annex I cover? A colleague says they are the safety requirements.
+  a: |
+    Art 47 = classification of devices; Art 48 = conformity assessment procedures. General safety and performance requirements (GSPR) are Annex I; the analytical-performance list is Annex I 9.1(a) (sensitivity, specificity, trueness, precision, LoD/LoQ, measuring range, linearity, cut-off) and clinical is 9.1(b) (diagnostic sensitivity/specificity, PPV, NPV, likelihood ratio, expected values).
+  hard: true
+- topic: performance evaluation
+  q: >-
+    What is in a performance evaluation plan and report (Annex XIII Part A)?
+  a: |
+    Plan: includes methods with the statistical tools and acceptance criteria. Report: scientific validity report, analytical performance report, clinical performance report, and an assessment (A 1.3.2). Clinical performance studies are to be carried out unless duly justified (Art 56(4)). Updated by PMPF (Part B); class C and D reports updated at least annually (Art 56(6)).
+- topic: FDA pathways
+  q: >-
+    510(k), De Novo, PMA: what do 'cleared', 'granted' and 'approved' mean?
+  a: |
+    510(k): substantial equivalence to a predicate -> 'cleared' (typically class II). De Novo: new low/moderate-risk device without predicate -> 'granted' (class I/II), creates a predicate. PMA: scientific and regulatory review of class III devices -> 'approved'. (FDA gives no single sentence defining all three verbs; this mapping is a synthesis.) Many CDx are PMA, but the 2014 guidance footnote notes some class II 510(k) cases. The Elecsys pTau217 test was a 510(k) clearance (K261686).
+- topic: guidance
+  q: >-
+    Which documents guide the design of a clinical performance study?
+  a: |
+    IVDR Annex XIII Part A 2.3.2 (the plan items incl. statistical design, endpoints, population size, method for determining true clinical status), ISO 20916:2019 (good study practice for clinical performance studies using specimens from human subjects), MDCG 2022-2 (general principles of clinical evidence for IVDs, Jan 2022), plus FDA guidance and STARD 2015 for reporting.
+- topic: CLSI map
+  q: >-
+    How would you map a question like 'Is a new reagent lot acceptable?' to a CLSI document?
+  a: |
+    EP26 Ed2 (2022) - user evaluation of acceptability of a reagent lot change. In general EP19 Ed3 (2022) is the framework that points to the EP documents; I know it is organised around the Test Life Phases Model but its full TOC is paywalled.
+- topic: transitions
+  q: >-
+    What is the current IVDR transition position?
+  a: |
+    Reg (EU) 2024/1860 (OJ 9 July 2024): legacy certificates stay valid until 31 Dec 2027; devices that newly need a notified body get 31 Dec 2027 (D), 2028 (C), 2029 (B/sterile A) subject to conditions (QMS and NB application by set dates). A Commission simplification proposal (COM(2025) 1023, Dec 2025) exists; status 'proposal' only - check before quoting.

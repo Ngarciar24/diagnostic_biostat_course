@@ -1,0 +1,52 @@
+- topic: EP05 design
+  q: >-
+    Describe the single-site EP05-A3 precision design and what it estimates.
+  a: |
+    20 operating days x 2 runs/day x 2 replicates per sample (EP05-A3, 2014 [S: CLSI press release]). A nested (day > run > replicate) random-effects model gives repeatability (within-run), between-run, between-day and within-laboratory (total single-site) imprecision. Note EP05 is now Ed4 (Dec 2025); I know the Ed4 design only as 'not verified: paywalled'.
+- topic: variance components
+  q: >-
+    How is within-laboratory precision computed from the components?
+  a: |
+    Add the variances, not the SDs - within-lab SD = sqrt(var_day + var_run + var_repeatability). CV% = 100 x SD / grand mean at that level. Components estimated by ANOVA (method of moments) or REML; identical for balanced data.
+- topic: variance components
+  q: >-
+    Why can a variance-component estimate be negative, and what do you report?
+  a: |
+    In ANOVA, (MS_between - MS_within)/k can be < 0 by sampling noise when the true component is near 0. Report it as 0 (truncate) for the total, state that, and note CI lower limits are constrained at 0. REML/Bayesian estimators cannot go below 0 by construction.
+- topic: confidence intervals
+  q: >-
+    How do you get a CI for a variance component or for the within-lab SD?
+  a: |
+    Chi-square intervals with Satterthwaite-approximated degrees of freedom for the sum of mean squares (what VCA::VCAinference does in its 'SAS' mode). The effective df of within-lab SD is ~70 for 20x2x2 - lower than the 80 observations suggest, because day carries only 19 df.
+  hard: true
+- topic: EP15
+  q: >-
+    How does user verification (EP15) differ from the manufacturer's EP05 study?
+  a: |
+    EP05 establishes imprecision claims (manufacturer, large). EP15 is a short lab-level study (public page: completed within five working days; bias needs >= 25 measurements over >= 5 days) that checks whether the lab's imprecision is consistent with the claim, using an upper verification limit from a chi-square argument [S: clsi.org EP15 page; the UVL formula is my synthesis, text not reproduced].
+- topic: EP15
+  q: >-
+    Show the upper verification limit logic for a claimed repeatability SD.
+  a: |
+    If observed SD s has df = nu, then s^2*nu/sigma_claim^2 ~ chi2(nu). Verification passes if s <= sigma_claim * sqrt(chi2_{0.95,nu}/nu) (one-sided 5% test of H0: sigma = claim). Larger nu -> UVL closer to the claim. Synthesis of standard theory.
+  hard: true
+- topic: design
+  q: >-
+    Why 20 days instead of, say, 5 runs on one day?
+  a: |
+    Day-to-day (calibration, reagent, environment) variance is typically the biggest source of lab imprecision and is only estimable from many independent days; replicates inside a day tell you almost nothing about it. Df for day drives the CI width of within-lab SD.
+- topic: Bayesian
+  q: >-
+    Where does your Bayesian hierarchical variance model map onto EP05, and where does it differ?
+  a: |
+    Same model structure: day and run random effects around a mean, residual = repeatability. Differences: priors on SDs (shrinkage with few levels, never exactly zero), credible not confidence intervals, no closed-form df, and sensitivity to prior choice. Regulators expect CLSI-style ANOVA/REML estimates for claims; Bayesian is acceptable as a supportive or exploratory analysis, preferably with the frequentist result alongside.
+- topic: multi-site
+  q: >-
+    How do multi-site / multi-instrument extensions change the model?
+  a: |
+    Add random effects for site (or instrument/lot) above day: reproducibility = within-lab + between-site. Few sites (3) means very few df for site variance, so the reproducibility CI is wide and CLSI-style designs ask for >= 3 sites/lots as a pragmatic compromise. Exact counts for EP05 Ed4: not verified.
+- topic: interpretation
+  q: >-
+    A level has repeatability CV 2.2% and within-lab CV 2.5%. What do you conclude about the dominant source?
+  a: |
+    Repeatability contributes ~77% of total variance here (2.2^2/2.5^2 ~ 0.77): most imprecision is within-run noise, not day/run drift. Comparing variances, not CVs, makes the shares additive.

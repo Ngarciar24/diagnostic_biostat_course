@@ -1,0 +1,52 @@
+- topic: definitions
+  q: >-
+    Define LoB, LoD and LoQ and how they relate.
+  a: |
+    LoB = highest value expected from blank samples (95th percentile). LoD = lowest concentration distinguished from LoB with 95% probability. LoQ = lowest concentration meeting a predefined error goal (CV or total error). LoB < LoD <= LoQ. EP17-A2 (2012) is the CLSI document.
+- topic: parametric formulas
+  q: >-
+    Write the parametric LoB and LoD.
+  a: |
+    LoB = mean_blank + 1.645 SD_blank; LoD = LoB + 1.645 SD_low (z for 5% one-sided error each). Plain formulas; EP17's small-sample correction is not verified (paywalled).
+- topic: nonparametric
+  q: >-
+    When do you prefer the nonparametric LoB and what is its cost?
+  a: |
+    When blanks are skewed or bounded at 0 (common for signal-derived values). The 95th percentile of ranked blanks is distribution-free but rests on few observations; n = 60 gives about the 3rd largest value, which is noisy.
+- topic: errors
+  q: >-
+    Why does LoD depend on both blank and low-level variability?
+  a: |
+    The LoB is a decision limit (alpha). A true sample at LoD must exceed it 95% of the time, so its distribution must clear LoB by 1.645 SD_low (beta). If low-level SD is greater than blank SD, LoD rises beyond LoB + 1.645 SD_blank.
+  hard: true
+- topic: probit
+  q: >-
+    When and how do you use a probit analysis for LoD?
+  a: |
+    For hit/no-hit outcomes (qPCR, qualitative): replicate dilution series, fit probit(p) = b0 + b1 log10(conc), LoD95 = 10^((1.645 - b0)/b1) with delta or bootstrap CI. Needs concentrations that bracket 95%; if all are above it the fit extrapolates.
+- topic: LoQ
+  q: >-
+    How do you define LoQ?
+  a: |
+    Lowest level where a predefined goal is met: CV <= goal (functional sensitivity), or total error bias + 1.96 SD <= allowable error, using a precision profile across levels. The goal is clinical, not statistical, and must be set before the study.
+- topic: bootstrap
+  q: >-
+    Your parametric bootstrap gives a CI for LoD. What does it add and what does it not fix?
+  a: |
+    It shows the uncertainty from limited n (few df for the low-level SD) and propagates both parts. It does not fix non-normality, between-lot/day effects not in the sampling model, or choice of low-level samples. It is my method, not CLSI-prescribed.
+  hard: true
+- topic: linearity
+  q: >-
+    How would you evaluate linearity?
+  a: |
+    Dilution series with replicates across the claimed range, fit linear and higher-order polynomial, test the extra terms, then judge the deviation of the linear fit from the best polynomial at each level against an allowable limit. Statistical significance is not equal to clinical relevance. EP06 Ed2 (2020) also supports LLoQ/ULoQ validation; exact designs not verified.
+- topic: design
+  q: >-
+    What design factors in LoB/LoD studies beyond number of replicates?
+  a: |
+    Multiple reagent lots, instruments and days so the SD reflects routine variability; blank matrix that matches patient samples; low-level samples made from patient pools. Specific counts are in EP17 (not verified: paywalled).
+- topic: interpretation
+  q: >-
+    A claimed LoD is 1.9 pg/mL but the clinical cut-off is 220 pg/mL. Why does it matter little?
+  a: |
+    LoD matters when the decision level is near zero. At cut-offs far above LoD, precision and bias at the cut-off (EP05, EP09) matter more than detection capability.
