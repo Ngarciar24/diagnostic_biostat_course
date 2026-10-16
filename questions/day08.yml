@@ -1,0 +1,52 @@
+- topic: definitions
+  q: >-
+    What is a companion diagnostic and which regulatory consequences follow in EU and US?
+  a: |
+    A device essential for the safe and effective use of a corresponding medicinal product (IVDR Art 2(7); FDA 2014 guidance). EU: class C via Annex VIII Rule 3(f); the notified body consults a medicines competent authority or the EMA (Art 48(7)/(8), Annex IX 5.2). US: usually PMA/Class III, though the 2014 guidance footnote allows Class II/510(k) in some cases; labelled in both device and drug labelling.
+- topic: CTA vs CDx
+  q: >-
+    What is the bridging problem?
+  a: |
+    The pivotal trial used a clinical trial assay; the commercial CDx differs. Show concordance of the CDx with the CTA on trial samples and estimate the effect in the population the CDx will actually select, using the trial result and the discordance.
+  hard: true
+- topic: concordance
+  q: >-
+    Why report PPA/NPA between CTA and CDx instead of sensitivity and specificity?
+  a: |
+    Neither assay is a reference standard; FDA 2007 guidance says sensitivity and specificity are inappropriate for comparisons to a non-reference. PPA/NPA depend on which assay is the comparator and on the prevalence/spectrum of the bridging samples.
+- topic: missing samples
+  q: >-
+    Only 60% of trial patients have a sample for the CDx. What do you do?
+  a: |
+    First understand why (MCAR, MAR on measured variables, MNAR on the CDx itself). Compare available vs missing on baseline variables and outcomes; analyse with IPW or multiple imputation (include arm x outcome interaction), and run tipping-point/bounds analyses for MNAR. Pre-specify this in the SAP.
+- topic: MI
+  q: >-
+    In your simulation multiple imputation was biased until you added the arm x response interaction. Why?
+  a: |
+    The drug only works in biomarker-positive patients, so the relation between response and CDx status differs by arm. An imputation model omitting that interaction is misspecified and biases the treatment effect in the imputed CDx+ group (0.264 vs 0.283 with it, truth 0.278 in my run). Imputation models must be at least as rich as the analysis model.
+  hard: true
+- topic: dilution
+  q: >-
+    Why is the effect in the CDx+ population different from the trial's headline effect?
+  a: |
+    Selection by an imperfect assay mixes true positives (benefit) and false positives (no benefit). The effect in the selected population is a weighted average with weight = PPV of the assay for the biomarker. In my simulation: 0.30 in true positives, 0.278 in CDx+ (PPV 0.93), lower with a worse assay.
+- topic: designs
+  q: >-
+    Enrichment vs all-comers designs?
+  a: |
+    Enrichment: higher power in the selected population, but no data on biomarker-negatives or on CTA false negatives, so a restricted claim cannot be tested and false negatives are unknowable. All-comers/stratified: allows treatment-by-biomarker interaction and effect in negatives; needs more patients.
+- topic: estimands
+  q: >-
+    How would you frame the estimand for a CDx claim?
+  a: |
+    Population: CDx+ per the intended-use setting; treatment policy; summary measure risk or hazard ratio in CDx+; intercurrent events handled per ICH E9(R1) by analogy; add how missing bridging samples and discordant CTA/CDx subjects are handled.
+- topic: lots and sites
+  q: >-
+    What else matters in a bridging study beyond concordance?
+  a: |
+    Reagent lot and site effects on classification near the cut-off, precision at the cut-off (C5/C95), sample type/handling differences, prevalence and spectrum of the bridging samples relative to the intended-use population.
+- topic: guidance status
+  q: >-
+    Which FDA guidances anchor CDx development and what is their status?
+  a: |
+    In Vitro Companion Diagnostic Devices (Aug 2014, final); Principles for Codevelopment of an IVD CDx with a Therapeutic Product (July 2016, still marked draft on FDA's page); Developing and Labeling IVD CDx for a Specific Group of Oncology Therapeutic Products (Apr 2020, final; "Group or Class" was the draft title).
