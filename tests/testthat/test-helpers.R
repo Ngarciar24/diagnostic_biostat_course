@@ -130,3 +130,21 @@ test_that("roc_figure returns a ggplot", {
   r <- pROC::roc(y, x, quiet = TRUE)
   expect_s3_class(roc_figure(list(test = r)), "ggplot")
 })
+
+test_that("derive_two_cutoffs hits the sensitivity/specificity targets on the derivation data", {
+  set.seed(9); y <- rbinom(600, 1, .4); x <- rnorm(600, y * 1.5)
+  co <- derive_two_cutoffs(x, y, 0.95, 0.95)
+  expect_gte(mean(x[y == 1] > co[["lo"]]), 0.95)
+  expect_gte(mean(x[y == 0] <= co[["hi"]]), 0.95)
+  expect_lt(co[["lo"]], co[["hi"]])
+  # tightest: next higher lo value would break the target
+  nxt <- min(x[y == 1][x[y == 1] > co[["lo"]]])
+  expect_lt(mean(x[y == 1] > nxt), 0.95)
+})
+
+test_that("two_cut_performance counts add up", {
+  set.seed(10); y <- rbinom(300, 1, .4); x <- rnorm(300, y * 1.5)
+  p <- two_cut_performance(x, y, -0.2, 1.2)
+  expect_equal(sum(p$table), 300)
+  expect_equal(unname(p$intermediate["est"]), sum(x > -0.2 & x <= 1.2) / 300)
+})

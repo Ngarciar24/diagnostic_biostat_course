@@ -189,3 +189,37 @@ roc_figure <- function(rocs) {
     ggplot2::labs(x = "1 - specificity", y = "Sensitivity", colour = NULL) +
     ggplot2::theme_minimal() + ggplot2::theme(legend.position = "bottom")
 }
+
+# ---- Two cut-off derivation on a derivation cohort -------------------------
+# Convention (as in the FDA decision summary): negative if x <= lo, positive if x > hi.
+# lo: largest cut-off for which sensitivity of "not negative" is >= se_target
+# hi: smallest cut-off for which specificity of "not positive" is >= sp_target
+derive_two_cutoffs <- function(x, truth, se_target, sp_target) {
+  truth <- as.logical(truth)
+  cases <- sort(x[truth]); ctrls <- sort(x[!truth])
+  ok_lo <- cases[sapply(cases, function(t) mean(cases > t) >= se_target)]
+  ok_hi <- ctrls[sapply(ctrls, function(t) mean(ctrls <= t) >= sp_target)]
+  lo <- max(ok_lo); hi <- min(ok_hi)
+  if (lo > hi) { m <- (lo + hi) / 2; lo <- hi <- m }  # curves overlap: single cut-off
+  c(lo = lo, hi = hi)
+}
+
+# Performance of a locked two-cut-off scheme
+two_cut_performance <- function(x, truth, lo, hi, conf = 0.95) {
+  truth <- as.logical(truth)
+  cat3 <- classify_two_cut(x, lo, hi)
+  tab <- table(cat3, truth)[, c("TRUE", "FALSE")]
+  colnames(tab) <- c("D+", "D-")
+  n <- length(x)
+  list(
+    table = tab,
+    intermediate = c(ci_wilson(sum(cat3 == "intermediate"), n, conf)),
+    ruleout_sens = ci_wilson(sum(tab[c("intermediate", "rule-in"), "D+"]), sum(tab[, "D+"]), conf),
+    ruleout_npv  = ci_wilson(tab["rule-out", "D-"], sum(tab["rule-out", ]), conf),
+    rulein_spec  = ci_wilson(sum(tab[c("rule-out", "intermediate"), "D-"]), sum(tab[, "D-"]), conf),
+    rulein_ppv   = ci_wilson(tab["rule-in", "D+"], sum(tab["rule-in", ]), conf),
+    # "including indeterminates": intermediates counted as wrong, like PPA/NPA in the FDA summary
+    ppa_incl = ci_wilson(tab["rule-in", "D+"], sum(tab[, "D+"]), conf),
+    npa_incl = ci_wilson(tab["rule-out", "D-"], sum(tab[, "D-"]), conf)
+  )
+}

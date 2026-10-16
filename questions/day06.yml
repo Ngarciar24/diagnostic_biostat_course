@@ -1,0 +1,52 @@
+- topic: pTau217 design
+  q: >-
+    Describe the Elecsys pTau217 cleared cut-off scheme and what it reported.
+  a: |
+    FDA K261686 (decision 2026-08-19): negative <= 0.223, intermediate > 0.223 to <= 0.378, positive > 0.378 pg/mL. Pivotal N = 958 vs amyloid PET visual read (6 blinded readers): PV of positive 88.5% (285/322), NPV of negative 95.3% (424/445), intermediate 19.9% (191/958); PPA 75.4% and NPA 73.1% with intermediates counted as misses. Indication: aid in identifying amyloid pathology, age >= 55 with cognitive decline, with other clinical information.
+- topic: pTau217 design
+  q: >-
+    Why is the PPA only 75% if the test is called good?
+  a: |
+    Intermediates count as non-agreement: 72 of 378 PET+ fall in the intermediate zone and 21 in the negative zone. Excluding the 19.9% intermediates would flatter the numbers. The real information is in the category-specific predictive values and likelihood ratios (LR+ 11.8 for positive, 0.08 for negative).
+  hard: true
+- topic: grey zone
+  q: >-
+    What determines the width of the intermediate zone?
+  a: |
+    Separation of the group distributions (AUC), variability of the marker (biological and analytical), and the target performance for the two steps. Better separation or looser targets narrow it. It also depends on the population spectrum, not just the assay (Coste and Pouchot 2003).
+- topic: derivation
+  q: >-
+    How would you derive two cut-offs, and why lock them?
+  a: |
+    On a derivation cohort: rule-out cut-off = highest value keeping sensitivity >= target; rule-in cut-off = lowest value keeping specificity >= target. Freeze them in the plan and evaluate once on an independent validation cohort, otherwise performance is optimistic (selection bias on the same data).
+- topic: derivation
+  q: >-
+    What did the FDA summary say about how 0.223 and 0.378 were chosen?
+  a: |
+    They were derived on 687 banked samples (286 PET+), but the target sensitivity/specificity or selection rule is not stated in the summary text I read (not verified). In an interview say what the public data show and that the rule is not disclosed.
+- topic: reporting
+  q: >-
+    How do you state performance when results can be indeterminate?
+  a: |
+    Report the indeterminate fraction, performance of each category (PV, LR), and PPA/NPA both with indeterminates counted as misses and, if useful, excluding them, being clear which is which. FDA's summary reports the intermediate row explicitly and counts it as non-agreement in PPA/NPA.
+- topic: prevalence
+  q: >-
+    Same cut-offs, primary vs specialist care - what changes?
+  a: |
+    Sensitivity and specificity per class are roughly constant (given the same spectrum), but PPV falls and NPV rises as prevalence falls; the zone fractions shift with spectrum. FDA reports PV of positive 78.3% in primary care vs 90.2% in secondary/tertiary, and a footnote about lower PPV in low-prevalence settings.
+- topic: kidney function
+  q: >-
+    How does kidney function affect plasma pTau217, and what does the FDA data show?
+  a: |
+    Prototype-assay data (Hortsch et al. 2026) show higher pTau217 with worse kidney function, with false positives in advanced CKD. The FDA decision summary has no eGFR-stratified analysis, only a kidney-disease comorbidity subgroup of N = 24, too small to conclude. A pre-specified eGFR subgroup analysis or eGFR-aware reporting would be a sensible plan item.
+  hard: true
+- topic: papers
+  q: >-
+    How do Hibar 2026 and Hortsch 2026 relate to the cleared test?
+  a: |
+    Both use a prototype assay and do not report the cleared cut-offs. Hibar: five cohorts, N = 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone. Hortsch: N = 588, centiloid reference, exploratory 90%/90% double cut-off, 5.78% indeterminate at CL 30. They are supportive evidence, not the pivotal data.
+- topic: labelling
+  q: >-
+    Is monitoring a claim for the cleared test?
+  a: |
+    Roche's 24 Aug 2026 release states it is not intended as a stand-alone test and that safety and effectiveness are not established for predicting dementia or for monitoring therapy. This appears in the release, not in the decision summary text I read; I have not seen the labelling.
