@@ -8,6 +8,7 @@
     When Deming and when Passing-Bablok?
   a: |
     Deming: roughly normal errors, no gross outliers, error ratio known or estimated from replicates (weighted version when CV is constant). Passing-Bablok: robust to outliers and distribution, needs a linear relationship and positively correlated measurements; its CI can be wide and is usually bootstrapped for bias.
+  hard: true
 - topic: bias at decision level
   q: >-
     How do you get the bias and CI at a medical decision level?

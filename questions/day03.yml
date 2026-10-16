@@ -24,6 +24,7 @@
     When and how do you use a probit analysis for LoD?
   a: |
     For hit/no-hit outcomes (qPCR, qualitative): replicate dilution series, fit probit(p) = b0 + b1 log10(conc), LoD95 = 10^((1.645 - b0)/b1) with delta or bootstrap CI. Needs concentrations that bracket 95%; if all are above it the fit extrapolates.
+  hard: true
 - topic: LoQ
   q: >-
     How do you define LoQ?

@@ -95,16 +95,21 @@ Weakly informative half-normal priors on all SDs; fitted once and cached in `cac
 
 ```{r brms}
 #| results: hide
-b <- brm(y ~ 1 + (1 | day) + (1 | day:run), d, chains = 2, iter = 2000, cores = 2,
-         prior = c(prior(normal(100, 20), class = Intercept),
-                   prior(normal(0, 3), class = sd),
-                   prior(normal(0, 3), class = sigma)),
-         backend = "rstan", seed = 1, refresh = 0, silent = 2,
-         file = "../cache/ep05_brms", file_refit = "on_change")
+cache <- "../cache/ep05_brms_draws.rds"           # posterior draws only (a few KB); delete to refit (about 2 min)
+if (file.exists(cache)) {
+  dr <- readRDS(cache)
+} else {
+  b <- brm(y ~ 1 + (1 | day) + (1 | day:run), d, chains = 2, iter = 2000, cores = 2,
+           prior = c(prior(normal(100, 20), class = Intercept),
+                     prior(normal(0, 3), class = sd),
+                     prior(normal(0, 3), class = sigma)),
+           backend = "rstan", seed = 1, refresh = 0, silent = 2)
+  dr <- as.data.frame(as_draws_df(b))[, c("b_Intercept", "sd_day__Intercept", "sd_day:run__Intercept", "sigma")]
+  saveRDS(dr, cache)
+}
 ```
 
 ```{r brms-compare}
-dr <- as_draws_df(b)
 sd_draws <- cbind(day = dr$sd_day__Intercept, run = dr$`sd_day:run__Intercept`,
                   rep = dr$sigma)
 wl <- sqrt(rowSums(sd_draws^2))

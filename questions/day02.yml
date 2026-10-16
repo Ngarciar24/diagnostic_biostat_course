@@ -40,6 +40,7 @@
     Where does your Bayesian hierarchical variance model map onto EP05, and where does it differ?
   a: |
     Same model structure: day and run random effects around a mean, residual = repeatability. Differences: priors on SDs (shrinkage with few levels, never exactly zero), credible not confidence intervals, no closed-form df, and sensitivity to prior choice. Regulators expect CLSI-style ANOVA/REML estimates for claims; Bayesian is acceptable as a supportive or exploratory analysis, preferably with the frequentist result alongside.
+  hard: true
 - topic: multi-site
   q: >-
     How do multi-site / multi-instrument extensions change the model?

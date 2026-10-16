@@ -1,1 +1,162 @@
-front,back,chapter
+"front","back","chapter"
+"IVDR Article 47 covers what?","Classification of devices (classes A-D, per Annex VIII). Not the safety/performance requirements.",1
+"IVDR Article 48 covers what?","Conformity assessment procedures. CDx medicines-authority consultation: 48(3)/(4) class D, 48(7)/(8) class C.",1
+"Where are the IVDR general safety and performance requirements (GSPR)?","Annex I (Art 5 requires compliance). Performance characteristics: Annex I Chapter II, Section 9.",1
+"IVDR Annex I 9.1(a) lists which analytical parameters?","Analytical sensitivity and specificity, trueness (bias), precision, limits of detection and quantitation, measuring range, linearity, cut-off.",1
+"IVDR Annex I 9.1(b) lists which clinical parameters?","Diagnostic sensitivity, diagnostic specificity, PPV, NPV, likelihood ratio, expected values in normal and affected populations.",1
+"IVDR Art 2(7) defines what?","Companion diagnostic: a device essential for the safe and effective use of a corresponding medicinal product.",1
+"IVDR Art 2(38) defines what?","Scientific validity of an analyte: the association of an analyte with a clinical condition or physiological state.",1
+"IVDR Art 2(40) vs 2(41)?","2(40) analytical performance (correctly detect/measure an analyte); 2(41) clinical performance (results correlated with a clinical condition).",1
+"IVDR Art 2(44)?","Performance evaluation: assessment and analysis of data to establish or verify scientific validity, analytical and, where applicable, clinical performance.",1
+"IVDR Art 56 covers?","Performance evaluation and clinical evidence: three pillars (scientific validity, analytical, clinical performance); class C/D report updated at least annually (56(6)).",1
+"IVDR Art 57 vs Art 58?","57 general requirements for performance studies; 58 additional requirements for interventional/invasive studies, 58(2) includes companion diagnostic studies.",1
+"Which IVDR rule makes CDx class C?","Annex VIII Rule 3(f). Class C, not D.",1
+"Who is consulted for a CDx under IVDR?","A competent authority designated under Directive 2001/83/EC or the EMA, as applicable (Art 48(7)/(8), Annex IX 5.2).",1
+"IVDR classes and example rules?","A Rule 5 (general lab products); B Rules 6-7 (default; controls); C Rule 3 group and Rule 4 self-tests; D Rule 1 (e.g. blood-donation agents).",1
+"What does Annex XIII Part A contain?","Performance evaluation plan (PEP), performance evaluation report (PER), clinical performance study plan (2.3.2), study report.",1
+"What does Annex XIII Part B contain?","Post-market performance follow-up (PMPF).",1
+"IVDR transition (Reg 2024/1860): legacy certificate end date?","31 December 2027 (valid Directive certificates). First-time NB devices: class D 2027, C 2028, B/sterile A 2029, with conditions.",1
+"MDCG 2022-2 is?","Guidance on general principles of clinical evidence for IVDs (January 2022). Not legally binding.",1
+"ISO 20916:2019 is?","IVD medical devices: clinical performance studies using specimens from human subjects, good study practice. Analytical studies out of scope.",1
+"510(k) / De Novo / PMA and their verbs?","510(k) substantial equivalence: cleared. De Novo no predicate: granted. PMA class III: approved. (Verb mapping = synthesis.)",1
+"What is the STARD 2015 checklist?","30 essential items for reporting diagnostic accuracy studies (BMJ 2015;351:h5527).",1
+"QUADAS-2 domains?","Patient selection, index test, reference standard, flow and timing.",1
+"Current EP05 edition?","Ed4, published 2025-12-11 (EP05-A3, 2014, superseded).",1
+"EP15 edition?","EP15-A3 (2014, reaffirmed 2019); companion IG1/IG2 (2021).",1
+"EP17 edition?","EP17-A2 (2012, confirmed 2017); no newer edition listed.",1
+"EP06 edition?","Ed2 (2020-11-24).",1
+"EP07 edition?","Ed3 (2018-04-30), confirmed 2022. EP37 holds interferent tables.",1
+"EP09 edition?","EP09c Ed3 (corrected 2018-06-20); EP09-A3 (2013) withdrawn.",1
+"EP12 edition?","Ed3 (2023-03-07), binary-output examinations.",1
+"EP24 edition?","EP24-A2 (2011, reaffirmed 2016).",1
+"EP25 and EP26 editions?","EP25 Ed2 (2023-04-26); EP26 Ed2 (2022-04-27).",1
+"EP28 edition?","EP28-A3c (2010, reaffirmed 2020).",1
+"EP19 Ed3 (2022) is what?","Framework for using CLSI documents to evaluate test methods; organised around the Test Life Phases Model.",1
+"EP05-A3 single-site design?","20 days x 2 runs x 2 replicates per sample (Ed4 design not verified: paywalled).",2
+"Within-lab SD from components?","sqrt(var_day + var_run + var_repeatability). Variances add, SDs do not.",2
+"CV% formula?","100 x SD / mean at the level (report at medical decision levels).",2
+"Why can an ANOVA variance component be negative?","(MS_between - MS_within)/k can fall below 0 by chance; report as 0 and say so.",2
+"How is a CI for a variance component obtained?","Chi-square with Satterthwaite degrees of freedom (VCA::VCAinference).",2
+"Satterthwaite df of within-lab SD in a 20x2x2 study?","About 70, not 79; the day term has only 19 df.",2
+"EP15 in one line?","Short lab verification (public: within 5 working days; bias >= 25 measurements over >= 5 days) of manufacturer claims.",2
+"Upper verification limit for a claimed SD?","claim x sqrt(chi2_0.95,nu / nu) (one-sided chi-square test; synthesis).",2
+"Balanced nested design: ANOVA vs REML?","Identical estimates unless a component is truncated at 0.",2
+"Why many days in a precision study?","Day variance is only estimable from independent days; df of day drives CI width.",2
+"Bayesian vs EP05 variance model?","Same structure; priors shrink SDs, intervals are credible not confidence; use sparingly for claims.",2
+"Repeatability vs within-lab vs reproducibility?","Within-run; all single-site sources; adds between-site/instrument/lot.",2
+"Parametric LoB?","mean_blank + 1.645 x SD_blank.",3
+"Parametric LoD?","LoB + 1.645 x SD_low (EP17 small-sample correction not verified: paywalled).",3
+"Nonparametric LoB?","95th percentile of ranked blank results.",3
+"Nonparametric LoD?","Lowest level at which >= 95% of results exceed the LoB.",3
+"LoQ definition?","Lowest concentration meeting a predefined error goal (CV or total error).",3
+"Total error formula (synthesis)?","abs(bias) + 1.96 x SD, compared with allowable total error.",3
+"Probit LoD95?","Fit probit(p) = b0 + b1 log10(conc); LoD95 = 10^((1.645 - b0)/b1).",3
+"Which error rates define LoB and LoD?","alpha 5% (false positive on blank) and beta 5% (false negative at LoD).",3
+"When does LoD matter clinically?","When the decision level is near zero; otherwise precision and bias at the cut-off matter more.",3
+"Linearity evaluation (EP06 style, synthesis)?","Dilution series; linear vs polynomial fit; judge deviation against an allowable limit, not just the F-test.",3
+"Why can a significant linearity test still pass?","Statistical curvature can be smaller than the allowable deviation; decide on deviation limits.",3
+"Why not OLS for method comparison?","OLS assumes an error-free x; errors in both methods need Deming or Passing-Bablok.",4
+"Deming regression assumes?","Normal errors with a known error ratio; sensitive to outliers.",4
+"Passing-Bablok assumes?","Linear relation, positively correlated results; robust to outliers (shifted median of pairwise slopes).",4
+"Bias at decision level Xc?","bias = a + (b - 1) Xc; CI by jackknife (Deming) or bootstrap (PaBa).",4
+"Bland-Altman with proportional bias?","Plot relative differences vs mean; regress difference on level; limits of agreement are not decision-level bias.",4
+"Interference conclusion rule?","The whole CI of the difference must lie inside the allowable error; non-significance is not equivalence.",4
+"Shelf life from stability regression (synthesis)?","Time where the one-sided 95% bound of the mean line meets the acceptance limit.",4
+"EP26 in one line?","User evaluation of a new reagent lot with patient samples against a medically acceptable difference.",4
+"EP25 Ed2 in one line?","Regression-based reagent stability (shelf life and in-use).",4
+"What does EP07 cover?","Screening, quantifying and confirming interference; chemical interferents only.",4
+"EP09c scope?","Method comparison and bias estimation with patient samples (qualitative = EP12; precision = EP05/15; total error = EP21).",4
+"Sensitivity formula?","TP/(TP+FN) = P(T+ given D+).",5
+"Specificity formula?","TN/(TN+FP) = P(T- given D-).",5
+"PPV from Se, Sp, prevalence?","Se x prev / (Se x prev + (1 - Sp)(1 - prev)).",5
+"LR+ and LR-?","Se/(1 - Sp) and (1 - Se)/Sp; independent of prevalence.",5
+"PPV of Se 0.90, Sp 0.85 at 1% prevalence?","0.009/0.1575 = 5.7%.",5
+"FDA 2007 on non-reference comparators?","Sensitivity and specificity are not appropriate terms; report positive and negative percent agreement.",5
+"PPA and NPA formulas?","PPA = positive agreement among comparator-positive; NPA = negative among comparator-negative; asymmetric.",5
+"Discrepant resolution problem?","Only discordant results are resolved; errors shared by both tests are never corrected, so the new test is flattered.",5
+"Verification bias effect?","Naive sensitivity too high, specificity too low when positives are verified more often.",5
+"Begg-Greenes correction needs?","Verification depends only on the test result (MAR); uses P(D given T) from verified and P(T) from all.",5
+"Wilson vs Clopper-Pearson?","Wilson: coverage near nominal, good near 0/1. Clopper-Pearson: exact, conservative.",5
+"Compare sensitivities of two tests on the same subjects?","McNemar on discordant pairs among the diseased; same for specificity among the non-diseased.",5
+"AUC meaning?","P(random case result > random control result) (Mann-Whitney).",5
+"DeLong method?","Nonparametric variance/covariance of correlated AUCs from structural components (Biometrics 1988;44:837).",5
+"Partial AUC purpose?","Summarise only the clinically relevant range (e.g. specificity 0.9-1); McClish standardisation to 0.5-1.",5
+"EP24-A2 in one line?","ROC-based diagnostic accuracy concepts for continuous tests; not a recipe.",5
+"EP12 Ed3 in one line?","Binary-output examinations: imprecision near cut-off, sensitivity/specificity, stability, interference.",5
+"Elecsys pTau217 cut-offs (FDA K261686)?","Negative <= 0.223; intermediate > 0.223 to <= 0.378; positive > 0.378 pg/mL.",6
+"K261686 decision?","2026-08-19, SESE, class II, 21 CFR 866.5840; Roche announced 24 Aug 2026.",6
+"K261686 predicate?","Lumipulse G pTau 217/beta-Amyloid 1-42 Plasma Ratio (K242706).",6
+"K261686 indication?","Aid in identifying amyloid pathology; cognitive decline; age >= 55; with other clinical information.",6
+"K261686 pivotal N and reference?","958 evaluable; 378 PET+ (39.5%); amyloid PET visual read by 6 blinded readers.",6
+"K261686 3x2 table?","Positive 285/37; intermediate 72/119; negative 21/424 (PET+/PET-).",6
+"K261686 PPV of positive and NPV of negative?","88.5% (285/322) and 95.3% (424/445).",6
+"K261686 PPA and NPA?","75.4% (285/378) and 73.1% (424/580); intermediates count as disagreement.",6
+"K261686 intermediate fraction?","19.9% (191/958).",6
+"Which CI method reproduces FDA's PPA/NPA CIs?","Wilson (computed here; FDA does not state the method).",6
+"How were K261686 PV CIs computed?","From CIs of the likelihood ratios (stated in the summary footnote).",6
+"FDA's success logic for PV?","PV CI compared with prevalence (84.9% lower bound > 39.5%); no pre-specified goal found.",6
+"Known blemishes in K261686?","Cut-off 0.225 vs 0.223; prevalence 13.1% vs 39.5%; denominators 958 vs 959.",6
+"eGFR in the FDA pTau217 summary?","No eGFR-stratified analysis; only a kidney-disease comorbidity subgroup, N = 24.",6
+"Hibar 2026 design?","Prototype assay, N 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone (Alzheimers Dement 22(1):e71009).",6
+"Hortsch 2026 design?","Prototype assay, N 588, centiloid reference, 90%/90% double cut-off, 5.78% indeterminate at CL 30 (JPAD 13(5):100534).",6
+"Rule-out cut-off derivation?","Highest cut-off keeping sensitivity >= target on the derivation cohort.",6
+"Rule-in cut-off derivation?","Lowest cut-off keeping specificity >= target.",6
+"Why lock cut-offs?","Avoid optimistic bias; validate once on an independent cohort.",6
+"Grey zone reference?","Coste & Pouchot, Int J Epidemiol 2003;32:304-313.",6
+"Intermediate zone depends on?","Separation of groups, variability, accepted misclassification risks, spectrum.",6
+"Two-cut-off boundary convention?","Negative if x <= lower cut-off; positive if x > upper (FDA convention).",6
+"How to report with indeterminates?","Fraction, per-category PV/LR, PPA/NPA with intermediates as disagreement.",6
+"Monitoring and the pTau217 test?","Roche release: effectiveness for monitoring not established (not in the decision summary text).",6
+"n cases for sensitivity half-width d?","n = z^2 p (1 - p) / d^2 (Buderer/Wald); total = cases / prevalence.",7
+"Cases for Se 0.9 +-0.05?","139 (Wald); 141 (Wilson, presize). Total 692-705 at prevalence 0.2.",7
+"Why does low prevalence inflate n?","Sensitivity needs cases; total n = n_cases / prevalence.",7
+"Exact test sample size for Se 0.9 vs goal 0.8?","113 cases (one-sided alpha 0.025, power 80%); 94 at alpha 0.05.",7
+"Exact power vs n shape?","Sawtooth because of discreteness; take the n beyond which power stays above target.",7
+"AUC sample-size variance source?","Hanley-McNeil (1982) variance formula; DeLong-based alternatives.",7
+"Hanley-McNeil planning vs simulation?","HM n was conservative in my check (power 0.93 at n = 34 vs 0.80 target).",7
+"Indeterminate fraction f and planning?","Expected PPA incl. = Se_det x (1 - f); n for determinate results = n / (1 - f).",7
+"Flahault 2005 gives?","Case numbers for expected sensitivity vs acceptable lower limit with 5% failure probability.",7
+"Buderer 1996 gives?","Sample size for sensitivity/specificity incorporating disease prevalence (Acad Emerg Med 3:895).",7
+"CI of within-lab SD at 20 days?","About 0.85-1.22 x estimate (2 runs x 2 reps); 10 days 0.80-1.35.",7
+"Parametric LoB SD vs n?","sqrt(1/n + 1.645^2/(2(n-1))) x SD_blank.",7
+"CDx definition in FDA 2014 guidance?","IVD device providing information essential for safe and effective use of a corresponding therapeutic product.",8
+"Class of most US CDx?","Mostly Class III (PMA), though Class II/510(k) is possible (2014 guidance footnote).",8
+"FDA 2016 codevelopment guidance status?","Still draft (""not for implementation"").",8
+"FDA 2020 oncology CDx guidance title?","""...for a Specific Group of Oncology Therapeutic Products"" (final); ""Group or Class"" was the draft.",8
+"CTA?","Clinical trial assay used for enrolment/stratification in the pivotal trial.",8
+"Bridging study aim?","Show the final CDx classifies like the CTA and translate the trial effect to the CDx+ population.",8
+"Why PPA/NPA between CTA and CDx?","Neither is a reference standard.",8
+"Effect in CDx+ population is?","Weighted average of true-positive effect and false-positive effect, weight = PPV of the CDx.",8
+"MCAR / MAR / MNAR?","Missingness random / depends on observed data / depends on unobserved values.",8
+"Complete case under selection on the CDx only?","Unbiased within the CDx+ stratum (selection on the stratifying variable).",8
+"Complete case when missingness depends on outcome?","Biased (responders over-represented).",8
+"Imputation model must include?","The arm x outcome interaction when the effect differs by biomarker (omitting it biased my MI).",8
+"Tipping-point analysis?","Vary the assumed CDx+ probability among missing samples until the conclusion changes.",8
+"Enrichment vs all-comers?","Enrichment: power in selected group, no negatives. All-comers: interaction test, needs more patients.",8
+"Estimand attributes (ICH E9(R1))?","Population, treatment, variable, intercurrent events, summary measure.",8
+"SAP defines what before unblinding?","Populations, endpoints, methods, goals, cut-offs, missing-data rules, sensitivity analyses.",9
+"Diagnostic analogue of ITT?","Evaluable set: valid index result and readable reference result.",9
+"Per-protocol for diagnostics?","Evaluable plus reference within time window and no major deviation.",9
+"Co-primary endpoints, both must succeed?","Intersection-union: no alpha adjustment needed.",9
+"Joint power of two 90% co-primaries?","About 0.81 if nearly independent (product).",9
+"Annex XIII 2.3.2(n)?","Assurance of a relevant method for determining the true clinical status of patient specimens.",9
+"Annex XIII 1.1 includes?","Appropriate statistical tools and potential acceptance criteria in the performance evaluation plan.",9
+"CDISC and devices?","SDTMIG-MD v1.1 (2019) and ADaMIG-MD v1.0 (2021); no IVD-specific standard found.",9
+"ICH E9 and E9(R1)?","E9 (1998) statistical principles; E9(R1) (2019) estimands addendum; used by analogy for diagnostics.",9
+"Double programming?","Independent re-derivation of primary endpoints from raw data with a different code path; automated comparison.",9
+"Boundary bug lesson?","Shared helper used >= for the upper cut-off; independent programming exposed it.",9
+"Subgroups for a pTau217-type study?","Age, sex, setting, MMSE, eGFR; descriptive, suppress tiny cells.",9
+"Audit trail in R?","git history and signed tags, file hashes, scripted outputs, sessionInfo, renv.lock.",9
+"Worst-case sensitivity for invalid assays?","Count invalid among PET+ as negative and among PET- as positive.",9
+"Reference interval definition?","Central 95% of healthy reference values: 2.5th and 97.5th percentiles each with CI.",10
+"CI methods for percentile limits?","Bootstrap percentile or distribution-free order-statistic (binomial ranks).",10
+"Why is the upper limit CI wider?","Sparse skewed tail; each limit rests on few observations.",10
+"refineR?","Indirect reference-interval method fitting the dominant healthy component of mixed routine data.",10
+"Naive percentiles of patient data?","Inflated by pathological values; use direct sampling or refineR.",10
+"RCV formula?","exp(+-1.96 sqrt(2) SD_within) - 1 on log scale; SD_within from analytical + biological variation.",10
+"RCV example?","CV 4% analytical + 8% biological: about -22%/+28%.",10
+"What makes monitoring a separate intended use?","Needs within-person precision, responsiveness, change-to-outcome link, stability and an action rule.",10
+"MMRM ingredients?","Categorical visit, treatment x visit, unstructured covariance, all available data.",10
+"MMRM vs completers under MAR dropout?","MMRM nearly unbiased; completers biased (-0.19 vs -0.01 in my simulation).",10
+"MMRM with complete balanced data equals?","The per-visit mean difference (exact).",10
+"EP28-A3c in one line?","Defining, establishing and verifying reference intervals; n >= 120 per partition not verified (paywalled).",10

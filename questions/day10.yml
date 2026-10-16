@@ -35,6 +35,7 @@
     What is an MMRM and why use it for longitudinal biomarker or clinical endpoints?
   a: |
     A mixed model for repeated measures: categorical visit, treatment-by-visit interaction, unstructured covariance, using all available data. Valid under MAR dropout; with balanced complete data it equals per-visit mean differences (exact in my check). Completer analysis is biased when dropout depends on earlier outcomes.
+  hard: true
 - topic: mixed models
   q: >-
     Random-intercept versus MMRM for repeated biomarker measurements?

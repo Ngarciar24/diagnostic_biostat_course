@@ -29,11 +29,13 @@
     What is verification bias and how can you correct it?
   a: |
     If test-positives are more likely to get the reference standard than test-negatives, naive sensitivity rises and specificity falls. Begg-Greenes (inverse-probability style) correction uses P(D|T) in verified subjects and P(T) in all, valid if verification depends only on the test result (MAR). Better: design to verify a random sample of negatives.
+  hard: true
 - topic: imperfect reference
   q: >-
     What if the reference standard is imperfect?
   a: |
     Sensitivity and specificity are biased (usually toward 0.5 if errors are independent of the test). Options: composite/expert-panel reference blinded to the index test (as in the pTau217 pivotal reader panel), latent class models, report as agreement. Document in the SAP.
+  hard: true
 - topic: AUC
   q: >-
     What is the AUC and how do you get its CI and compare two AUCs?

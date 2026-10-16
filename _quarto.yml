@@ -19,6 +19,10 @@ book:
     - chapters/day10-reference-longitudinal.qmd
     - interview_bank.qmd
     - cheatsheet.qmd
+  appendices:
+    - mock_sap/sap_template.qmd
+    - mock_sap/sap_ptau217_mock.qmd
+    - mock_sap/r_environment_note.qmd
 
 format:
   html:
@@ -28,4 +32,3 @@ format:
 execute:
   warning: false
   message: false
-  freeze: auto

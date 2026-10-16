@@ -1,5 +1,5 @@
 ---
-title: "Cheat sheet"
+title: "Cheat sheet: regulated diagnostic biostatistics"
 ---
 
-Placeholder.
+{{< include cheatsheet_body.md >}}

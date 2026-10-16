@@ -10,3 +10,7 @@ renv/staging/
 /.quarto/
 mock_sap/*.html
 mock_sap/*_files/
+_freeze/
+.Rhistory
+cheatsheet_pdf/.quarto/
+*.html

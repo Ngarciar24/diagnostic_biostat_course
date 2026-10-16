@@ -2,4 +2,27 @@
 title: "Interview bank"
 ---
 
-Placeholder.
+```{r setup}
+#| include: false
+source("R/helpers.R")
+q <- read_questions("interview_questions.csv")
+topics <- c("The landscape and vocabulary", "Precision and variance components", "Detection capability and linearity",
+            "Method comparison, bias, interference, stability, lots", "Diagnostic accuracy and ROC",
+            "Cut-offs, two cut-offs, intermediate zone (pTau217)", "Sample size and power",
+            "Companion diagnostics and bridging", "Statistical analysis plan", "Reference intervals, longitudinal, rehearsal")
+```
+
+100 questions, grouped by topic (chapter day). ★ marks the **three hardest per topic**. Answers are collapsed; say yours aloud first. Statements tagged "not verified: paywalled" in an answer are exactly what to avoid asserting as fact.
+
+```{r bank}
+#| results: asis
+for (d in sort(unique(q$day))) {
+  cat(sprintf("## Day %d. %s\n\n", d, topics[d]))
+  s <- q[q$day == d, ]
+  for (i in seq_len(nrow(s))) {
+    star <- if (s$hardest[i]) "★ " else ""
+    cat(sprintf("**%s%d.%d** %s\n\n", star, d, i, s$question[i]))
+    cat('::: {.callout-note collapse="true" title="Answer"}\n', s$answer[i], '\n:::\n\n', sep = "")
+  }
+}
+```

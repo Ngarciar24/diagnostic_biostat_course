@@ -19,6 +19,7 @@
     How do you set the performance goal for the primary endpoint?
   a: |
     From clinical need and comparators (predicate, standard of care), not from the pilot result. The success rule is the lower limit of the CI above the goal. In the mock SAP: PPV lower limit > 0.75 and NPV lower limit > 0.90, both required. Note the public FDA summary I read compared PV with prevalence and gave no pre-specified performance goal.
+  hard: true
 - topic: cut-offs
   q: >-
     Why must cut-offs be locked, and what can go wrong at the boundary?

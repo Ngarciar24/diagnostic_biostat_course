@@ -35,6 +35,7 @@
     510(k), De Novo, PMA: what do 'cleared', 'granted' and 'approved' mean?
   a: |
     510(k): substantial equivalence to a predicate -> 'cleared' (typically class II). De Novo: new low/moderate-risk device without predicate -> 'granted' (class I/II), creates a predicate. PMA: scientific and regulatory review of class III devices -> 'approved'. (FDA gives no single sentence defining all three verbs; this mapping is a synthesis.) Many CDx are PMA, but the 2014 guidance footnote notes some class II 510(k) cases. The Elecsys pTau217 test was a 510(k) clearance (K261686).
+  hard: true
 - topic: guidance
   q: >-
     Which documents guide the design of a clinical performance study?

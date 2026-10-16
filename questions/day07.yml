@@ -29,11 +29,13 @@
     How do you size a study for AUC?
   a: |
     Specify expected AUC, AUC0 (null or goal), alpha, power, case:control ratio, then use Hanley-McNeil (or DeLong-based) variances. Cross-check with pROC::power.roc.test (versus 0.5) and presize::prec_auc (CI width) and simulation.
+  hard: true
 - topic: indeterminates
   q: >-
     How does a 20% indeterminate fraction change the plan?
   a: |
     If intermediates count as misses, expected PPA falls (94% determinate sensitivity x 0.8 = 75%), so the goal must be set on that scale; if you need a number of determinate cases, inflate n by 1/(1-f). Pre-specify which endpoint is primary.
+  hard: true
 - topic: precision studies
   q: >-
     Why does a precision study need many days?

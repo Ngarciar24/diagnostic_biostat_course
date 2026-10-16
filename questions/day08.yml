@@ -30,6 +30,7 @@
     Why is the effect in the CDx+ population different from the trial's headline effect?
   a: |
     Selection by an imperfect assay mixes true positives (benefit) and false positives (no benefit). The effect in the selected population is a weighted average with weight = PPV of the assay for the biomarker. In my simulation: 0.30 in true positives, 0.278 in CDx+ (PPV 0.93), lower with a worse assay.
+  hard: true
 - topic: designs
   q: >-
     Enrichment vs all-comers designs?

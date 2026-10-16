@@ -19,6 +19,7 @@
     How would you derive two cut-offs, and why lock them?
   a: |
     On a derivation cohort: rule-out cut-off = highest value keeping sensitivity >= target; rule-in cut-off = lowest value keeping specificity >= target. Freeze them in the plan and evaluate once on an independent validation cohort, otherwise performance is optimistic (selection bias on the same data).
+  hard: true
 - topic: derivation
   q: >-
     What did the FDA summary say about how 0.223 and 0.378 were chosen?
