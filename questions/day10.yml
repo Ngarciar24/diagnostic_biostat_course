@@ -1,0 +1,52 @@
+- topic: reference intervals
+  q: >-
+    How do you establish a reference interval directly?
+  a: |
+    Recruit a well-defined healthy reference population, standardise preanalytics, measure, check outliers and partitions, take the nonparametric 2.5th and 97.5th percentiles with CIs (bootstrap or order-statistic), as in EP28-A3c (2010, reaffirmed 2020). The often-quoted n >= 120 is not verified (paywalled).
+- topic: reference intervals
+  q: >-
+    Why are the CIs of the reference limits so different at the two ends?
+  a: |
+    The tails of a skewed distribution are sparse; with n = 240 each limit rests on about 6 observations and the upper tail of a lognormal is stretched, so its CI is wide.
+- topic: indirect method
+  q: >-
+    What is the indirect method and when would you use it?
+  a: |
+    Use routine patient data and statistically isolate the non-pathological component (refineR: Box-Cox-transformed normal fitted to the dominant part). Useful when recruiting healthy subjects is hard (children, elderly, rare analytes). Assumes the healthy component dominates; judgement on population and preanalytics is still needed.
+- topic: partitioning
+  q: >-
+    When do you partition reference intervals by sex or age?
+  a: |
+    When the subgroup distributions differ enough to change clinical decisions, not merely statistically (large n makes tiny differences significant). Each partition needs adequate n for its own CI.
+- topic: RCV
+  q: >-
+    How do you compute a reference change value?
+  a: |
+    Within-subject SD from a mixed model (analytical + biological), RCV = +/- 1.96 sqrt(2) SD (log scale gives an asymmetric percent interval). In my simulation with CV 4% analytical and 8% biological: about -22%/+28%. Verified three ways: lmer, SD of paired differences, simulation (false flag rate about 5% in stable people).
+  hard: true
+- topic: monitoring
+  q: >-
+    Why is monitoring a separate intended use from diagnosis?
+  a: |
+    It needs within-person precision and RCV, responsiveness to change, relationship of change to clinical or imaging change, long-term assay stability and an action rule, none of which an AUC shows. The Roche 24 Aug 2026 pTau217 release says safety and effectiveness are not established for monitoring effect of therapeutic products; this is in the release, not the decision summary text.
+  hard: true
+- topic: MMRM
+  q: >-
+    What is an MMRM and why use it for longitudinal biomarker or clinical endpoints?
+  a: |
+    A mixed model for repeated measures: categorical visit, treatment-by-visit interaction, unstructured covariance, using all available data. Valid under MAR dropout; with balanced complete data it equals per-visit mean differences (exact in my check). Completer analysis is biased when dropout depends on earlier outcomes.
+- topic: mixed models
+  q: >-
+    Random-intercept versus MMRM for repeated biomarker measurements?
+  a: |
+    Random intercept (or intercept and slope) models assume a parametric covariance structure and suit irregular timing and continuous time; MMRM with unstructured covariance makes fewer assumptions for fixed visits. Check covariance fit (AIC) and the impact of the choice on the contrast of interest.
+- topic: rehearsal
+  q: >-
+    Summarise the whole regulated-diagnostics map in one minute.
+  a: |
+    Analytical: precision EP05/EP15, detection EP17, linearity EP06, comparison EP09c, interference EP07, stability EP25, lots EP26. Clinical: binary EP12, ROC EP24, FDA 2007 PPA/NPA language, cut-offs locked, two-cut-off with intermediate zone. Regulatory: IVDR Annex I GSPR, Annex VIII classes (CDx Rule 3(f), class C), Art 48(7)/(8) consultation, Annex XIII PEP/PER/PMPF, ISO 20916, MDCG 2022-2; FDA 510(k)/De Novo/PMA. Plan: SAP with goals, populations, subgroups, sensitivity analyses, QC.
+- topic: weak points
+  q: >-
+    What would you tell the interviewer you do not know yet?
+  a: |
+    The paywalled details: CLSI design counts in EP05 Ed4, EP17-A2, EP28; FDA labelling of pTau217 and the rule behind its cut-offs. I know where each is stated and how I would derive the statistics myself, and I flag clearly what is verified versus synthesis.

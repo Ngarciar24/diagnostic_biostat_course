@@ -1,0 +1,52 @@
+- topic: SAP content
+  q: >-
+    What goes into a SAP for a diagnostic clinical performance study?
+  a: |
+    Objectives and hypotheses with performance goals; intended use population; reference standard and timing; locked cut-offs and the rule for indeterminates; analysis populations; primary and secondary endpoints with CI methods; sample size; missing and invalid data; subgroups; multiplicity; sensitivity analyses; data standards; software and QC; table shells. IVDR Annex XIII Part A 2.3.2 lists plan items including statistical design, endpoints, population size and the method for determining true clinical status.
+- topic: populations
+  q: >-
+    What is the diagnostic analogue of ITT and per-protocol?
+  a: |
+    Primary set: evaluable subjects with a valid index result and a readable reference result (analogue of full analysis set); per-protocol: evaluable plus reference within the pre-specified window and no major deviation. Unlike a therapeutic trial there is no randomisation; the risk is selective exclusion, so a STARD flow diagram documents every exclusion.
+- topic: indeterminates
+  q: >-
+    How does your SAP deal with indeterminate results?
+  a: |
+    Report them as their own category with the fraction, count them as non-agreement in PPA/NPA (as the public FDA summary does), give PV and LR per category, and add a sensitivity analysis excluding them if useful. Decide before unblinding.
+  hard: true
+- topic: goals
+  q: >-
+    How do you set the performance goal for the primary endpoint?
+  a: |
+    From clinical need and comparators (predicate, standard of care), not from the pilot result. The success rule is the lower limit of the CI above the goal. In the mock SAP: PPV lower limit > 0.75 and NPV lower limit > 0.90, both required. Note the public FDA summary I read compared PV with prevalence and gave no pre-specified performance goal.
+- topic: cut-offs
+  q: >-
+    Why must cut-offs be locked, and what can go wrong at the boundary?
+  a: |
+    Locking prevents optimistic bias. The boundary convention (<= versus <) must be in the SAP and the code: with rounded assay values, many results sit exactly on the cut-off. In my mock SAP, independent double programming found the shared helper used >= for the upper cut-off where the plan said >, which changed the counts.
+  hard: true
+- topic: multiplicity
+  q: >-
+    Co-primary PPV and NPV: do you adjust alpha?
+  a: |
+    Not if both must succeed (intersection-union test): each is tested at the full level and the overall type I error is controlled. If success of either would suffice you would need an adjustment. Joint power is about the product of the individual powers if they are nearly independent.
+- topic: subgroups
+  q: >-
+    Which subgroups and how are they analysed?
+  a: |
+    Pre-specified: age, sex, care setting, cognitive status, kidney function (eGFR), race/ethnicity descriptively. Report estimates with CIs, suppress tiny cells, no claims from interaction tests. The public FDA summary I read lacked eGFR-stratified results, which makes a pre-specified eGFR subgroup valuable.
+- topic: standards
+  q: >-
+    What of CDISC applies to a device study?
+  a: |
+    CDISC publishes SDTMIG for Medical Devices (v1.1, 2019) and ADaMIG for Medical Devices (v1.0, 2021). I found no IVD-specific standard and nothing verifying that CDISC is mandated for IVDR submissions; ADaM-style subject-level and performance datasets are used by analogy.
+- topic: R environment
+  q: >-
+    What makes an R analysis acceptable in a regulated setting?
+  a: |
+    Pinned environment (renv), risk-based package assessment, unit-tested own functions, double programming of primary endpoints, independent review, script QC checklists, version control with signed tags at lock, file hashes, scripted outputs and logged session info, all linked to SOPs. This is common practice, not a quoted requirement; company SOPs rule.
+- topic: estimands
+  q: >-
+    Can you use the ICH E9(R1) estimand framework for a diagnostic study?
+  a: |
+    By analogy: population, variable, intercurrent events (e.g. invalid assay, unreadable reference, protocol deviations), summary measure and strategy per event. It clarifies handling of invalid results, but ICH E9 is a drug-trial guideline and I know of no IVD authority mandating it.

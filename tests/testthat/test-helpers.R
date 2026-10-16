@@ -169,3 +169,7 @@ test_that("Hanley-McNeil variance equals known SE for AUC 0.85, 50/50", {
 test_that("n_auc_hm increases as the effect shrinks", {
   expect_gt(n_auc_hm(0.75), n_auc_hm(0.90))
 })
+
+test_that("two-cut classification boundaries follow the FDA convention (negative <= lo, positive > hi)", {
+  expect_equal(as.character(classify_two_cut(c(2, 8, 8.001), 2, 8)), c("rule-out", "intermediate", "rule-in"))
+})

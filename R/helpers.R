@@ -84,10 +84,10 @@ n_buderer <- function(p, d, prev, conf = 0.95, what = c("sens", "spec")) {
 }
 
 # ---- Two-cut-off classification --------------------------------------------
-# Returns factor: "rule-out" (<= lo), "intermediate", "rule-in" (>= hi)
+# Returns factor: "rule-out" (x <= lo), "intermediate" (lo < x <= hi), "rule-in" (x > hi)
 classify_two_cut <- function(x, lo, hi) {
   stopifnot(lo <= hi)
-  factor(ifelse(x <= lo, "rule-out", ifelse(x >= hi, "rule-in", "intermediate")),
+  factor(ifelse(x <= lo, "rule-out", ifelse(x > hi, "rule-in", "intermediate")),
          levels = c("rule-out", "intermediate", "rule-in"))
 }
 

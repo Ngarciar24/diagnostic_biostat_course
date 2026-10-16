@@ -8,3 +8,5 @@ renv/library/
 renv/staging/
 
 /.quarto/
+mock_sap/*.html
+mock_sap/*_files/
