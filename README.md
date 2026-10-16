@@ -1,0 +1,71 @@
+# Regulated diagnostic biostatistics: a ten-day crash course
+
+Quarto book (R) preparing for a biostatistician role in diagnostics (CLSI EP, IVDR Annex XIII, FDA CDx). Ten days, about two hours each. Everything numerical is **simulated** unless it carries a citation; nothing is invented for any Roche assay.
+
+Convention in every chapter: **[S]** primary public source (cited in `claims_ledger.csv`), **[Y]** my synthesis, "not verified: paywalled" = do not state as fact.
+
+## Schedule
+
+| Day | Chapter | Governing documents |
+|---|---|---|
+| 1 | Landscape and vocabulary (+ one-page question→document map) | IVDR, MDCG 2022-2, ISO 20916, FDA pathways |
+| 2 | Precision, variance components | EP05, EP15 |
+| 3 | Detection capability, linearity | EP17, EP06 |
+| 4 | Method comparison, interference, stability, lots | EP09c, EP07, EP25, EP26 |
+| 5 | Diagnostic accuracy, ROC | EP12, EP24, FDA 2007, STARD |
+| 6 | Cut-offs, two-cut-off designs, intermediate zone; FDA K261686 worked example | EP24, EP12, FDA decision summary |
+| 7 | Sample size and power | Buderer, Flahault, Hanley–McNeil |
+| 8 | Companion diagnostics and bridging | FDA CDx guidances, IVDR Art 48 |
+| 9 | Statistical analysis plan (+ `mock_sap/`) | Annex XIII, ISO 20916, ICH E9 |
+| 10 | Reference intervals, longitudinal, rehearsal | EP28 |
+
+Each chapter: (a) concept, (b) regulatory anchor, (c) R lab with cross-checks, (d) ten interview questions, (e) claims.
+
+## Contents
+
+| Path | What |
+|---|---|
+| `index.qmd`, `chapters/day01…day10.qmd` | the book |
+| `interview_bank.qmd`, `interview_questions.csv`, `questions/day*.yml` | 100 questions (3 hardest per day flagged); the YAML is the source, `Rscript R/build_questions.R` builds the CSV |
+| `flashcards.csv`, `flashcards_src.txt` | 161 cards; `Rscript R/build_flashcards.R` rebuilds (rehearsal-added cards are kept) |
+| `cheatsheet.qmd`, `cheatsheet.pdf` | two-page cheat sheet; PDF built from `cheatsheet_pdf/` (see below) |
+| `mock_sap/` | SAP template, filled mock SAP for a simulated two-cut-off pTau217-like study, simulation script, one-page note on a SAP in a regulated R environment |
+| `claims_ledger.csv` | claim, source, verified_on, confidence, chapter (107 rows) |
+| `research/` | the raw verification notes behind the ledger (CLSI, regulatory, pTau217) |
+| `R/`, `tests/testthat/` | helper functions and 65+ unit tests |
+| `progress.md` | tick list |
+
+## How to run
+
+```r
+# 1. clean environment
+renv::restore()            # pins R 4.3.3 package versions; limma comes from Bioconductor
+# 2. tests
+testthat::test_dir("tests/testthat")
+```
+
+```sh
+# 3. build the book (first render fits a small Stan model once: ~2 min, then cached as draws)
+quarto render
+# 4. regenerate the PDF cheat sheet (Typst is not supported inside book projects)
+quarto render cheatsheet_pdf/cheatsheet.qmd && cp cheatsheet_pdf/cheatsheet.pdf cheatsheet.pdf
+# 5. regenerate the mock SAP data (only if you change the simulation)
+Rscript mock_sap/simulate_study.R
+```
+
+Requires Quarto ≥ 1.6, R ≥ 4.3, a C++ toolchain (for `brms`/`rstan`).
+
+## What was verified (2026-10-16) and what changed against the starting brief
+
+- **CLSI editions** (clsi.org): EP05 is now **Ed4 (2025-12-11)**, EP25 **Ed2 (2023)**, EP26 **Ed2 (2022)**, EP35 **Ed2 (2025)**, EP19 **Ed3 (2022)**. EP06 Ed2 (2020), EP07 Ed3 (2018), EP09c Ed3 (2018), EP12 Ed3 (2023), EP15-A3 (2014), EP17-A2 (2012), EP24-A2 (2011), EP28-A3c (2010) confirmed. EP37 edition label not verified.
+- **IVDR**: Arts 47/48 are classification and conformity assessment; the GSPR are in Annex I. CDx = Annex VIII **Rule 3(f), class C**; medicines-authority consultation in Art 48(7)/(8) (class C) and 48(3)/(4) (class D). Text read: the original 2017 OJ version; the consolidated text was not retrievable.
+- **FDA**: the 2020 CDx guidance is titled "…Specific **Group** of Oncology Therapeutic Products" (final); the 2016 codevelopment guidance is still a draft. The 2007 PPA/NPA statement is verified verbatim.
+- **pTau217 (Elecsys Phospho-Tau (217P) Plasma)**: FDA 510(k) K261686, decision **2026-08-19**; Roche announced 24 Aug 2026. Cut-offs 0.223 / 0.378 pg/mL; pivotal numbers re-checked by me against the decision-summary PDF. Both cited papers are correct but use the **prototype** assay and do not report the cleared cut-offs. The decision summary has no eGFR analysis, and the monitoring exclusion appears in the Roche release, not the summary text. The summary has internal inconsistencies (listed in Chapter 6).
+
+## Known limits (read before relying on it)
+
+- CLSI design counts for most documents (EP05 Ed4, EP17, EP06, EP09c, EP12, EP28) are **not verified: paywalled**. The chapters use simulation sizes of their own and say so.
+- Verification of web sources was done through a fetch tool that summarises pages; key items were re-checked by hand (K261686) but CLSI edition pages and several regulatory facts were not independently re-opened. Re-check in a browser before quoting in regulated material.
+- Statements marked [Y] (for example the verb mapping cleared/granted/approved, the EP15 verification-limit formula, the R-environment practices) are synthesis, not quotations.
+- The SAP and all study data are simulated teaching material, not an accepted regulatory template.
+- The FDA 510(k) database page itself and the product labelling were not accessible; K261686 data come from the decision-summary PDF (and openFDA for dates).

@@ -14,3 +14,4 @@ _freeze/
 .Rhistory
 cheatsheet_pdf/.quarto/
 *.html
+cheatsheet_pdf/cheatsheet.pdf
