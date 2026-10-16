@@ -1,0 +1,51 @@
+- topic: PPA/NPA
+  q: >-
+    Why does FDA's 2007 statistical guidance say you may not call agreement with a non-reference comparator sensitivity and specificity?
+  a: |
+    "When a new test is evaluated by comparison to a non-reference standard, sensitivity and specificity are not appropriate terms to describe the comparative results" - the comparator's own errors are folded in, so the numbers are percent agreement (PPA, NPA, OPA), and they are asymmetric (which test is the comparator matters). State the calculation explicitly.
+  hard: true
+- topic: discrepant resolution
+  q: >-
+    What is discrepant resolution and why is it biased?
+  a: |
+    Only discordant results are re-tested with a better method. Cases where both tests are wrong are never examined, so the new test is credited with agreement it does not deserve and its apparent sensitivity/specificity is inflated. FDA 2007: there is no statistical solution; prospectively define the reference standard for all subjects.
+- topic: intervals
+  q: >-
+    Wilson versus Clopper-Pearson?
+  a: |
+    Clopper-Pearson (exact) guarantees at least nominal coverage but is conservative; Wilson has coverage closer to nominal and behaves well near 0 and 1 and with small n. Regulatory summaries often use either; state which. Neither is a good choice when assumptions of independence fail (clustered samples).
+- topic: prevalence
+  q: >-
+    A test has Se 90% and Sp 85%. What is its PPV at 1% prevalence?
+  a: |
+    PPV = 0.9*0.01/(0.9*0.01+0.15*0.99) = 0.009/0.1575 = 5.7%. Sensitivity and specificity are properties of the test given the population spectrum; predictive values need the prevalence of the intended-use population.
+- topic: paired designs
+  q: >-
+    How do you compare sensitivity of two tests run on the same subjects?
+  a: |
+    Restrict to the diseased subjects and use McNemar's test on the discordant pairs (b vs c); same for specificity in the non-diseased. A confidence interval for the paired difference uses the same discordant counts. Unpaired two-proportion tests ignore the correlation and lose power.
+- topic: verification bias
+  q: >-
+    What is verification bias and how can you correct it?
+  a: |
+    If test-positives are more likely to get the reference standard than test-negatives, naive sensitivity rises and specificity falls. Begg-Greenes (inverse-probability style) correction uses P(D|T) in verified subjects and P(T) in all, valid if verification depends only on the test result (MAR). Better: design to verify a random sample of negatives.
+- topic: imperfect reference
+  q: >-
+    What if the reference standard is imperfect?
+  a: |
+    Sensitivity and specificity are biased (usually toward 0.5 if errors are independent of the test). Options: composite/expert-panel reference blinded to the index test (as in the pTau217 pivotal reader panel), latent class models, report as agreement. Document in the SAP.
+- topic: AUC
+  q: >-
+    What is the AUC and how do you get its CI and compare two AUCs?
+  a: |
+    AUC = P(case result > control result) (Mann-Whitney). DeLong's method gives the variance from structural components, and for two correlated AUCs on the same subjects the covariance too. pROC::ci.auc and roc.test(method = "delong", paired = TRUE).
+- topic: partial AUC
+  q: >-
+    Why a partial AUC?
+  a: |
+    Whole-curve AUC averages regions of no clinical relevance. When the test is used at high specificity (rule-in) or high sensitivity (rule-out), summarise only that range; standardise (McClish) to 0.5-1 to read like an AUC.
+- topic: reporting
+  q: >-
+    What are STARD 2015 and QUADAS-2 for?
+  a: |
+    STARD 2015 is a 30-item reporting checklist for diagnostic accuracy studies. QUADAS-2 assesses risk of bias and applicability (patient selection, index test, reference standard, flow and timing), used in systematic reviews and as a design checklist.

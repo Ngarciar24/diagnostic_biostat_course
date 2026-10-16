@@ -150,3 +150,42 @@ paba_hand <- function(x, y) {
   b <- if (N %% 2 == 1) s[(N + 1) / 2 + K] else mean(s[N / 2 + K + 0:1])
   c(intercept = median(y - b * x), slope = b)
 }
+
+# ---- ROC: DeLong AUC and variance by hand (cross-check for pROC) -----------
+auc_delong <- function(case, control) {
+  psi <- function(a, b) (a > b) + 0.5 * (a == b)
+  m <- outer(case, control, psi)
+  v10 <- rowMeans(m); v01 <- colMeans(m)
+  auc <- mean(v10)
+  var_auc <- var(v10) / length(case) + var(v01) / length(control)
+  c(auc = auc, se = sqrt(var_auc))
+}
+
+# ---- Agreement with a non-reference comparator: PPA / NPA / OPA -------------
+# FDA 2007 guidance: do NOT call these sensitivity / specificity.
+report_agreement <- function(candidate, comparator, conf = 0.95, ci = ci_wilson) {
+  r <- report_2x2(candidate, comparator, conf, ci)
+  tp <- sum(candidate & comparator); tn <- sum(!candidate & !comparator)
+  n <- length(candidate)
+  out <- r[r$measure %in% c("Sensitivity", "Specificity"), ]
+  out$measure <- c("PPA", "NPA")
+  opa <- ci(tp + tn, n, conf)
+  rbind(out, data.frame(measure = "OPA", x = tp + tn, n = n, est = opa[["est"]],
+                        lower = opa[["lower"]], upper = opa[["upper"]]))
+}
+
+# ---- ROC figure from a list of pROC objects --------------------------------
+roc_figure <- function(rocs) {
+  stopifnot(is.list(rocs), !is.null(names(rocs)))
+  d <- do.call(rbind, lapply(names(rocs), function(nm) {
+    r <- rocs[[nm]]
+    data.frame(curve = sprintf("%s (AUC %.3f)", nm, as.numeric(pROC::auc(r))),
+               fpr = 1 - r$specificities, tpr = r$sensitivities)
+  }))
+  ggplot2::ggplot(d, ggplot2::aes(fpr, tpr, colour = curve)) +
+    ggplot2::geom_line(linewidth = 0.8) +
+    ggplot2::geom_abline(linetype = 3, colour = "grey50") +
+    ggplot2::coord_equal() +
+    ggplot2::labs(x = "1 - specificity", y = "Sensitivity", colour = NULL) +
+    ggplot2::theme_minimal() + ggplot2::theme(legend.position = "bottom")
+}

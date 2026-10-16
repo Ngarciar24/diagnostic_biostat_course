@@ -101,3 +101,32 @@ test_that("Passing-Bablok hand estimate matches mcr", {
   m <- mcr::mcreg(x, y, method.reg = "PaBa", method.ci = "analytical")
   expect_equal(unname(paba_hand(x, y)), unname(m@para[, "EST"]), tolerance = 1e-6)
 })
+
+test_that("auc_delong matches pROC (AUC and DeLong SE)", {
+  skip_if_not_installed("pROC")
+  set.seed(6); case <- rnorm(40, 1); ctrl <- rnorm(60)
+  r <- pROC::roc(response = rep(c(1, 0), c(40, 60)), predictor = c(case, ctrl), quiet = TRUE, direction = "<")
+  ci <- as.numeric(pROC::ci.auc(r, method = "delong"))
+  h <- auc_delong(case, ctrl)
+  expect_equal(unname(h["auc"]), as.numeric(pROC::auc(r)), tolerance = 1e-10)
+  expect_equal(unname(h["auc"] + 1.96 * h["se"]), min(ci[3], 1) , tolerance = 5e-3)
+})
+
+test_that("auc equals Mann-Whitney U / (n1 n0)", {
+  set.seed(7); a <- rnorm(30, .8); b <- rnorm(50)
+  w <- unname(wilcox.test(a, b)$statistic) / (30 * 50)
+  expect_equal(unname(auc_delong(a, b)["auc"]), w)
+})
+
+test_that("report_agreement labels PPA/NPA/OPA", {
+  r <- report_agreement(c(1, 1, 0, 0, 1), c(1, 0, 0, 0, 1))
+  expect_equal(r$measure, c("PPA", "NPA", "OPA"))
+  expect_equal(r$est, c(1, 2 / 3, 0.8))
+})
+
+test_that("roc_figure returns a ggplot", {
+  skip_if_not_installed("pROC")
+  set.seed(8); y <- rep(0:1, 50); x <- rnorm(100) + y
+  r <- pROC::roc(y, x, quiet = TRUE)
+  expect_s3_class(roc_figure(list(test = r)), "ggplot")
+})
