@@ -148,3 +148,24 @@ test_that("two_cut_performance counts add up", {
   expect_equal(sum(p$table), 300)
   expect_equal(unname(p$intermediate["est"]), sum(x > -0.2 & x <= 1.2) / 300)
 })
+
+test_that("exact goal sample size (stable) matches MKmisc::power.diagnostic.test", {
+  skip_if_not_installed("MKmisc")
+  for (a in c(0.05, 0.025)) {
+    r <- MKmisc::power.diagnostic.test(sens = 0.9, delta = 0.1, power = 0.8, sig.level = a, prev = 0.2)
+    expect_equal(n_exact_goal_stable(0.9, 0.8, alpha = a, power = 0.8), r$n)
+  }
+})
+
+test_that("power_exact_goal is monotone-ish and bounded", {
+  expect_gt(power_exact_goal(300, 0.9, 0.8), power_exact_goal(50, 0.9, 0.8))
+  expect_lte(power_exact_goal(100, 0.8, 0.8), 0.05)
+})
+
+test_that("Hanley-McNeil variance equals known SE for AUC 0.85, 50/50", {
+  expect_equal(sqrt(var_auc_hm(0.85, 50, 50)), 0.0427, tolerance = 0.01)
+})
+
+test_that("n_auc_hm increases as the effect shrinks", {
+  expect_gt(n_auc_hm(0.75), n_auc_hm(0.90))
+})

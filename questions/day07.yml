@@ -1,0 +1,51 @@
+- topic: sensitivity
+  q: >-
+    How many subjects do you need to estimate sensitivity to +-5% when you expect 90% and prevalence is 20%?
+  a: |
+    Cases: n = z^2 p(1-p)/d^2 = 1.96^2*0.09/0.0025 = 138 (Wald); Wilson-based presize gives 141. Total = cases / prevalence = about 692-705. The prevalence turns 140 cases into about 700 subjects.
+- topic: prevalence
+  q: >-
+    Why does prevalence inflate sample size for sensitivity but not for specificity?
+  a: |
+    Sensitivity uses only cases, specificity only non-cases. Total n = n_cases/prev for sensitivity and n_controls/(1-prev) for specificity. At low prevalence cases are scarce. Fix: enriched sampling, with PPV/NPV reweighted to the true prevalence.
+- topic: performance goal
+  q: >-
+    How do you size a study to show sensitivity exceeds an 80% performance goal?
+  a: |
+    Choose the expected true sensitivity (say 90%), one-sided alpha (0.025), power (80%); use the exact binomial test: about 94-113 cases depending on alpha (0.05 -> 94, 0.025 -> 113 in my calculation). Check by simulation and note the sawtooth in exact power.
+  hard: true
+- topic: exact power
+  q: >-
+    Why is exact power not monotone in n?
+  a: |
+    The binomial is discrete: the critical count jumps by integers while power varies smoothly, so power can fall when n increases by one. Report the smallest n beyond which power stays above target.
+- topic: expected value
+  q: >-
+    How do you choose the expected sensitivity to size the study?
+  a: |
+    From prior studies or pilot data, shaded conservatively (use the lower end of a prior CI), and show a sensitivity table over a range. Over-optimism leads to underpowered studies; the goal itself comes from clinical need or comparators.
+- topic: AUC
+  q: >-
+    How do you size a study for AUC?
+  a: |
+    Specify expected AUC, AUC0 (null or goal), alpha, power, case:control ratio, then use Hanley-McNeil (or DeLong-based) variances. Cross-check with pROC::power.roc.test (versus 0.5) and presize::prec_auc (CI width) and simulation.
+- topic: indeterminates
+  q: >-
+    How does a 20% indeterminate fraction change the plan?
+  a: |
+    If intermediates count as misses, expected PPA falls (94% determinate sensitivity x 0.8 = 75%), so the goal must be set on that scale; if you need a number of determinate cases, inflate n by 1/(1-f). Pre-specify which endpoint is primary.
+- topic: precision studies
+  q: >-
+    Why does a precision study need many days?
+  a: |
+    Df for the day component is days-1; within-lab SD CI is driven by that df. 20 days with 2x2 per day gives about 70 Satterthwaite df and an expected 95% CI of about 0.85-1.22 times the estimate in my example (0.80-1.35 with 10 days).
+- topic: LoB
+  q: >-
+    How many blanks for LoB?
+  a: |
+    EP17 gives numbers (not verified, paywalled). Statistically, the parametric LoB SD is about sqrt(1/n + 1.645^2/(2(n-1))) x SD_blank; the nonparametric 95th percentile is noisier, so n of 60 or more is a reasonable starting point for a nonparametric claim.
+- topic: references
+  q: >-
+    Name sources for diagnostic sample size and say what each gives.
+  a: |
+    Buderer 1996 (Se/Sp with prevalence), Flahault et al. 2005 (case tables for an acceptable lower limit), Hanley and McNeil 1982 (AUC SE), Obuchowski (ROC sample size tables, AJR 2000 / Invest Radiol 1994), Zhou, Obuchowski and McClish (textbook). Tools: presize, MKmisc, pROC.

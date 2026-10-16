@@ -223,3 +223,38 @@ two_cut_performance <- function(x, truth, lo, hi, conf = 0.95) {
     npa_incl = ci_wilson(tab["rule-out", "D-"], sum(tab[, "D-"]), conf)
   )
 }
+
+# ---- Sample size: performance goal with an exact binomial test --------------
+# Smallest number of subjects n (cases for sensitivity) such that, if the true value
+# is p1, the one-sided exact test of H0: p <= p0 rejects with probability >= power.
+# Sawtooth in n: returns the smallest n that reaches the power (see also n_exact_goal_stable).
+power_exact_goal <- function(n, p1, p0, alpha = 0.025) {
+  crit <- qbinom(1 - alpha, n, p0)          # reject if X > crit  (P(X > crit | p0) <= alpha)
+  while (pbinom(crit, n, p0, lower.tail = FALSE) > alpha) crit <- crit + 1
+  pbinom(crit, n, p1, lower.tail = FALSE)
+}
+n_exact_goal <- function(p1, p0, alpha = 0.025, power = 0.80, nmax = 5000) {
+  for (n in 5:nmax) if (power_exact_goal(n, p1, p0, alpha) >= power) return(n)
+  NA_integer_
+}
+# Because of the sawtooth, require the power to hold for all larger n up to nmax.
+n_exact_goal_stable <- function(p1, p0, alpha = 0.025, power = 0.80, nmax = 1500) {
+  ok <- sapply(5:nmax, function(n) power_exact_goal(n, p1, p0, alpha) >= power)
+  last_bad <- if (any(!ok)) max(which(!ok)) else 0
+  (5:nmax)[last_bad + 1]
+}
+
+# ---- Sample size: AUC against a null value (Hanley-McNeil variance) ---------
+var_auc_hm <- function(auc, n1, n0) {
+  q1 <- auc / (2 - auc); q2 <- 2 * auc^2 / (1 + auc)
+  (auc * (1 - auc) + (n1 - 1) * (q1 - auc^2) + (n0 - 1) * (q2 - auc^2)) / (n1 * n0)
+}
+# n1 = cases; controls = ratio * cases. Two-sided alpha, one-sample Z test of AUC = auc0.
+n_auc_hm <- function(auc1, auc0 = 0.5, alpha = 0.05, power = 0.80, ratio = 1) {
+  za <- qnorm(1 - alpha / 2); zb <- qnorm(power)
+  f <- function(n1) {
+    n0 <- ratio * n1
+    (auc1 - auc0) / (za * sqrt(var_auc_hm(auc0, n1, n0)) + zb * sqrt(var_auc_hm(auc1, n1, n0))) - 1
+  }
+  ceiling(uniroot(f, c(3, 1e5))$root)
+}
