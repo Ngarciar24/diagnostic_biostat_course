@@ -1,0 +1,30 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Regulated Diagnostic Biostatistics: a ten-day crash course"
+  author: "Ignacio"
+  chapters:
+    - index.qmd
+    - chapters/day01-landscape.qmd
+    - chapters/day02-precision.qmd
+    - chapters/day03-detection-linearity.qmd
+    - chapters/day04-method-comparison.qmd
+    - chapters/day05-diagnostic-accuracy.qmd
+    - chapters/day06-cutoffs.qmd
+    - chapters/day07-sample-size.qmd
+    - chapters/day08-companion-diagnostics.qmd
+    - chapters/day09-sap.qmd
+    - chapters/day10-reference-longitudinal.qmd
+    - interview_bank.qmd
+    - cheatsheet.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+execute:
+  warning: false
+  message: false
+  freeze: auto

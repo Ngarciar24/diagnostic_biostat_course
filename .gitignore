@@ -1,0 +1,10 @@
+_book/
+.quarto/
+*_files/
+/.Rproj.user
+.Rhistory
+.RData
+renv/library/
+renv/staging/
+
+/.quarto/
