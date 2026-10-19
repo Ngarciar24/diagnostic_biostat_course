@@ -4,6 +4,43 @@ Quarto book (R) preparing for a biostatistician role in diagnostics (CLSI EP, IV
 
 Convention in every chapter: **[S]** primary public source (cited in `claims_ledger.csv`), **[Y]** my synthesis, "not verified: paywalled" = do not state as fact.
 
+## Start here
+
+1. **Open the guide:** [`index.qmd`](index.qmd) explains how the course works and has the one-page map "question type → governing document → R function".
+2. **Open the tick list:** [`progress.md`](progress.md). Work through it top to bottom, one day per session.
+3. **Do Day 1:** [`chapters/day01-landscape.qmd`](chapters/day01-landscape.qmd). No coding on Day 1; it builds the vocabulary and the map.
+4. **Each day after that**, use the same routine: read the chapter, run its R lab, say the ten interview questions aloud, then review that day's flashcards.
+
+The other things you will use:
+
+| What | Link |
+|---|---|
+| Two-page cheat sheet (designs, formulas, document numbers) | [`cheatsheet.pdf`](cheatsheet.pdf) |
+| Flashcards for spaced repetition (161 cards) | [`flashcards.csv`](flashcards.csv) |
+| All 100 interview questions, grouped by topic | [`interview_bank.qmd`](interview_bank.qmd) |
+| Mock statistical analysis plan (Day 9) | [`mock_sap/sap_ptau217_mock.qmd`](mock_sap/sap_ptau217_mock.qmd) |
+| Every claim with its source and confidence | [`claims_ledger.csv`](claims_ledger.csv) |
+
+### Which way to read it
+
+- **On GitHub (nothing to install):** the `.qmd` chapter files display as text, so you see the explanations and the R code but not the tables, figures and numbers the code produces.
+- **As the finished book (recommended):** run `quarto render` once (see "How to run" below), then open `_book/index.html` in a browser. The book is not stored in the repository because it is generated.
+
+### The ten days
+
+| Day | Chapter |
+|---|---|
+| 1 | [Landscape and vocabulary](chapters/day01-landscape.qmd) |
+| 2 | [Precision and variance components](chapters/day02-precision.qmd) |
+| 3 | [Detection capability and linearity](chapters/day03-detection-linearity.qmd) |
+| 4 | [Method comparison, interference, stability, lots](chapters/day04-method-comparison.qmd) |
+| 5 | [Diagnostic accuracy and ROC](chapters/day05-diagnostic-accuracy.qmd) |
+| 6 | [Cut-offs and the pTau217 worked example](chapters/day06-cutoffs.qmd) |
+| 7 | [Sample size and power](chapters/day07-sample-size.qmd) |
+| 8 | [Companion diagnostics and bridging](chapters/day08-companion-diagnostics.qmd) |
+| 9 | [Statistical analysis plan](chapters/day09-sap.qmd) |
+| 10 | [Reference intervals, longitudinal, rehearsal](chapters/day10-reference-longitudinal.qmd) |
+
 ## Schedule
 
 | Day | Chapter | Governing documents |
