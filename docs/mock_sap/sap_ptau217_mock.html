@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix B — Statistical Analysis Plan (mock): clinical performance study SIM-217-001 – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../mock_sap/r_environment_note.html" rel="next">
+<link href="../mock_sap/sap_template.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mock_sap/sap_template.html">Appendices</a></li><li class="breadcrumb-item"><a href="../mock_sap/sap_ptau217_mock.html"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#objectives-and-hypotheses" id="toc-objectives-and-hypotheses" class="nav-link active" data-scroll-target="#objectives-and-hypotheses">1. Objectives and hypotheses</a></li>
+  <li><a href="#design-reference-standard-and-cut-offs" id="toc-design-reference-standard-and-cut-offs" class="nav-link" data-scroll-target="#design-reference-standard-and-cut-offs">2. Design, reference standard and cut-offs</a></li>
+  <li><a href="#analysis-populations" id="toc-analysis-populations" class="nav-link" data-scroll-target="#analysis-populations">3. Analysis populations</a></li>
+  <li><a href="#endpoints-and-statistical-methods" id="toc-endpoints-and-statistical-methods" class="nav-link" data-scroll-target="#endpoints-and-statistical-methods">4. Endpoints and statistical methods</a></li>
+  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size">5. Sample size</a></li>
+  <li><a href="#missing-invalid-and-unreadable-results" id="toc-missing-invalid-and-unreadable-results" class="nav-link" data-scroll-target="#missing-invalid-and-unreadable-results">6. Missing, invalid and unreadable results</a></li>
+  <li><a href="#subgroups-descriptive" id="toc-subgroups-descriptive" class="nav-link" data-scroll-target="#subgroups-descriptive">7. Subgroups (descriptive)</a></li>
+  <li><a href="#multiplicity-interim-analyses-sensitivity-analyses" id="toc-multiplicity-interim-analyses-sensitivity-analyses" class="nav-link" data-scroll-target="#multiplicity-interim-analyses-sensitivity-analyses">8. Multiplicity, interim analyses, sensitivity analyses</a></li>
+  <li><a href="#data-standards" id="toc-data-standards" class="nav-link" data-scroll-target="#data-standards">9. Data standards</a></li>
+  <li><a href="#software-and-quality-control" id="toc-software-and-quality-control" class="nav-link" data-scroll-target="#software-and-quality-control">10. Software and quality control</a></li>
+  <li><a href="#table-shells-and-dry-run-on-simulated-data" id="toc-table-shells-and-dry-run-on-simulated-data" class="nav-link" data-scroll-target="#table-shells-and-dry-run-on-simulated-data">11. Table shells and dry run on simulated data</a></li>
+  <li><a href="#double-programming-independent-qc-comparison" id="toc-double-programming-independent-qc-comparison" class="nav-link" data-scroll-target="#double-programming-independent-qc-comparison">12. Double programming: independent QC comparison</a></li>
+  <li><a href="#audit-trail" id="toc-audit-trail" class="nav-link" data-scroll-target="#audit-trail">13. Audit trail</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../mock_sap/sap_template.html">Appendices</a></li><li class="breadcrumb-item"><a href="../mock_sap/sap_ptau217_mock.html"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix B — Statistical Analysis Plan (mock): clinical performance study SIM-217-001</h1>
+<p class="subtitle lead">Two-cut-off plasma pTau217-like test vs amyloid PET. Simulated data only.</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p><strong>Status of this document.</strong> A <em>teaching</em> SAP. The study, device, data and numbers are simulated; the structure follows ICH E9 by analogy and the content items of IVDR Annex XIII Part A 2.3.2 (statistical design, endpoints, population size, method for determining true clinical status). No claim is made that a regulator accepts this plan. Tags: <strong>[S]</strong> public source, <strong>[A]</strong> assumption, <strong>[Y]</strong> my synthesis.</p>
+</blockquote>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document ID / version</td>
+<td>SAP-SIM217-001 v1.0 (DRAFT)</td>
+</tr>
+<tr class="even">
+<td>Protocol reference</td>
+<td>CPSP-SIM217-001 (placeholder)</td>
+</tr>
+<tr class="odd">
+<td>Author / independent reviewer / approver</td>
+<td><em>names and dates: placeholders</em></td>
+</tr>
+<tr class="even">
+<td>Applicable SOPs</td>
+<td>SOP-STAT-xxx (programming), SOP-QC-xxx (QC), SOP-DM-xxx (data management): placeholders</td>
+</tr>
+<tr class="odd">
+<td>Version history</td>
+<td>v0.1 outline; v1.0 locked before unblinding of reference-standard data</td>
+</tr>
+</tbody>
+</table>
+<section id="objectives-and-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="objectives-and-hypotheses">1. Objectives and hypotheses</h2>
+<p><strong>Intended use (simulated).</strong> Aid in identifying amyloid pathology in adults aged 55 years and older with signs, symptoms or complaints of cognitive decline; used with other clinical information; not stand-alone; not for monitoring. [A]</p>
+<p><strong>Primary objective.</strong> Show that a <em>positive</em> result carries a high probability of amyloid-PET positivity and a <em>negative</em> result a low one.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Co-primary endpoint</th>
+<th>Performance goal (H0)</th>
+<th>Expected value</th>
+<th>Success rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1: PPV of the positive category</td>
+<td>PPV ≤ 0.75</td>
+<td>0.88 [A]</td>
+<td>lower limit of two-sided 95% Wilson CI &gt; 0.75</td>
+</tr>
+<tr class="even">
+<td>P2: NPV of the negative category</td>
+<td>NPV ≤ 0.90</td>
+<td>0.95 [A]</td>
+<td>lower limit of two-sided 95% Wilson CI &gt; 0.90</td>
+</tr>
+</tbody>
+</table>
+<p>Success requires <strong>both</strong> (intersection-union): no alpha adjustment is needed because each test is run at the one-sided 0.025 level and both must reject. [Y]</p>
+<p><strong>Secondary objectives.</strong> Intermediate-zone fraction; PPA and NPA with intermediates counted as non-agreement; PPV/NPV of each category with likelihood ratios; performance by pre-specified subgroups.</p>
+</section>
+<section id="design-reference-standard-and-cut-offs" class="level2">
+<h2 class="anchored" data-anchor-id="design-reference-standard-and-cut-offs">2. Design, reference standard and cut-offs</h2>
+<ul>
+<li><strong>Design.</strong> Prospective-retrospective, banked K2-EDTA plasma, multi-site, primary and secondary care. [A]</li>
+<li><strong>Reference standard.</strong> Amyloid PET visual read by a blinded reader panel (≥ 3 readers, majority rule; unreadable scan = missing). The interval between blood draw and PET is recorded; per-protocol requires ≤ 180 days. Readers are blind to the index test; index-test operators are blind to PET. [A]</li>
+<li><strong>Cut-offs (locked).</strong> Derived on a <em>separate</em> simulated derivation cohort (n = 700) by <code>derive_two_cutoffs()</code> with targets sensitivity ≥ 94% (rule-out) and specificity ≥ 93% (rule-in); stored in <code>data/locked_cutoffs.csv</code> and <strong>not re-estimated on performance-study data</strong>. Convention as in the public decision summary [S]: negative if ≤ lower cut-off, positive if &gt; upper cut-off.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Category =</span> <span class="fu">c</span>(<span class="st">"Negative (rule-out)"</span>, <span class="st">"Intermediate"</span>, <span class="st">"Positive (rule-in)"</span>),</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Rule (pg/mL)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"&lt;= %.3f"</span>, LO), <span class="fu">sprintf</span>(<span class="st">"&gt; %.3f to &lt;= %.3f"</span>, LO, HI), <span class="fu">sprintf</span>(<span class="st">"&gt; %.3f"</span>, HI)),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Rule (pg/mL)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Negative (rule-out)</td>
+<td style="text-align: left;">&lt;= 0.229</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Intermediate</td>
+<td style="text-align: left;">&gt; 0.229 to &lt;= 0.418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Positive (rule-in)</td>
+<td style="text-align: left;">&gt; 0.418</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="analysis-populations" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-populations">3. Analysis populations</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Population</th>
+<th>Definition</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Enrolled</td>
+<td>all subjects with a plasma sample</td>
+<td>disposition</td>
+</tr>
+<tr class="even">
+<td><strong>Evaluable (primary)</strong></td>
+<td>valid assay result <strong>and</strong> readable PET</td>
+<td>primary analysis, the diagnostic analogue of the ITT/full-analysis set [Y]</td>
+</tr>
+<tr class="odd">
+<td>Per-protocol</td>
+<td>evaluable, PET interval ≤ 180 days, no major deviation</td>
+<td>sensitivity analysis</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="endpoints-and-statistical-methods" class="level2">
+<h2 class="anchored" data-anchor-id="endpoints-and-statistical-methods">4. Endpoints and statistical methods</h2>
+<ul>
+<li>Proportions: <strong>Wilson</strong> 95% CIs (primary); Clopper–Pearson as sensitivity. PPV = positive-category subjects with PET+ / all positive-category subjects; NPV analogously. Both are conditional on category and <strong>prevalence-dependent</strong>; observed prevalence reported with CI.</li>
+<li>Likelihood ratios per category with log-scale 95% CI (asymptotic, ratio of two proportions).</li>
+<li>PPA = (positive result among PET+); NPA = (negative result among PET−); <strong>intermediates count as non-agreement</strong> (as in the public decision summary [S]). Rule-out step sensitivity and rule-in step specificity as additional descriptors.</li>
+<li>No imputation of PET. Subgroup CIs are descriptive; interaction tests are exploratory and not used for claims.</li>
+</ul>
+</section>
+<section id="sample-size" class="level2">
+<h2 class="anchored" data-anchor-id="sample-size">5. Sample size</h2>
+<p>Planning assumptions [A]: positive-category frequency 0.336 and negative-category frequency 0.465, taken from the <em>public pivotal data of a comparable cleared test</em> (FDA K261686, p.27 [S]) and used here only as planning inputs; 8% loss to non-evaluable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_pos <span class="ot">&lt;-</span> <span class="fu">n_exact_goal_stable</span>(<span class="fl">0.88</span>, <span class="fl">0.75</span>, <span class="at">alpha =</span> <span class="fl">0.025</span>, <span class="at">power =</span> <span class="fl">0.90</span>)   <span class="co"># subjects with a positive result</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n_neg <span class="ot">&lt;-</span> <span class="fu">n_exact_goal_stable</span>(<span class="fl">0.95</span>, <span class="fl">0.90</span>, <span class="at">alpha =</span> <span class="fl">0.025</span>, <span class="at">power =</span> <span class="fl">0.90</span>)   <span class="co"># subjects with a negative result</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>N_pos <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n_pos <span class="sc">/</span> <span class="fl">0.336</span>); N_neg <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n_neg <span class="sc">/</span> <span class="fl">0.465</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>N_eval <span class="ot">&lt;-</span> <span class="fu">max</span>(N_pos, N_neg); N_enr <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(N_eval <span class="sc">/</span> <span class="fl">0.92</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Endpoint =</span> <span class="fu">c</span>(<span class="st">"P1 PPV (exact one-sided 0.025, power 0.90)"</span>, <span class="st">"P2 NPV (exact one-sided 0.025, power 0.90)"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Subjects needed in category</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(n_pos, n_neg), <span class="st">`</span><span class="at">Evaluable subjects needed</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(N_pos, N_neg),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 28%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Endpoint</th>
+<th style="text-align: right;">Subjects needed in category</th>
+<th style="text-align: right;">Evaluable subjects needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">P1 PPV (exact one-sided 0.025, power 0.90)</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">310</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P2 NPV (exact one-sided 0.025, power 0.90)</td>
+<td style="text-align: right;">316</td>
+<td style="text-align: right;">680</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">evaluable_required =</span> N_eval, <span class="at">enrolled_required =</span> N_enr, <span class="at">planned_enrolled =</span> <span class="fu">nrow</span>(dat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>evaluable_required  enrolled_required   planned_enrolled 
+               680                740               1100 </code></pre>
+</div>
+</div>
+<p>Joint power of the two co-primaries is approximately the product of the individual powers when the two are nearly independent (≈ 0.81 for 0.90 each) [Y]; the planned N exceeds the requirement, which raises it. Cross-check method: the exact calculation matches <code>MKmisc::power.diagnostic.test</code> (Day 7, tested).</p>
+</section>
+<section id="missing-invalid-and-unreadable-results" class="level2">
+<h2 class="anchored" data-anchor-id="missing-invalid-and-unreadable-results">6. Missing, invalid and unreadable results</h2>
+<ul>
+<li>Invalid assay results are repeated once per the instructions for use (not simulated); results still invalid are excluded from the evaluable set and reported in the flow table.</li>
+<li>Unreadable PET = missing reference; excluded from evaluable. <strong>Sensitivity analysis S2</strong> (worst case): invalid assay results among PET+ are counted as negative, among PET− as positive.</li>
+<li>A STARD flow diagram (Table 1) documents all exclusions. [S: STARD 2015 has 30 items]</li>
+</ul>
+</section>
+<section id="subgroups-descriptive" class="level2">
+<h2 class="anchored" data-anchor-id="subgroups-descriptive">7. Subgroups (descriptive)</h2>
+<p>Age (55–70, 71–85), sex, care setting (primary, secondary), MMSE (15–24, 25–27, 28–30), <strong>kidney function by eGFR (&lt; 30, 30–59, ≥ 60)</strong>, with a minimum of 20 subjects per category for a CI to be reported. Kidney function is pre-specified because the public decision summary of the comparable test contains no eGFR-stratified analysis (only a small kidney-disease comorbidity subgroup) [S].</p>
+</section>
+<section id="multiplicity-interim-analyses-sensitivity-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicity-interim-analyses-sensitivity-analyses">8. Multiplicity, interim analyses, sensitivity analyses</h2>
+<ul>
+<li>Co-primary success rule above; secondary and subgroup results are not adjusted and are labelled descriptive. No interim analysis (fixed sample).</li>
+<li>S1 per-protocol; S2 worst-case for invalid assay results; S3 Clopper–Pearson intervals.</li>
+</ul>
+</section>
+<section id="data-standards" class="level2">
+<h2 class="anchored" data-anchor-id="data-standards">9. Data standards</h2>
+<p>CDISC publishes <strong>SDTMIG for Medical Devices (v1.1, 2019)</strong> and <strong>ADaMIG for Medical Devices (v1.0, 2021)</strong> [S: cdisc.org]; no IVD-specific CDISC standard was found, and nothing verified says CDISC is required for IVDR submissions. This mock uses ADaM-style analysis datasets (subject-level ADSL, performance ADPERF) <em>by analogy</em>, with variable names and derivation notes in the programming specification. [Y]</p>
+</section>
+<section id="software-and-quality-control" class="level2">
+<h2 class="anchored" data-anchor-id="software-and-quality-control">10. Software and quality control</h2>
+<p>Software, validation and QC are in the companion note <em>SAP in a regulated R environment</em>. The primary endpoints are <strong>double-programmed</strong>; the QC comparison is executed below.</p>
+</section>
+<section id="table-shells-and-dry-run-on-simulated-data" class="level2">
+<h2 class="anchored" data-anchor-id="table-shells-and-dry-run-on-simulated-data">11. Table shells and dry run on simulated data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> dat</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>assay_valid <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>PTAU217); d<span class="sc">$</span>pet_valid <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>PET_VISUAL)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>EVAL <span class="ot">&lt;-</span> d<span class="sc">$</span>assay_valid <span class="sc">&amp;</span> d<span class="sc">$</span>pet_valid</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>CAT <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d<span class="sc">$</span>EVAL, <span class="fu">as.character</span>(<span class="fu">classify_two_cut</span>(d<span class="sc">$</span>PTAU217, LO, HI)), <span class="cn">NA</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>CAT <span class="ot">&lt;-</span> <span class="fu">factor</span>(d<span class="sc">$</span>CAT, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"rule-out"</span>, <span class="st">"intermediate"</span>, <span class="st">"rule-in"</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> d[d<span class="sc">$</span>EVAL, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Table 1. Disposition (STARD flow).</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Step =</span> <span class="fu">c</span>(<span class="st">"Enrolled"</span>, <span class="st">"Valid assay result"</span>, <span class="st">"Readable PET"</span>, <span class="st">"Evaluable (primary set)"</span>, <span class="st">"Per-protocol subset"</span>),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">N =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(d), <span class="fu">sum</span>(d<span class="sc">$</span>assay_valid), <span class="fu">sum</span>(d<span class="sc">$</span>pet_valid), <span class="fu">sum</span>(d<span class="sc">$</span>EVAL), <span class="fu">sum</span>(d<span class="sc">$</span>EVAL <span class="sc">&amp;</span> d<span class="sc">$</span>PPFL <span class="sc">==</span> <span class="st">"Y"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Step</th>
+<th style="text-align: right;">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: right;">1100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valid assay result</td>
+<td style="text-align: right;">1078</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Readable PET</td>
+<td style="text-align: right;">1067</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Evaluable (primary set)</td>
+<td style="text-align: right;">1046</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Per-protocol subset</td>
+<td style="text-align: right;">1028</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Table 2. Baseline characteristics of the evaluable set by PET status.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="cf">function</span>(f) <span class="fu">c</span>(<span class="fu">f</span>(ev[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>, ]), <span class="fu">f</span>(ev[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>, ]), <span class="fu">f</span>(ev))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Characteristic =</span> <span class="fu">c</span>(<span class="st">"n"</span>, <span class="st">"Age, mean (SD)"</span>, <span class="st">"Female, n (%)"</span>, <span class="st">"Primary care, n (%)"</span>, <span class="st">"MMSE, mean (SD)"</span>, <span class="st">"eGFR &lt; 60, n (%)"</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">PET-</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sum</span>(ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>), <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f)"</span>, <span class="fu">mean</span>(ev<span class="sc">$</span>AGE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>]), <span class="fu">sd</span>(ev<span class="sc">$</span>AGE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>])),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>SEX[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">==</span> <span class="st">"F"</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>SEX[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">==</span> <span class="st">"F"</span>)),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>SETTING[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">==</span> <span class="st">"primary"</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>SETTING[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">==</span> <span class="st">"primary"</span>)),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f)"</span>, <span class="fu">mean</span>(ev<span class="sc">$</span>MMSE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>]), <span class="fu">sd</span>(ev<span class="sc">$</span>MMSE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>])),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>EGFR[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">&lt;</span> <span class="dv">60</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>EGFR[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">&lt;</span> <span class="dv">60</span>))),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">PET+</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sum</span>(ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>), <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f)"</span>, <span class="fu">mean</span>(ev<span class="sc">$</span>AGE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>]), <span class="fu">sd</span>(ev<span class="sc">$</span>AGE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>])),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>SEX[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">==</span> <span class="st">"F"</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>SEX[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">==</span> <span class="st">"F"</span>)),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>SETTING[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">==</span> <span class="st">"primary"</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>SETTING[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">==</span> <span class="st">"primary"</span>)),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f)"</span>, <span class="fu">mean</span>(ev<span class="sc">$</span>MMSE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>]), <span class="fu">sd</span>(ev<span class="sc">$</span>MMSE[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>])),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sprintf</span>(<span class="st">"%d (%.0f)"</span>, <span class="fu">sum</span>(ev<span class="sc">$</span>EGFR[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">60</span>), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(ev<span class="sc">$</span>EGFR[ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">60</span>))),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: left;">PET-</th>
+<th style="text-align: left;">PET+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">406</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age, mean (SD)</td>
+<td style="text-align: left;">70.7 (7.3)</td>
+<td style="text-align: left;">71.9 (6.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Female, n (%)</td>
+<td style="text-align: left;">340 (53)</td>
+<td style="text-align: left;">219 (54)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Primary care, n (%)</td>
+<td style="text-align: left;">204 (32)</td>
+<td style="text-align: left;">67 (17)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MMSE, mean (SD)</td>
+<td style="text-align: left;">25.9 (2.9)</td>
+<td style="text-align: left;">25.6 (2.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eGFR &lt; 60, n (%)</td>
+<td style="text-align: left;">142 (22)</td>
+<td style="text-align: left;">78 (19)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Table 3. Result category by amyloid PET.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="ot">&lt;-</span> <span class="fu">table</span>(ev<span class="sc">$</span>CAT, ev<span class="sc">$</span>PET_VISUAL); <span class="fu">colnames</span>(t3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PET-"</span>, <span class="st">"PET+"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">addmargins</span>(t3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">PET-</th>
+<th style="text-align: right;">PET+</th>
+<th style="text-align: right;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">rule-out</td>
+<td style="text-align: right;">462</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">488</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">intermediate</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rule-in</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">303</td>
+<td style="text-align: right;">337</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">640</td>
+<td style="text-align: right;">406</td>
+<td style="text-align: right;">1046</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Table 4. Primary endpoints and decision.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(ev<span class="sc">$</span>PTAU217, ev<span class="sc">$</span>PET_VISUAL, LO, HI)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ppv <span class="ot">&lt;-</span> pp<span class="sc">$</span>rulein_ppv; npv <span class="ot">&lt;-</span> pp<span class="sc">$</span>ruleout_npv</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Endpoint =</span> <span class="fu">c</span>(<span class="st">"P1 PPV positive"</span>, <span class="st">"P2 NPV negative"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">n/N</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"%d/%d"</span>, t3[<span class="st">"rule-in"</span>, <span class="st">"PET+"</span>], <span class="fu">sum</span>(t3[<span class="st">"rule-in"</span>, ])), <span class="fu">sprintf</span>(<span class="st">"%d/%d"</span>, t3[<span class="st">"rule-out"</span>, <span class="st">"PET-"</span>], <span class="fu">sum</span>(t3[<span class="st">"rule-out"</span>, ]))),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Estimate % (95% Wilson CI)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">pct</span>(ppv), <span class="fu">pct</span>(npv)),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Goal =</span> <span class="fu">c</span>(<span class="st">"&gt; 75%"</span>, <span class="st">"&gt; 90%"</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Met =</span> <span class="fu">c</span>(ppv[[<span class="st">"lower"</span>]] <span class="sc">&gt;</span> <span class="fl">0.75</span>, npv[[<span class="st">"lower"</span>]] <span class="sc">&gt;</span> <span class="fl">0.90</span>), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Endpoint</th>
+<th style="text-align: left;">n/N</th>
+<th style="text-align: left;">Estimate % (95% Wilson CI)</th>
+<th style="text-align: left;">Goal</th>
+<th style="text-align: left;">Met</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">P1 PPV positive</td>
+<td style="text-align: left;">303/337</td>
+<td style="text-align: left;">89.9 (86.2-92.7)</td>
+<td style="text-align: left;">&gt; 75%</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">P2 NPV negative</td>
+<td style="text-align: left;">462/488</td>
+<td style="text-align: left;">94.7 (92.3-96.3)</td>
+<td style="text-align: left;">&gt; 90%</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Study success (both co-primaries met):"</span>, ppv[[<span class="st">"lower"</span>]] <span class="sc">&gt;</span> <span class="fl">0.75</span> <span class="sc">&amp;&amp;</span> npv[[<span class="st">"lower"</span>]] <span class="sc">&gt;</span> <span class="fl">0.90</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Study success (both co-primaries met): TRUE </code></pre>
+</div>
+</div>
+<p><strong>Table 5. Secondary endpoints.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lr <span class="ot">&lt;-</span> <span class="cf">function</span>(cat) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>); n0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">sum</span>(ev<span class="sc">$</span>CAT <span class="sc">==</span> cat <span class="sc">&amp;</span> ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>); b0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(ev<span class="sc">$</span>CAT <span class="sc">==</span> cat <span class="sc">&amp;</span> ev<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> a <span class="sc">/</span> n1; p0 <span class="ot">&lt;-</span> b0 <span class="sc">/</span> n0; est <span class="ot">&lt;-</span> p1 <span class="sc">/</span> p0</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span> <span class="sc">-</span> p1) <span class="sc">/</span> (n1 <span class="sc">*</span> p1) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> p0) <span class="sc">/</span> (n0 <span class="sc">*</span> p0))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"%.2f (%.2f-%.2f)"</span>, est, <span class="fu">exp</span>(<span class="fu">log</span>(est) <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se), <span class="fu">exp</span>(<span class="fu">log</span>(est) <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Endpoint =</span> <span class="fu">c</span>(<span class="st">"Intermediate fraction"</span>, <span class="st">"PPA (positive among PET+; intermediates = disagreement)"</span>, <span class="st">"NPA (negative among PET-)"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Rule-out step sensitivity (not-negative among PET+)"</span>, <span class="st">"Rule-in step specificity (not-positive among PET-)"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"LR positive category"</span>, <span class="st">"LR intermediate"</span>, <span class="st">"LR negative category"</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Estimate % (95% CI)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">pct</span>(pp<span class="sc">$</span>intermediate), <span class="fu">pct</span>(pp<span class="sc">$</span>ppa_incl), <span class="fu">pct</span>(pp<span class="sc">$</span>npa_incl), <span class="fu">pct</span>(pp<span class="sc">$</span>ruleout_sens), <span class="fu">pct</span>(pp<span class="sc">$</span>rulein_spec),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">lr</span>(<span class="st">"rule-in"</span>), <span class="fu">lr</span>(<span class="st">"intermediate"</span>), <span class="fu">lr</span>(<span class="st">"rule-out"</span>)), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 73%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Endpoint</th>
+<th style="text-align: left;">Estimate % (95% CI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intermediate fraction</td>
+<td style="text-align: left;">21.1 (18.8-23.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PPA (positive among PET+; intermediates = disagreement)</td>
+<td style="text-align: left;">74.6 (70.2-78.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NPA (negative among PET-)</td>
+<td style="text-align: left;">72.2 (68.6-75.5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rule-out step sensitivity (not-negative among PET+)</td>
+<td style="text-align: left;">93.6 (90.8-95.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rule-in step specificity (not-positive among PET-)</td>
+<td style="text-align: left;">94.7 (92.7-96.2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LR positive category</td>
+<td style="text-align: left;">14.05 (10.08-19.58)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LR intermediate</td>
+<td style="text-align: left;">0.84 (0.66-1.08)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LR negative category</td>
+<td style="text-align: left;">0.09 (0.06-0.13)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Table 6. Subgroups (descriptive; n &lt; 20 in a category suppressed).</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sg <span class="ot">&lt;-</span> <span class="cf">function</span>(var, label) <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(<span class="fu">as.character</span>(ev[[var]]))), <span class="cf">function</span>(l) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> ev[<span class="fu">as.character</span>(ev[[var]]) <span class="sc">==</span> l, ]; q <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(v<span class="sc">$</span>PTAU217, v<span class="sc">$</span>PET_VISUAL, LO, HI)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  np <span class="ot">&lt;-</span> <span class="fu">sum</span>(v<span class="sc">$</span>CAT <span class="sc">==</span> <span class="st">"rule-in"</span>); nn <span class="ot">&lt;-</span> <span class="fu">sum</span>(v<span class="sc">$</span>CAT <span class="sc">==</span> <span class="st">"rule-out"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Subgroup =</span> <span class="fu">paste</span>(label, l), <span class="at">N =</span> <span class="fu">nrow</span>(v), <span class="st">`</span><span class="at">Intermediate %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">pct</span>(q<span class="sc">$</span>intermediate),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">PPV positive %</span><span class="st">`</span> <span class="ot">=</span> <span class="cf">if</span> (np <span class="sc">&gt;=</span> <span class="dv">20</span>) <span class="fu">pct</span>(q<span class="sc">$</span>rulein_ppv) <span class="cf">else</span> <span class="st">"n&lt;20"</span>, <span class="st">`</span><span class="at">NPV negative %</span><span class="st">`</span> <span class="ot">=</span> <span class="cf">if</span> (nn <span class="sc">&gt;=</span> <span class="dv">20</span>) <span class="fu">pct</span>(q<span class="sc">$</span>ruleout_npv) <span class="cf">else</span> <span class="st">"n&lt;20"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">FALSE</span>) }))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">rbind</span>(<span class="fu">sg</span>(<span class="st">"AGEGR"</span>, <span class="st">"Age"</span>), <span class="fu">sg</span>(<span class="st">"SEX"</span>, <span class="st">"Sex"</span>), <span class="fu">sg</span>(<span class="st">"SETTING"</span>, <span class="st">"Setting"</span>), <span class="fu">sg</span>(<span class="st">"MMSEGR"</span>, <span class="st">"MMSE"</span>), <span class="fu">sg</span>(<span class="st">"EGFRGR"</span>, <span class="st">"eGFR"</span>)), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 5%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Subgroup</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: left;">Intermediate %</th>
+<th style="text-align: left;">PPV positive %</th>
+<th style="text-align: left;">NPV negative %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Age 55-70</td>
+<td style="text-align: right;">470</td>
+<td style="text-align: left;">21.5 (18.0-25.4)</td>
+<td style="text-align: left;">86.6 (79.8-91.3)</td>
+<td style="text-align: left;">94.9 (91.3-97.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 71-85</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: left;">20.8 (17.7-24.3)</td>
+<td style="text-align: left;">92.1 (87.6-95.1)</td>
+<td style="text-align: left;">94.5 (90.9-96.7)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sex F</td>
+<td style="text-align: right;">559</td>
+<td style="text-align: left;">18.1 (15.1-21.5)</td>
+<td style="text-align: left;">89.5 (84.4-93.1)</td>
+<td style="text-align: left;">94.4 (90.9-96.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sex M</td>
+<td style="text-align: right;">487</td>
+<td style="text-align: left;">24.6 (21.0-28.7)</td>
+<td style="text-align: left;">90.4 (84.5-94.2)</td>
+<td style="text-align: left;">95.0 (91.3-97.2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Setting primary</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: left;">18.1 (14.0-23.1)</td>
+<td style="text-align: left;">85.2 (73.4-92.3)</td>
+<td style="text-align: left;">93.5 (88.7-96.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Setting secondary</td>
+<td style="text-align: right;">775</td>
+<td style="text-align: left;">22.2 (19.4-25.3)</td>
+<td style="text-align: left;">90.8 (86.9-93.7)</td>
+<td style="text-align: left;">95.3 (92.4-97.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MMSE 15-24</td>
+<td style="text-align: right;">362</td>
+<td style="text-align: left;">20.7 (16.9-25.2)</td>
+<td style="text-align: left;">90.6 (84.2-94.5)</td>
+<td style="text-align: left;">95.6 (91.2-97.9)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MMSE 25-27</td>
+<td style="text-align: right;">351</td>
+<td style="text-align: left;">20.5 (16.6-25.0)</td>
+<td style="text-align: left;">92.7 (86.2-96.2)</td>
+<td style="text-align: left;">92.4 (87.4-95.5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MMSE 28-30</td>
+<td style="text-align: right;">333</td>
+<td style="text-align: left;">22.2 (18.1-27.0)</td>
+<td style="text-align: left;">86.1 (78.1-91.6)</td>
+<td style="text-align: left;">96.2 (92.0-98.2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eGFR 30-59</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: left;">21.2 (16.1-27.4)</td>
+<td style="text-align: left;">83.1 (72.7-90.1)</td>
+<td style="text-align: left;">100.0 (95.7-100.0)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">eGFR &lt;30</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">22.7 (10.1-43.4)</td>
+<td style="text-align: left;">n&lt;20</td>
+<td style="text-align: left;">n&lt;20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eGFR &gt;=60</td>
+<td style="text-align: right;">826</td>
+<td style="text-align: left;">21.1 (18.4-24.0)</td>
+<td style="text-align: left;">92.2 (88.3-94.9)</td>
+<td style="text-align: left;">93.7 (90.8-95.7)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Table 7. Sensitivity analyses.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pps <span class="ot">&lt;-</span> ev[ev<span class="sc">$</span>PPFL <span class="sc">==</span> <span class="st">"Y"</span>, ]; q_pp <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(pps<span class="sc">$</span>PTAU217, pps<span class="sc">$</span>PET_VISUAL, LO, HI)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># S2 worst case: invalid assay among PET+ -&gt; negative, among PET- -&gt; positive</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>inv <span class="ot">&lt;-</span> d[<span class="sc">!</span>d<span class="sc">$</span>assay_valid <span class="sc">&amp;</span> d<span class="sc">$</span>pet_valid, ]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>pos_w <span class="ot">&lt;-</span> t3[<span class="st">"rule-in"</span>, <span class="st">"PET+"</span>]; pos_n <span class="ot">&lt;-</span> <span class="fu">sum</span>(t3[<span class="st">"rule-in"</span>, ]) <span class="sc">+</span> <span class="fu">sum</span>(inv<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>neg_ok <span class="ot">&lt;-</span> t3[<span class="st">"rule-out"</span>, <span class="st">"PET-"</span>]; neg_n <span class="ot">&lt;-</span> <span class="fu">sum</span>(t3[<span class="st">"rule-out"</span>, ]) <span class="sc">+</span> <span class="fu">sum</span>(inv<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>cpf <span class="ot">&lt;-</span> <span class="cf">function</span>(x, n) <span class="fu">pct</span>(<span class="fu">ci_clopper_pearson</span>(x, n))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>cp_ppv <span class="ot">&lt;-</span> <span class="fu">cpf</span>(t3[<span class="st">"rule-in"</span>, <span class="st">"PET+"</span>], <span class="fu">sum</span>(t3[<span class="st">"rule-in"</span>, ])); cp_npv <span class="ot">&lt;-</span> <span class="fu">cpf</span>(t3[<span class="st">"rule-out"</span>, <span class="st">"PET-"</span>], <span class="fu">sum</span>(t3[<span class="st">"rule-out"</span>, ]))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Analysis =</span> <span class="fu">c</span>(<span class="st">"S1 per-protocol: PPV"</span>, <span class="st">"S1 per-protocol: NPV"</span>, <span class="st">"S2 worst case invalid assay: PPV"</span>, <span class="st">"S2 worst case invalid assay: NPV"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"S3 Clopper-Pearson: PPV"</span>, <span class="st">"S3 Clopper-Pearson: NPV"</span>),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Estimate % (95% CI)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">pct</span>(q_pp<span class="sc">$</span>rulein_ppv), <span class="fu">pct</span>(q_pp<span class="sc">$</span>ruleout_npv),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pct</span>(<span class="fu">ci_wilson</span>(<span class="fu">sum</span>(pos_w), pos_n)), <span class="fu">pct</span>(<span class="fu">ci_wilson</span>(neg_ok, neg_n)), cp_ppv, cp_npv), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Analysis</th>
+<th style="text-align: left;">Estimate % (95% CI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S1 per-protocol: PPV</td>
+<td style="text-align: left;">89.8 (86.1-92.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S1 per-protocol: NPV</td>
+<td style="text-align: left;">94.7 (92.4-96.4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S2 worst case invalid assay: PPV</td>
+<td style="text-align: left;">86.6 (82.6-89.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2 worst case invalid assay: NPV</td>
+<td style="text-align: left;">93.1 (90.6-95.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S3 Clopper-Pearson: PPV</td>
+<td style="text-align: left;">89.9 (86.2-92.9)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S3 Clopper-Pearson: NPV</td>
+<td style="text-align: left;">94.7 (92.3-96.5)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="double-programming-independent-qc-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="double-programming-independent-qc-comparison">12. Double programming: independent QC comparison</h2>
+<p>A second programmer re-derives the primary endpoints from the raw CSV <strong>without</strong> using the project helpers (different packages, different code path); the lead programmer’s results must agree.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/sim_ptau217.csv"</span>); raw <span class="ot">&lt;-</span> raw[<span class="sc">!</span><span class="fu">is.na</span>(raw<span class="sc">$</span>PTAU217) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(raw<span class="sc">$</span>PET_VISUAL), ]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>neg <span class="ot">&lt;-</span> raw<span class="sc">$</span>PTAU217 <span class="sc">&lt;=</span> LO; pos <span class="ot">&lt;-</span> raw<span class="sc">$</span>PTAU217 <span class="sc">&gt;</span> HI</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>w_ppv <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(pos <span class="sc">&amp;</span> raw<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">1</span>), <span class="fu">sum</span>(pos), <span class="at">methods =</span> <span class="st">"wilson"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>w_npv <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="fu">sum</span>(neg <span class="sc">&amp;</span> raw<span class="sc">$</span>PET_VISUAL <span class="sc">==</span> <span class="dv">0</span>), <span class="fu">sum</span>(neg), <span class="at">methods =</span> <span class="st">"wilson"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>qc <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">item =</span> <span class="fu">c</span>(<span class="st">"PPV est"</span>, <span class="st">"PPV lower"</span>, <span class="st">"NPV est"</span>, <span class="st">"NPV lower"</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lead =</span> <span class="fu">c</span>(ppv[[<span class="st">"est"</span>]], ppv[[<span class="st">"lower"</span>]], npv[[<span class="st">"est"</span>]], npv[[<span class="st">"lower"</span>]]),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">independent =</span> <span class="fu">c</span>(w_ppv<span class="sc">$</span>mean, w_ppv<span class="sc">$</span>lower, w_npv<span class="sc">$</span>mean, w_npv<span class="sc">$</span>lower))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>qc<span class="sc">$</span>difference <span class="ot">&lt;-</span> qc<span class="sc">$</span>lead <span class="sc">-</span> qc<span class="sc">$</span>independent</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(qc, <span class="at">digits =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">item</th>
+<th style="text-align: right;">lead</th>
+<th style="text-align: right;">independent</th>
+<th style="text-align: right;">difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PPV est</td>
+<td style="text-align: right;">0.8991098</td>
+<td style="text-align: right;">0.8991098</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PPV lower</td>
+<td style="text-align: right;">0.8623223</td>
+<td style="text-align: right;">0.8623223</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NPV est</td>
+<td style="text-align: right;">0.9467213</td>
+<td style="text-align: right;">0.9467213</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPV lower</td>
+<td style="text-align: right;">0.9230796</td>
+<td style="text-align: right;">0.9230796</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(<span class="fu">abs</span>(qc<span class="sc">$</span>difference) <span class="sc">&lt;</span> <span class="fl">1e-10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="audit-trail" class="level2">
+<h2 class="anchored" data-anchor-id="audit-trail">13. Audit trail</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">file =</span> <span class="fu">c</span>(<span class="st">"data/sim_ptau217.csv"</span>, <span class="st">"data/locked_cutoffs.csv"</span>),</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">md5 =</span> <span class="fu">unname</span>(tools<span class="sc">::</span><span class="fu">md5sum</span>(<span class="fu">c</span>(<span class="st">"data/sim_ptau217.csv"</span>, <span class="st">"data/locked_cutoffs.csv"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     file                              md5
+1    data/sim_ptau217.csv 90cd60854699626d99347758402f292b
+2 data/locked_cutoffs.csv 276554c1cbdbc45e1beeca762df583cc</code></pre>
+</div>
+</div>
+<p>The cut-off file hash is recorded before the performance data are analysed; any later change is a deviation and must be documented. [Y]</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>IVDR (EU) 2017/746 Annex XIII Part A 2.3.2; ISO 20916:2019; ICH E9 (1998) and E9(R1) (2019) by analogy; FDA K261686 decision summary (public pivotal data used as planning context); STARD 2015 (BMJ 2015;351:h5527); FDA 2007 statistical guidance. See <code>claims_ledger.csv</code>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../mock_sap/sap_template.html" class="pagination-link" aria-label="SAP template: diagnostic clinical performance study">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../mock_sap/r_environment_note.html" class="pagination-link" aria-label="One page: a SAP in a regulated R environment">
+        <span class="nav-page-text"><span class="chapter-title">One page: a SAP in a regulated R environment</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

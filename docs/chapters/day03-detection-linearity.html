@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 3. Detection capability (EP17) and linearity (EP06) – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/day04-method-comparison.html" rel="next">
+<link href="../chapters/day02-precision.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day03-detection-linearity.html"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-regulatory-anchor" id="toc-b-regulatory-anchor" class="nav-link" data-scroll-target="#b-regulatory-anchor">(b) Regulatory anchor</a></li>
+  <li><a href="#c-r-lab" id="toc-c-r-lab" class="nav-link" data-scroll-target="#c-r-lab">(c) R lab</a>
+  <ul class="collapse">
+  <li><a href="#simulated-study" id="toc-simulated-study" class="nav-link" data-scroll-target="#simulated-study">Simulated study</a></li>
+  <li><a href="#lob-and-lod-parametric-and-nonparametric" id="toc-lob-and-lod-parametric-and-nonparametric" class="nav-link" data-scroll-target="#lob-and-lod-parametric-and-nonparametric">LoB and LoD, parametric and nonparametric</a></li>
+  <li><a href="#cross-check-of-the-parametric-lob-by-simulation" id="toc-cross-check-of-the-parametric-lob-by-simulation" class="nav-link" data-scroll-target="#cross-check-of-the-parametric-lob-by-simulation">Cross-check of the parametric LoB by simulation</a></li>
+  <li><a href="#probit-lod-hit-rate-design-molecular-assays-y" id="toc-probit-lod-hit-rate-design-molecular-assays-y" class="nav-link" data-scroll-target="#probit-lod-hit-rate-design-molecular-assays-y">Probit LoD (hit-rate design, molecular assays) [Y]</a></li>
+  <li><a href="#parametric-bootstrap-of-the-lod-my-method" id="toc-parametric-bootstrap-of-the-lod-my-method" class="nav-link" data-scroll-target="#parametric-bootstrap-of-the-lod-my-method">Parametric bootstrap of the LoD (my method)</a></li>
+  <li><a href="#loq-from-a-precision-profile" id="toc-loq-from-a-precision-profile" class="nav-link" data-scroll-target="#loq-from-a-precision-profile">LoQ from a precision profile</a></li>
+  </ul></li>
+  <li><a href="#linearity-ep06-style-polynomial-comparison-y" id="toc-linearity-ep06-style-polynomial-comparison-y" class="nav-link" data-scroll-target="#linearity-ep06-style-polynomial-comparison-y">Linearity (EP06 style, polynomial comparison) [Y]</a></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis. All data below are simulated.</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Question it answers</th>
+<th>Typical statement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LoB</td>
+<td>Highest result expected from a blank</td>
+<td>95th percentile of blank results</td>
+</tr>
+<tr class="even">
+<td>LoD</td>
+<td>Lowest concentration reliably distinguished from the LoB</td>
+<td>≥95% of results above the LoB</td>
+</tr>
+<tr class="odd">
+<td>LoQ</td>
+<td>Lowest concentration measured with acceptable error (CV or total-error goal)</td>
+<td>CV ≤ goal, or bias + 1.96·SD ≤ allowable error</td>
+</tr>
+<tr class="even">
+<td>Linearity</td>
+<td>Does response scale proportionally with concentration across the range?</td>
+<td>polynomial vs linear fit; allowable deviation</td>
+</tr>
+</tbody>
+</table>
+<p>Two error types fix LoB and LoD: α = 5% false positive (blank above LoB), β = 5% false negative (low sample below LoB). [Y]</p>
+</section>
+<section id="b-regulatory-anchor" class="level2">
+<h2 class="anchored" data-anchor-id="b-regulatory-anchor">(b) Regulatory anchor</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Fact</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EP17</td>
+<td><strong>EP17-A2 (2012, confirmed 2017); no newer edition listed.</strong> Evaluates and verifies LoB, LoD, LoQ claims</td>
+<td>[S] clsi.org</td>
+</tr>
+<tr class="even">
+<td>EP06</td>
+<td><strong>Ed2 (2020-11-24)</strong>: low-cost linearity validation incl.&nbsp;LLoQ/ULoQ; two designs (high sample + measurand-free, or high and low samples)</td>
+<td>[S] clsi.org</td>
+</tr>
+<tr class="odd">
+<td>IVDR</td>
+<td>Annex I 9.1(a) lists “limits of detection and quantitation, measuring range, linearity”</td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>Design counts (EP17: blanks, lots, days; EP06 replicates)</td>
+<td><em>not verified: paywalled.</em> Simulation sizes below are my assumptions</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-r-lab" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab">(c) R lab</h2>
+<section id="simulated-study" class="level3">
+<h3 class="anchored" data-anchor-id="simulated-study">Simulated study</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">17</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_blank <span class="ot">&lt;-</span> <span class="dv">60</span>                      <span class="co"># assumption, not a quoted requirement</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>blank <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_blank, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.40</span>)        <span class="co"># pg/mL</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>low_lv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">1.5</span>, <span class="fl">2.0</span>, <span class="fl">2.5</span>, <span class="fl">3.0</span>); reps <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">level =</span> <span class="fu">rep</span>(low_lv, <span class="at">each =</span> reps))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>low<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(low), low<span class="sc">$</span>level, <span class="fl">0.45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lob-and-lod-parametric-and-nonparametric" class="level3">
+<h3 class="anchored" data-anchor-id="lob-and-lod-parametric-and-nonparametric">LoB and LoD, parametric and nonparametric</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lob_p  <span class="ot">&lt;-</span> <span class="fu">lob_param</span>(blank)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lob_np <span class="ot">&lt;-</span> <span class="fu">lob_nonparam</span>(blank)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pooled within-level SD of low samples</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sd_low <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(<span class="fu">tapply</span>(low<span class="sc">$</span>y, low<span class="sc">$</span>level, var)))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>lod_p_check <span class="ot">&lt;-</span> lob_p <span class="sc">+</span> <span class="fl">1.645</span> <span class="sc">*</span> sd_low</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sd_low_lm <span class="ot">&lt;-</span> <span class="fu">sigma</span>(<span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">factor</span>(level), low))        <span class="co"># pooled SD from an ANOVA fit</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonparametric LoD: lowest level whose results are &gt;= 95% above the LoB</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>hit <span class="ot">&lt;-</span> <span class="fu">tapply</span>(low<span class="sc">$</span>y <span class="sc">&gt;</span> lob_np, low<span class="sc">$</span>level, mean)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>lod_np <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(hit)[<span class="fu">which</span>(hit <span class="sc">&gt;=</span> <span class="fl">0.95</span>)[<span class="dv">1</span>]])</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Quantity =</span> <span class="fu">c</span>(<span class="st">"LoB"</span>, <span class="st">"LoD"</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parametric =</span> <span class="fu">round</span>(<span class="fu">c</span>(lob_p, lod_p_check), <span class="dv">3</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nonparametric =</span> <span class="fu">round</span>(<span class="fu">c</span>(lob_np, lod_np), <span class="dv">3</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Formula =</span> <span class="fu">c</span>(<span class="st">"mean + 1.645·SD_blank"</span>, <span class="st">"LoB + 1.645·SD_low (pooled)"</span>)),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Detection capability (pg/mL)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Detection capability (pg/mL)</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: right;">Parametric</th>
+<th style="text-align: right;">Nonparametric</th>
+<th style="text-align: left;">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">LoB</td>
+<td style="text-align: right;">1.251</td>
+<td style="text-align: right;">1.254</td>
+<td style="text-align: left;">mean + 1.645&lt;U+00B7&gt;SD_blank</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LoD</td>
+<td style="text-align: right;">2.040</td>
+<td style="text-align: right;">2.500</td>
+<td style="text-align: left;">LoB + 1.645&lt;U+00B7&gt;SD_low (pooled)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">level =</span> <span class="fu">names</span>(hit), <span class="st">`</span><span class="at">fraction above LoB (np)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(hit), <span class="dv">3</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">caption =</span> <span class="st">"Hit rate of low-level samples"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Hit rate of low-level samples</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">level</th>
+<th style="text-align: right;">fraction above LoB (np)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0.167</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: right;">0.583</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.917</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.5</td>
+<td style="text-align: right;">1.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">1.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isTRUE</span>(<span class="fu">all.equal</span>(sd_low, sd_low_lm)))   <span class="co"># hand pooled SD = lm sigma</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plain 1.645 multipliers are the textbook parametric formulas; small-sample correction factors in EP17 are <em>not verified: paywalled</em>. [Y]</p>
+</section>
+<section id="cross-check-of-the-parametric-lob-by-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="cross-check-of-the-parametric-lob-by-simulation">Cross-check of the parametric LoB by simulation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Under normality the 95th percentile of the blank distribution is mean + 1.645 sd.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>big <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>, <span class="fl">0.5</span>, <span class="fl">0.40</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">theory =</span> <span class="fl">0.5</span> <span class="sc">+</span> <span class="fl">1.645</span> <span class="sc">*</span> <span class="fl">0.40</span>, <span class="at">big_sim_q95 =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(big, .<span class="dv">95</span>)),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate_from_n60 =</span> lob_p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           theory       big_sim_q95 estimate_from_n60 
+         1.158000          1.157291          1.250696 </code></pre>
+</div>
+</div>
+</section>
+<section id="probit-lod-hit-rate-design-molecular-assays-y" class="level3">
+<h3 class="anchored" data-anchor-id="probit-lod-hit-rate-design-molecular-assays-y">Probit LoD (hit-rate design, molecular assays) [Y]</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">50</span>); n <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">24</span>, <span class="fu">length</span>(conc))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="fl">2.5</span>; b0 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(.<span class="dv">95</span>) <span class="sc">-</span> b1 <span class="sc">*</span> <span class="fu">log10</span>(<span class="dv">10</span>)              <span class="co"># true LoD95 = 10</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>hits <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fu">length</span>(conc), n, <span class="fu">pnorm</span>(b0 <span class="sc">+</span> b1 <span class="sc">*</span> <span class="fu">log10</span>(conc)))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(hits, n <span class="sc">-</span> hits) <span class="sc">~</span> <span class="fu">log10</span>(conc), <span class="at">family =</span> <span class="fu">binomial</span>(<span class="st">"probit"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>dp <span class="ot">&lt;-</span> <span class="fu">dose.p</span>(fit, <span class="at">p =</span> <span class="fl">0.95</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>lod_dose <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">as.numeric</span>(dp)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>lod_hand <span class="ot">&lt;-</span> <span class="fu">lod_probit</span>(conc, hits, n)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>ci_log <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dp) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">attr</span>(dp, <span class="st">"SE"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">method =</span> <span class="fu">c</span>(<span class="st">"MASS::dose.p"</span>, <span class="st">"hand inversion"</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">LoD95 =</span> <span class="fu">round</span>(<span class="fu">c</span>(lod_dose, lod_hand), <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">method</th>
+<th style="text-align: right;">LoD95</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MASS::dose.p</td>
+<td style="text-align: right;">7.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hand inversion</td>
+<td style="text-align: right;">7.15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Delta-method 95%% CI: %.1f - %.1f copies/mL (true value 10)</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            <span class="dv">10</span><span class="sc">^</span>ci_log[<span class="dv">1</span>], <span class="dv">10</span><span class="sc">^</span>ci_log[<span class="dv">2</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Delta-method 95% CI: 5.3 - 9.7 copies/mL (true value 10)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isTRUE</span>(<span class="fu">all.equal</span>(lod_dose, lod_hand)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is one realisation; a single 95% CI misses the truth about 1 time in 20. Coverage check over 1000 repeats of the same design:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cover <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fu">length</span>(conc), n, <span class="fu">pnorm</span>(b0 <span class="sc">+</span> b1 <span class="sc">*</span> <span class="fu">log10</span>(conc)))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">glm</span>(<span class="fu">cbind</span>(h, n <span class="sc">-</span> h) <span class="sc">~</span> <span class="fu">log10</span>(conc), <span class="at">family =</span> <span class="fu">binomial</span>(<span class="st">"probit"</span>)))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">dose.p</span>(f, <span class="at">p =</span> <span class="fl">0.95</span>))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(d) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">attr</span>(d, <span class="st">"SE"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">&gt;=</span> r[<span class="dv">1</span>] <span class="sc">&amp;&amp;</span> <span class="dv">1</span> <span class="sc">&lt;=</span> r[<span class="dv">2</span>]       <span class="co"># log10(10) = 1</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">coverage =</span> <span class="fu">mean</span>(cover))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>coverage 
+   0.937 </code></pre>
+</div>
+</div>
+</section>
+<section id="parametric-bootstrap-of-the-lod-my-method" class="level3">
+<h3 class="anchored" data-anchor-id="parametric-bootstrap-of-the-lod-my-method">Parametric bootstrap of the LoD (my method)</h3>
+<p>Resample blank and low-level results from the fitted normals, recompute LoD, take percentiles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">4000</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>lod_b <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_blank, <span class="fu">mean</span>(blank), <span class="fu">sd</span>(blank))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  l <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(low_lv) <span class="sc">*</span> reps, <span class="dv">0</span>, sd_low)          <span class="co"># centred; only the SD enters</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lob_param</span>(b) <span class="sc">+</span> <span class="fl">1.645</span> <span class="sc">*</span> <span class="fu">sd</span>(l)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-check against the exact chi-square distribution of the pooled SD part:</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Var(SD_low*) approx; compare the bootstrap SE with the delta-method SE.</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>se_delta <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sd</span>(blank)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> n_blank <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.645</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">sd</span>(blank)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> (n_blank <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.645</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> sd_low<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="fu">length</span>(low_lv) <span class="sc">*</span> (reps <span class="sc">-</span> <span class="dv">1</span>)))</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">LoD_point =</span> lod_p_check, <span class="at">boot_median =</span> <span class="fu">median</span>(lod_b),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">boot_CI_lo =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(lod_b, .<span class="dv">025</span>)), <span class="at">boot_CI_hi =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(lod_b, .<span class="dv">975</span>)),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">boot_SE =</span> <span class="fu">sd</span>(lod_b), <span class="at">delta_SE =</span> se_delta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  LoD_point boot_median  boot_CI_lo  boot_CI_hi     boot_SE    delta_SE 
+  2.0396742   2.0359937   1.8172921   2.2430930   0.1092108   0.1124553 </code></pre>
+</div>
+</div>
+<p><strong>How to defend each (one paragraph).</strong> <em>Parametric</em> uses all observations and gives a smooth estimate with a CI, but rests on normality of blank and low-level results; check with a QQ-plot and consider a log scale if blanks are skewed. <em>Nonparametric</em> assumes nothing about the shape but is a coarse rank statistic: with 60 blanks the 95th percentile is determined by about three values and with 12 replicates per level the hit rate can only change in steps of 8%. <em>Probit</em> is the right tool when the outcome is hit/no-hit, as in qPCR. <em>Parametric bootstrap</em> is my uncertainty statement on the parametric LoD: it adds a CI and exposes how few df the SD of the low samples really has; it inherits the normality assumption and is not a CLSI-prescribed procedure. [Y]</p>
+</section>
+<section id="loq-from-a-precision-profile" class="level3">
+<h3 class="anchored" data-anchor-id="loq-from-a-precision-profile">LoQ from a precision profile</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">20</span>); r <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sd_true <span class="ot">&lt;-</span> <span class="cf">function</span>(c) <span class="fu">sqrt</span>(<span class="fl">0.30</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="fl">0.06</span> <span class="sc">*</span> c)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">level =</span> <span class="fu">rep</span>(lv, <span class="at">each =</span> r))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>pp<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fl">1.03</span> <span class="sc">*</span> pp<span class="sc">$</span>level <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(pp), <span class="dv">0</span>, <span class="fu">sd_true</span>(pp<span class="sc">$</span>level))   <span class="co"># +3% proportional bias</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(y <span class="sc">~</span> level, pp, <span class="cf">function</span>(v) <span class="fu">c</span>(<span class="at">m =</span> <span class="fu">mean</span>(v), <span class="at">s =</span> <span class="fu">sd</span>(v)))</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">level =</span> s<span class="sc">$</span>level, <span class="at">mean =</span> s<span class="sc">$</span>y[, <span class="st">"m"</span>], <span class="at">sd =</span> s<span class="sc">$</span>y[, <span class="st">"s"</span>])</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>s<span class="sc">$</span>cv <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> s<span class="sc">$</span>sd <span class="sc">/</span> s<span class="sc">$</span>mean</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>s<span class="sc">$</span>total_error_pct <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">abs</span>(s<span class="sc">$</span>mean <span class="sc">-</span> s<span class="sc">$</span>level) <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> s<span class="sc">$</span>sd) <span class="sc">/</span> s<span class="sc">$</span>level</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(s, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">caption =</span> <span class="st">"Precision profile; CV goal 20%, total-error goal 30% (assumed goals)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Precision profile; CV goal 20%, total-error goal 30% (assumed goals)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">level</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">cv</th>
+<th style="text-align: right;">total_error_pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">30.12</td>
+<td style="text-align: right;">61.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.19</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">17.23</td>
+<td style="text-align: right;">46.78</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.13</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">9.41</td>
+<td style="text-align: right;">23.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">6.16</td>
+<td style="text-align: right;">13.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8.31</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">6.20</td>
+<td style="text-align: right;">16.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12.39</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">7.66</td>
+<td style="text-align: right;">18.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">20.47</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">6.65</td>
+<td style="text-align: right;">15.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>loq_cv <span class="ot">&lt;-</span> s<span class="sc">$</span>level[<span class="fu">which</span>(s<span class="sc">$</span>cv <span class="sc">&lt;=</span> <span class="dv">20</span>)[<span class="dv">1</span>]]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>loq_te <span class="ot">&lt;-</span> s<span class="sc">$</span>level[<span class="fu">which</span>(s<span class="sc">$</span>total_error_pct <span class="sc">&lt;=</span> <span class="dv">30</span>)[<span class="dv">1</span>]]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model-based: sd^2 = a^2 + b^2 c^2 by weighted lm on variances</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">I</span>(sd<span class="sc">^</span><span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">I</span>(level<span class="sc">^</span><span class="dv">2</span>), s)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>a2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m)[<span class="dv">1</span>]; b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(m)[<span class="dv">2</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>loq_model <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a2 <span class="sc">/</span> (<span class="fl">0.04</span> <span class="sc">-</span> b2))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">LoQ_empirical_CV20 =</span> loq_cv, <span class="at">LoQ_empirical_TE30 =</span> loq_te, <span class="at">LoQ_model_CV20 =</span> <span class="fu">unname</span>(loq_model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LoQ_empirical_CV20 LoQ_empirical_TE30     LoQ_model_CV20 
+          2.000000           3.000000           1.375589 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="linearity-ep06-style-polynomial-comparison-y" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-ep06-style-polynomial-comparison-y">Linearity (EP06 style, polynomial comparison) [Y]</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">8</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">length.out =</span> <span class="dv">9</span>), <span class="at">each =</span> <span class="dv">2</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">+</span> x <span class="sc">-</span> <span class="fl">0.0018</span> <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span>                 <span class="co"># mild saturation</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> mu <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(x), <span class="dv">0</span>, <span class="fl">0.01</span> <span class="sc">*</span> mu)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>chk <span class="ot">&lt;-</span> <span class="fu">linearity_check</span>(x, y, <span class="at">degree =</span> <span class="dv">3</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># hand F-test</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>lin <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x); cub <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>F_hand <span class="ot">&lt;-</span> ((<span class="fu">deviance</span>(lin) <span class="sc">-</span> <span class="fu">deviance</span>(cub)) <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">deviance</span>(cub) <span class="sc">/</span> <span class="fu">df.residual</span>(cub))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">F_function =</span> chk<span class="sc">$</span>F, <span class="at">F_hand =</span> F_hand, <span class="at">p =</span> chk<span class="sc">$</span>p_nonlinear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  F_function       F_hand            p 
+3.502025e+01 3.502025e+01 3.560210e-06 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isTRUE</span>(<span class="fu">all.equal</span>(chk<span class="sc">$</span>F, F_hand)))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">level =</span> <span class="fu">names</span>(chk<span class="sc">$</span>deviation_pct), <span class="at">deviation_pct =</span> <span class="fu">round</span>(chk<span class="sc">$</span>deviation_pct, <span class="dv">2</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">within_5pct =</span> <span class="fu">abs</span>(chk<span class="sc">$</span>deviation_pct) <span class="sc">&lt;=</span> <span class="dv">5</span>),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Deviation of linear from cubic fit (allowable ±5%, assumed goal)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Deviation of linear from cubic fit (allowable &lt;U+00B1&gt;5%, assumed goal)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">level</th>
+<th style="text-align: right;">deviation_pct</th>
+<th style="text-align: left;">within_5pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">11.54</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.5</td>
+<td style="text-align: left;">12.5</td>
+<td style="text-align: right;">1.33</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: right;">-1.81</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">37.5</td>
+<td style="text-align: left;">37.5</td>
+<td style="text-align: right;">-2.59</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: right;">-2.33</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">62.5</td>
+<td style="text-align: left;">62.5</td>
+<td style="text-align: right;">-1.54</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">75</td>
+<td style="text-align: left;">75</td>
+<td style="text-align: right;">-0.50</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">87.5</td>
+<td style="text-align: left;">87.5</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: right;">1.87</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"grey40"</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"#d95f02"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Expected concentration"</span>, <span class="at">y =</span> <span class="st">"Measured"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day03-detection-linearity_files/figure-html/lin-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The F-test shows real curvature, but the decision uses the deviation limit: here only the lowest level exceeds ±5% (the straight line overshoots at the low end), so a defensible claim restricts the linear range to start above it and re-tests. A significant F-test alone is not a failure, and a non-significant one is not proof of linearity in a small study. [Y]</p>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">3</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> Define LoB, LoD and LoQ and how they relate.</p>
+<blockquote class="blockquote">
+<p>LoB = highest value expected from blank samples (95th percentile). LoD = lowest concentration distinguished from LoB with 95% probability. LoQ = lowest concentration meeting a predefined error goal (CV or total error). LoB &lt; LoD &lt;= LoQ. EP17-A2 (2012) is the CLSI document.</p>
+</blockquote>
+<p><strong>Q2.</strong> Write the parametric LoB and LoD.</p>
+<blockquote class="blockquote">
+<p>LoB = mean_blank + 1.645 SD_blank; LoD = LoB + 1.645 SD_low (z for 5% one-sided error each). Plain formulas; EP17’s small-sample correction is not verified (paywalled).</p>
+</blockquote>
+<p><strong>Q3.</strong> When do you prefer the nonparametric LoB and what is its cost?</p>
+<blockquote class="blockquote">
+<p>When blanks are skewed or bounded at 0 (common for signal-derived values). The 95th percentile of ranked blanks is distribution-free but rests on few observations; n = 60 gives about the 3rd largest value, which is noisy.</p>
+</blockquote>
+<p><strong>Q4. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Why does LoD depend on both blank and low-level variability?</p>
+<blockquote class="blockquote">
+<p>The LoB is a decision limit (alpha). A true sample at LoD must exceed it 95% of the time, so its distribution must clear LoB by 1.645 SD_low (beta). If low-level SD is greater than blank SD, LoD rises beyond LoB + 1.645 SD_blank.</p>
+</blockquote>
+<p><strong>Q5. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> When and how do you use a probit analysis for LoD?</p>
+<blockquote class="blockquote">
+<p>For hit/no-hit outcomes (qPCR, qualitative): replicate dilution series, fit probit(p) = b0 + b1 log10(conc), LoD95 = 10^((1.645 - b0)/b1) with delta or bootstrap CI. Needs concentrations that bracket 95%; if all are above it the fit extrapolates.</p>
+</blockquote>
+<p><strong>Q6.</strong> How do you define LoQ?</p>
+<blockquote class="blockquote">
+<p>Lowest level where a predefined goal is met: CV &lt;= goal (functional sensitivity), or total error bias + 1.96 SD &lt;= allowable error, using a precision profile across levels. The goal is clinical, not statistical, and must be set before the study.</p>
+</blockquote>
+<p><strong>Q7. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Your parametric bootstrap gives a CI for LoD. What does it add and what does it not fix?</p>
+<blockquote class="blockquote">
+<p>It shows the uncertainty from limited n (few df for the low-level SD) and propagates both parts. It does not fix non-normality, between-lot/day effects not in the sampling model, or choice of low-level samples. It is my method, not CLSI-prescribed.</p>
+</blockquote>
+<p><strong>Q8.</strong> How would you evaluate linearity?</p>
+<blockquote class="blockquote">
+<p>Dilution series with replicates across the claimed range, fit linear and higher-order polynomial, test the extra terms, then judge the deviation of the linear fit from the best polynomial at each level against an allowable limit. Statistical significance is not equal to clinical relevance. EP06 Ed2 (2020) also supports LLoQ/ULoQ validation; exact designs not verified.</p>
+</blockquote>
+<p><strong>Q9.</strong> What design factors in LoB/LoD studies beyond number of replicates?</p>
+<blockquote class="blockquote">
+<p>Multiple reagent lots, instruments and days so the SD reflects routine variability; blank matrix that matches patient samples; low-level samples made from patient pools. Specific counts are in EP17 (not verified: paywalled).</p>
+</blockquote>
+<p><strong>Q10.</strong> A claimed LoD is 1.9 pg/mL but the clinical cut-off is 220 pg/mL. Why does it matter little?</p>
+<blockquote class="blockquote">
+<p>LoD matters when the decision level is near zero. At cut-offs far above LoD, precision and bias at the cut-off (EP05, EP09) matter more than detection capability.</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>EP17-A2, EP06-Ed2 editions and scope, IVDR Annex I 9.1(a) are in the ledger. Design counts for EP17 and EP06: <em>not verified: paywalled</em>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day02-precision.html" class="pagination-link" aria-label="Day 2. Precision and variance components (EP05, EP15)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/day04-method-comparison.html" class="pagination-link" aria-label="Day 4. Method comparison, bias, interference, stability, lots">
+        <span class="nav-page-text"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

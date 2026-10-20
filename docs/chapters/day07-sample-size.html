@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 7. Sample size and power for diagnostic studies – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/day08-companion-diagnostics.html" rel="next">
+<link href="../chapters/day06-cutoffs.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day07-sample-size.html"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-anchor" id="toc-b-anchor" class="nav-link" data-scroll-target="#b-anchor">(b) Anchor</a></li>
+  <li><a href="#c-r-lab" id="toc-c-r-lab" class="nav-link" data-scroll-target="#c-r-lab">(c) R lab</a>
+  <ul class="collapse">
+  <li><a href="#estimate-sesp-to-a-target-half-width" id="toc-estimate-sesp-to-a-target-half-width" class="nav-link" data-scroll-target="#estimate-sesp-to-a-target-half-width">1. Estimate Se/Sp to a target half-width</a></li>
+  <li><a href="#prevalence-inflates-the-total-n" id="toc-prevalence-inflates-the-total-n" class="nav-link" data-scroll-target="#prevalence-inflates-the-total-n">2. Prevalence inflates the total n</a></li>
+  <li><a href="#show-sensitivity-beats-a-performance-goal-exact-test" id="toc-show-sensitivity-beats-a-performance-goal-exact-test" class="nav-link" data-scroll-target="#show-sensitivity-beats-a-performance-goal-exact-test">3. Show sensitivity beats a performance goal (exact test)</a></li>
+  <li><a href="#auc" id="toc-auc" class="nav-link" data-scroll-target="#auc">4. AUC</a></li>
+  <li><a href="#ppanpa-and-the-indeterminate-fraction" id="toc-ppanpa-and-the-indeterminate-fraction" class="nav-link" data-scroll-target="#ppanpa-and-the-indeterminate-fraction">5. PPA/NPA and the indeterminate fraction</a></li>
+  <li><a href="#design-sizes-for-ep05-and-ep17-type-studies-illustrative" id="toc-design-sizes-for-ep05-and-ep17-type-studies-illustrative" class="nav-link" data-scroll-target="#design-sizes-for-ep05-and-ep17-type-studies-illustrative">6. Design sizes for EP05 and EP17-type studies (illustrative)</a></li>
+  </ul></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis, <strong>[A]</strong> assumption. Every number below is computed two ways (package vs hand, or hand vs simulation).</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Goal</th>
+<th>Quantity to fix</th>
+<th>Typical output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estimate Se or Sp precisely</td>
+<td>CI half-width <em>d</em>, expected Se/Sp, prevalence</td>
+<td>n cases, then total n = cases / prevalence</td>
+</tr>
+<tr class="even">
+<td>Show Se (or Sp) exceeds a <strong>performance goal</strong></td>
+<td>goal p0, expected p1, α, power</td>
+<td>n cases (exact binomial)</td>
+</tr>
+<tr class="odd">
+<td>Show AUC &gt; AUC0 or estimate AUC precisely</td>
+<td>expected AUC, null, group ratio</td>
+<td>n cases and controls</td>
+</tr>
+<tr class="even">
+<td>PPA/NPA vs a comparator</td>
+<td>as Se/Sp but denominators are <em>comparator</em>-positive/negative</td>
+<td>total n via comparator prevalence</td>
+</tr>
+<tr class="odd">
+<td>Precision studies</td>
+<td>days, runs, replicates</td>
+<td>degrees of freedom → CI width</td>
+</tr>
+<tr class="even">
+<td>LoB/LoD</td>
+<td>number of blanks and low samples</td>
+<td>precision of the percentile / SD</td>
+</tr>
+</tbody>
+</table>
+<p>Total n is driven by the <strong>rarest class</strong>: for sensitivity you need cases, and cases arrive at the rate of the prevalence. [Y]</p>
+</section>
+<section id="b-anchor" class="level2">
+<h2 class="anchored" data-anchor-id="b-anchor">(b) Anchor</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Verified fact</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Buderer 1996</td>
+<td>“Statistical methodology: I. Incorporating the prevalence of disease into the sample size calculation for sensitivity and specificity.” Acad Emerg Med 3(9):895-900. Sample size from desired precision, hypothesised Se/Sp and prevalence</td>
+<td>[S] abstract</td>
+</tr>
+<tr class="even">
+<td>Flahault et al.&nbsp;2005</td>
+<td>J Clin Epidemiol 58(8):859-862. Case numbers for expected sensitivity 0.60-0.99 and acceptable lower 95% limit 0.50-0.98, with 5% probability the estimated lower limit falls below the acceptable level</td>
+<td>[S] abstract; tables not opened</td>
+</tr>
+<tr class="odd">
+<td>Hanley &amp; McNeil 1982</td>
+<td>Radiology 143(1):29-36. SE formulas for AUC; AUC = P(case &gt; control)</td>
+<td>[S] abstract</td>
+</tr>
+<tr class="even">
+<td>Obuchowski</td>
+<td>AJR 2000;175:603-8 “Sample size tables for ROC studies” (multi-observer imaging). The 1994 Invest Radiol paper is also a candidate; <strong>the citation in the brief is ambiguous</strong></td>
+<td>[S] metadata</td>
+</tr>
+<tr class="odd">
+<td>IVDR Annex XIII Part A 2.3.2</td>
+<td>The clinical performance study plan must justify statistical design and population size (items (j), (m))</td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>Design counts in EP05/EP17 (days, blanks)</td>
+<td>Public: EP05-A3 20×2×2. EP17 counts <em>not verified: paywalled</em></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-r-lab" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab">(c) R lab</h2>
+<section id="estimate-sesp-to-a-target-half-width" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-sesp-to-a-target-half-width">1. Estimate Se/Sp to a target half-width</h3>
+<p>Expected Se = 0.90, half-width ±0.05, prevalence 0.20.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.05</span>; se <span class="ot">&lt;-</span> <span class="fl">0.90</span>; prev <span class="ot">&lt;-</span> <span class="fl">0.20</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>hand_wald <span class="ot">&lt;-</span> <span class="fu">n_buderer</span>(se, d, prev)                               <span class="co"># Buderer, normal approximation</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pz <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(se, <span class="at">prev =</span> prev, <span class="at">conf.width =</span> <span class="dv">2</span> <span class="sc">*</span> d)              <span class="co"># Wilson-based (presize)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cases_wald <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">qnorm</span>(.<span class="dv">975</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> se <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> se) <span class="sc">/</span> d<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"Buderer / Wald (hand)"</span>, <span class="st">"presize Wilson"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Cases</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(cases_wald, <span class="fu">ceiling</span>(pz<span class="sc">$</span>n)),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Total n at prevalence 0.20</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(hand_wald, <span class="fu">ceiling</span>(pz<span class="sc">$</span>ntot)),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">Cases</th>
+<th style="text-align: right;">Total n at prevalence 0.20</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Buderer / Wald (hand)</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">692</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">presize Wilson</td>
+<td style="text-align: right;">141</td>
+<td style="text-align: right;">705</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simulation: achieved Wilson half-width at n = 141 cases</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">71</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hw <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">5000</span>, { x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="dv">141</span>, se); w <span class="ot">&lt;-</span> <span class="fu">ci_wilson</span>(x, <span class="dv">141</span>); (w[[<span class="st">"upper"</span>]] <span class="sc">-</span> w[[<span class="st">"lower"</span>]]) <span class="sc">/</span> <span class="dv">2</span> })</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sim_mean_halfwidth =</span> <span class="fu">mean</span>(hw))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sim_mean_halfwidth 
+        0.04964971 </code></pre>
+</div>
+</div>
+<p>Wald slightly under-sizes relative to Wilson at p = 0.9 (139 vs 141 cases); the simulation confirms the Wilson design reaches ±0.05. [Y]</p>
+</section>
+<section id="prevalence-inflates-the-total-n" class="level3">
+<h3 class="anchored" data-anchor-id="prevalence-inflates-the-total-n">2. Prevalence inflates the total n</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.20</span>, <span class="fl">0.40</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Prevalence =</span> pv,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Total n for Se +-0.05</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sapply</span>(pv, <span class="cf">function</span>(p) <span class="fu">ceiling</span>(<span class="fu">prec_sens</span>(<span class="fl">0.9</span>, <span class="at">prev =</span> p, <span class="at">conf.width =</span> <span class="fl">0.1</span>)<span class="sc">$</span>ntot)),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Total n for Sp +-0.05</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sapply</span>(pv, <span class="cf">function</span>(p) <span class="fu">ceiling</span>(<span class="fu">prec_spec</span>(<span class="fl">0.9</span>, <span class="at">prev =</span> p, <span class="at">conf.width =</span> <span class="fl">0.1</span>)<span class="sc">$</span>ntot)),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">caption =</span> <span class="st">"Se = Sp = 0.90. Rare condition: huge n for sensitivity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Se = Sp = 0.90. Rare condition: huge n for sensitivity</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Prevalence</th>
+<th style="text-align: right;">Total n for Se +-0.05</th>
+<th style="text-align: right;">Total n for Sp +-0.05</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">14098</td>
+<td style="text-align: right;">143</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2820</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1410</td>
+<td style="text-align: right;">157</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">705</td>
+<td style="text-align: right;">177</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">353</td>
+<td style="text-align: right;">235</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>When prevalence is low, enrich (case-control or stratified sampling) and state the consequence: PPV/NPV cannot be read from an enriched sample without reweighting. [Y]</p>
+</section>
+<section id="show-sensitivity-beats-a-performance-goal-exact-test" class="level3">
+<h3 class="anchored" data-anchor-id="show-sensitivity-beats-a-performance-goal-exact-test">3. Show sensitivity beats a performance goal (exact test)</h3>
+<p>Expected Se p1 = 0.90, goal p0 = 0.80, one-sided α = 0.025 (matches a two-sided 95% CI), power 80%.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_hand <span class="ot">&lt;-</span> <span class="fu">n_exact_goal_stable</span>(<span class="fl">0.90</span>, <span class="fl">0.80</span>, <span class="at">alpha =</span> <span class="fl">0.025</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_mk   <span class="ot">&lt;-</span> <span class="fu">power.diagnostic.test</span>(<span class="at">sens =</span> <span class="fl">0.9</span>, <span class="at">delta =</span> <span class="fl">0.1</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.025</span>, <span class="at">prev =</span> <span class="fl">0.2</span>)<span class="sc">$</span>n</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simulation: power at n_hand with exact one-sided binom.test</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">72</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>pw <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">4000</span>, <span class="fu">binom.test</span>(<span class="fu">rbinom</span>(<span class="dv">1</span>, n_hand, .<span class="dv">9</span>), n_hand, <span class="at">p =</span> .<span class="dv">8</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)<span class="sc">$</span>p.value <span class="sc">&lt;</span> .<span class="dv">025</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># closed-form normal approximation</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>za <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(.<span class="dv">975</span>); zb <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(.<span class="dv">80</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>n_norm <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(((za <span class="sc">*</span> <span class="fu">sqrt</span>(.<span class="dv">8</span> <span class="sc">*</span> .<span class="dv">2</span>) <span class="sc">+</span> zb <span class="sc">*</span> <span class="fu">sqrt</span>(.<span class="dv">9</span> <span class="sc">*</span> .<span class="dv">1</span>)) <span class="sc">/</span> (.<span class="dv">9</span> <span class="sc">-</span> .<span class="dv">8</span>))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"exact, hand (stable)"</span>, <span class="st">"MKmisc::power.diagnostic.test"</span>, <span class="st">"normal approximation"</span>, <span class="st">"simulated power at n(hand)"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Value =</span> <span class="fu">c</span>(n_hand, n_mk, n_norm, <span class="fu">round</span>(pw, <span class="dv">3</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">exact, hand (stable)</td>
+<td style="text-align: right;">113.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MKmisc::power.diagnostic.test</td>
+<td style="text-align: right;">113.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">normal approximation</td>
+<td style="text-align: right;">108.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">simulated power at n(hand)</td>
+<td style="text-align: right;">0.843</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(n_hand <span class="sc">==</span> n_mk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Exact power is a <strong>sawtooth</strong> in n (discreteness); report the smallest n above which power never falls below target. Total n = cases / prevalence. [Y] My reading of Flahault 2005 is the same type of calculation (expected Se vs an acceptable lower limit); its tables were not opened.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="dv">40</span><span class="sc">:</span><span class="dv">200</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ns, <span class="fu">sapply</span>(ns, power_exact_goal, <span class="at">p1 =</span> .<span class="dv">9</span>, <span class="at">p0 =</span> .<span class="dv">8</span>), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="st">"cases"</span>, <span class="at">ylab =</span> <span class="st">"exact power"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> .<span class="dv">8</span>, <span class="at">lty =</span> <span class="dv">2</span>); <span class="fu">abline</span>(<span class="at">v =</span> n_hand, <span class="at">lty =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day07-sample-size_files/figure-html/sawtooth-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="auc" class="level3">
+<h3 class="anchored" data-anchor-id="auc">4. AUC</h3>
+<p>Expected AUC 0.90; test against AUC0 = 0.75, two-sided α = 0.05, 80% power, 1:1 cases:controls.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>n_h <span class="ot">&lt;-</span> <span class="fu">n_auc_hm</span>(<span class="fl">0.90</span>, <span class="fl">0.75</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># simulation with the binormal model: AUC = pnorm(delta/sqrt(2)) for equal unit variances</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>delta <span class="ot">&lt;-</span> <span class="cf">function</span>(a) <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(a)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">73</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>sim_power <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">a1 =</span> <span class="fl">0.90</span>, <span class="at">a0 =</span> <span class="fl">0.75</span>, <span class="at">reps =</span> <span class="dv">600</span>) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(reps, {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    cs <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="fu">delta</span>(a1)); ct <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">roc</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">0</span>, <span class="at">each =</span> n), <span class="fu">c</span>(cs, ct), <span class="at">quiet =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">"&lt;"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    ci <span class="ot">&lt;-</span> <span class="fu">ci.auc</span>(r, <span class="at">method =</span> <span class="st">"delong"</span>)            <span class="co"># reject if the lower 95% limit exceeds AUC0</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">as.numeric</span>(ci)[<span class="dv">1</span>] <span class="sc">&gt;</span> a0)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  }))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">24</span>, <span class="dv">28</span>, n_h)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="st">`</span><span class="at">Cases = controls</span><span class="st">`</span> <span class="ot">=</span> grid, <span class="st">`</span><span class="at">Simulated power</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sapply</span>(grid, sim_power),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">check.names =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="fu">sprintf</span>(<span class="st">"Hanley-McNeil n = %d per group; power by simulation (600 reps)"</span>, n_h))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Hanley-McNeil n = 34 per group; power by simulation (600 reps)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cases = controls</th>
+<th style="text-align: right;">Simulated power</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.7800000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.8550000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.8766667</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.9266667</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The Hanley–McNeil formula is <strong>conservative</strong> here: the simulated power at its n is well above 80%, and 80% is reached with fewer subjects. The simulated rule (DeLong lower 95% limit &gt; AUC0) is a one-sided α = 0.025 test, which is the same critical value as the two-sided 0.05 used in the formula, so the gap comes from the variance approximation, not the α. Use the formula to plan, simulation to confirm. [Y]</p>
+<p>Cross-check against <code>pROC::power.roc.test</code> (which handles AUC vs 0.5 only) and <code>presize</code> (CI half-width):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n_h5 <span class="ot">&lt;-</span> <span class="fu">n_auc_hm</span>(<span class="fl">0.75</span>, <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pr <span class="ot">&lt;-</span> <span class="fu">power.roc.test</span>(<span class="at">auc =</span> <span class="fl">0.75</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Check =</span> <span class="fu">c</span>(<span class="st">"HM hand, AUC 0.75 vs 0.5"</span>, <span class="st">"pROC::power.roc.test, same"</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Cases (= controls)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(n_h5, <span class="fu">ceiling</span>(pr<span class="sc">$</span>ncases)), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Check</th>
+<th style="text-align: right;">Cases (= controls)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HM hand, AUC 0.75 vs 0.5</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pROC::power.roc.test, same</td>
+<td style="text-align: right;">19</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># precision: n for 95% CI width 0.10 at AUC 0.90, prevalence 0.4</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">prec_auc</span>(<span class="fl">0.9</span>, <span class="at">prev =</span> <span class="fl">0.4</span>, <span class="at">conf.width =</span> <span class="fl">0.10</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>hm_hw <span class="ot">&lt;-</span> <span class="cf">function</span>(n1) <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">var_auc_hm</span>(<span class="fl">0.9</span>, n1, <span class="fl">1.5</span> <span class="sc">*</span> n1))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>n1_hand <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">uniroot</span>(<span class="cf">function</span>(n1) <span class="fu">hm_hw</span>(n1) <span class="sc">-</span> <span class="fl">0.05</span>, <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">2000</span>))<span class="sc">$</span>root)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">presize_cases =</span> <span class="fu">ceiling</span>(pa<span class="sc">$</span>n1), <span class="at">HM_hand_cases =</span> n1_hand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>presize_cases HM_hand_cases 
+           75            75 </code></pre>
+</div>
+</div>
+</section>
+<section id="ppanpa-and-the-indeterminate-fraction" class="level3">
+<h3 class="anchored" data-anchor-id="ppanpa-and-the-indeterminate-fraction">5. PPA/NPA and the indeterminate fraction</h3>
+<p>When intermediates count as non-agreement, the quantity to size is PPA_incl = Se_det·(1 − f_D) where f_D is the intermediate fraction among comparator-positives.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.10</span>, <span class="fl">0.20</span>, <span class="fl">0.30</span>), <span class="cf">function</span>(f) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> <span class="fl">0.94</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> f)                         <span class="co"># assumed determinate sensitivity 0.94</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="st">`</span><span class="at">Intermediate fraction</span><span class="st">`</span> <span class="ot">=</span> f, <span class="st">`</span><span class="at">Expected PPA incl.</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(p1, <span class="dv">3</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Cases for +-0.05 (Wilson)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(<span class="fu">prec_sens</span>(p1, <span class="at">conf.width =</span> <span class="fl">0.10</span>, <span class="at">prev =</span> <span class="dv">1</span>)<span class="sc">$</span>n),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Total n needed for 300 determinate cases</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(<span class="dv">300</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> f)), <span class="at">check.names =</span> <span class="cn">FALSE</span>)}))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab, <span class="at">caption =</span> <span class="st">"Se among determinate = 0.94 [A]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Se among determinate = 0.94 [A]</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 24%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Intermediate fraction</th>
+<th style="text-align: right;">Expected PPA incl.</th>
+<th style="text-align: right;">Cases for +-0.05 (Wilson)</th>
+<th style="text-align: right;">Total n needed for 300 determinate cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.940</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">300</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.846</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">334</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.752</td>
+<td style="text-align: right;">285</td>
+<td style="text-align: right;">375</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.658</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">429</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Two decisions to pre-specify: the endpoint <strong>including</strong> vs excluding indeterminates, and the sample size to secure enough <em>determinate</em> results (divide by 1 − f). [Y]</p>
+</section>
+<section id="design-sizes-for-ep05-and-ep17-type-studies-illustrative" class="level3">
+<h3 class="anchored" data-anchor-id="design-sizes-for-ep05-and-ep17-type-studies-illustrative">6. Design sizes for EP05 and EP17-type studies (illustrative)</h3>
+<p><strong>Precision, CI width of within-lab SD versus number of days.</strong> Satterthwaite df of the sum of mean squares; hand check against VCA’s DF for the Day 2 data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sat_df <span class="ot">&lt;-</span> <span class="cf">function</span>(ms, D, R, K) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  cf <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">day =</span> <span class="dv">1</span> <span class="sc">/</span> (R <span class="sc">*</span> K), <span class="at">run =</span> (R <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (R <span class="sc">*</span> K), <span class="at">err =</span> (K <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> K)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">c</span>(D <span class="sc">-</span> <span class="dv">1</span>, D <span class="sc">*</span> (R <span class="sc">-</span> <span class="dv">1</span>), D <span class="sc">*</span> R <span class="sc">*</span> (K <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(cf <span class="sc">*</span> ms)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">sum</span>((cf <span class="sc">*</span> ms)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> df)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># MS from the Day 2 simulated study (VCA output): day 9.906929, run 5.628042, error 4.808839</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>df_hand <span class="ot">&lt;-</span> <span class="fu">sat_df</span>(<span class="fu">c</span>(<span class="fl">9.906929</span>, <span class="fl">5.628042</span>, <span class="fl">4.808839</span>), <span class="dv">20</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">hand =</span> df_hand, <span class="at">VCA_reported =</span> <span class="fl">69.815065</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        hand VCA_reported 
+    69.81506     69.81507 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(df_hand <span class="sc">-</span> <span class="fl">69.815065</span>) <span class="sc">&lt;</span> <span class="fl">1e-3</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ci_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(D, <span class="at">R =</span> <span class="dv">2</span>, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">sd_d =</span> <span class="fl">1.2</span>, <span class="at">sd_r =</span> <span class="fl">1.5</span>, <span class="at">sd_e =</span> <span class="dv">2</span>) {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  ms <span class="ot">&lt;-</span> <span class="fu">c</span>(sd_e<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> K <span class="sc">*</span> sd_r<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> R <span class="sc">*</span> K <span class="sc">*</span> sd_d<span class="sc">^</span><span class="dv">2</span>, sd_e<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> K <span class="sc">*</span> sd_r<span class="sc">^</span><span class="dv">2</span>, sd_e<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">sat_df</span>(ms, D, R, K)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">days =</span> D, <span class="at">df =</span> df, <span class="st">`</span><span class="at">upper/estimate</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sqrt</span>(df <span class="sc">/</span> <span class="fu">qchisq</span>(.<span class="dv">025</span>, df)), <span class="st">`</span><span class="at">lower/estimate</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sqrt</span>(df <span class="sc">/</span> <span class="fu">qchisq</span>(.<span class="dv">975</span>, df)))</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>), ci_ratio)), <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Expected 95% CI of within-lab SD as multiples of the estimate (2 runs x 2 replicates)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Expected 95% CI of within-lab SD as multiples of the estimate (2 runs x 2 replicates)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">days</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">upper/estimate</th>
+<th style="text-align: right;">lower/estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">13.199</td>
+<td style="text-align: right;">1.604</td>
+<td style="text-align: right;">0.726</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">28.655</td>
+<td style="text-align: right;">1.347</td>
+<td style="text-align: right;">0.795</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">59.452</td>
+<td style="text-align: right;">1.219</td>
+<td style="text-align: right;">0.848</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">90.224</td>
+<td style="text-align: right;">1.171</td>
+<td style="text-align: right;">0.873</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">120.990</td>
+<td style="text-align: right;">1.144</td>
+<td style="text-align: right;">0.888</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>LoB: precision of the 95th percentile vs number of blanks.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">74</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sim_lob <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">B =</span> <span class="dv">4000</span>) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { b <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n); <span class="fu">c</span>(<span class="at">np =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(b, .<span class="dv">95</span>, <span class="at">type =</span> <span class="dv">6</span>)), <span class="at">par =</span> <span class="fu">mean</span>(b) <span class="sc">+</span> <span class="fl">1.645</span> <span class="sc">*</span> <span class="fu">sd</span>(b)) })</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">blanks =</span> n, <span class="st">`</span><span class="at">SD nonparametric</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sd</span>(p[<span class="st">"np"</span>, ]), <span class="st">`</span><span class="at">SD parametric</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sd</span>(p[<span class="st">"par"</span>, ]),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">theory SD parametric</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> n <span class="sc">+</span> <span class="fl">1.645</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> (n <span class="sc">-</span> <span class="dv">1</span>))), <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">60</span>, <span class="dv">120</span>, <span class="dv">240</span>), sim_lob)), <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Blank ~ N(0,1): SD of the LoB estimate (units of the blank SD)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Blank ~ N(0,1): SD of the LoB estimate (units of the blank SD)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">blanks</th>
+<th style="text-align: right;">SD nonparametric</th>
+<th style="text-align: right;">SD parametric</th>
+<th style="text-align: right;">theory SD parametric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.514</td>
+<td style="text-align: right;">0.344</td>
+<td style="text-align: right;">0.348</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0.280</td>
+<td style="text-align: right;">0.199</td>
+<td style="text-align: right;">0.199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">0.197</td>
+<td style="text-align: right;">0.143</td>
+<td style="text-align: right;">0.140</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">0.136</td>
+<td style="text-align: right;">0.099</td>
+<td style="text-align: right;">0.099</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The parametric estimator is more precise (it uses all data and the normal assumption); the closed form <code>sqrt(1/n + 1.645²/(2(n−1)))</code> agrees with the simulation. [Y]</p>
+</section>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">7</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> How many subjects do you need to estimate sensitivity to +-5% when you expect 90% and prevalence is 20%?</p>
+<blockquote class="blockquote">
+<p>Cases: n = z^2 p(1-p)/d^2 = 1.96^2*0.09/0.0025 = 138 (Wald); Wilson-based presize gives 141. Total = cases / prevalence = about 692-705. The prevalence turns 140 cases into about 700 subjects.</p>
+</blockquote>
+<p><strong>Q2.</strong> Why does prevalence inflate sample size for sensitivity but not for specificity?</p>
+<blockquote class="blockquote">
+<p>Sensitivity uses only cases, specificity only non-cases. Total n = n_cases/prev for sensitivity and n_controls/(1-prev) for specificity. At low prevalence cases are scarce. Fix: enriched sampling, with PPV/NPV reweighted to the true prevalence.</p>
+</blockquote>
+<p><strong>Q3. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How do you size a study to show sensitivity exceeds an 80% performance goal?</p>
+<blockquote class="blockquote">
+<p>Choose the expected true sensitivity (say 90%), one-sided alpha (0.025), power (80%); use the exact binomial test: about 94-113 cases depending on alpha (0.05 -&gt; 94, 0.025 -&gt; 113 in my calculation). Check by simulation and note the sawtooth in exact power.</p>
+</blockquote>
+<p><strong>Q4.</strong> Why is exact power not monotone in n?</p>
+<blockquote class="blockquote">
+<p>The binomial is discrete: the critical count jumps by integers while power varies smoothly, so power can fall when n increases by one. Report the smallest n beyond which power stays above target.</p>
+</blockquote>
+<p><strong>Q5.</strong> How do you choose the expected sensitivity to size the study?</p>
+<blockquote class="blockquote">
+<p>From prior studies or pilot data, shaded conservatively (use the lower end of a prior CI), and show a sensitivity table over a range. Over-optimism leads to underpowered studies; the goal itself comes from clinical need or comparators.</p>
+</blockquote>
+<p><strong>Q6. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How do you size a study for AUC?</p>
+<blockquote class="blockquote">
+<p>Specify expected AUC, AUC0 (null or goal), alpha, power, case:control ratio, then use Hanley-McNeil (or DeLong-based) variances. Cross-check with pROC::power.roc.test (versus 0.5) and presize::prec_auc (CI width) and simulation.</p>
+</blockquote>
+<p><strong>Q7. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How does a 20% indeterminate fraction change the plan?</p>
+<blockquote class="blockquote">
+<p>If intermediates count as misses, expected PPA falls (94% determinate sensitivity x 0.8 = 75%), so the goal must be set on that scale; if you need a number of determinate cases, inflate n by 1/(1-f). Pre-specify which endpoint is primary.</p>
+</blockquote>
+<p><strong>Q8.</strong> Why does a precision study need many days?</p>
+<blockquote class="blockquote">
+<p>Df for the day component is days-1; within-lab SD CI is driven by that df. 20 days with 2x2 per day gives about 70 Satterthwaite df and an expected 95% CI of about 0.85-1.22 times the estimate in my example (0.80-1.35 with 10 days).</p>
+</blockquote>
+<p><strong>Q9.</strong> How many blanks for LoB?</p>
+<blockquote class="blockquote">
+<p>EP17 gives numbers (not verified, paywalled). Statistically, the parametric LoB SD is about sqrt(1/n + 1.645^2/(2(n-1))) x SD_blank; the nonparametric 95th percentile is noisier, so n of 60 or more is a reasonable starting point for a nonparametric claim.</p>
+</blockquote>
+<p><strong>Q10.</strong> Name sources for diagnostic sample size and say what each gives.</p>
+<blockquote class="blockquote">
+<p>Buderer 1996 (Se/Sp with prevalence), Flahault et al.&nbsp;2005 (case tables for an acceptable lower limit), Hanley and McNeil 1982 (AUC SE), Obuchowski (ROC sample size tables, AJR 2000 / Invest Radiol 1994), Zhou, Obuchowski and McClish (textbook). Tools: presize, MKmisc, pROC.</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>Buderer, Flahault, Hanley–McNeil, Obuchowski metadata and the ambiguity of the Obuchowski reference are in the ledger.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day06-cutoffs.html" class="pagination-link" aria-label="Day 6. Cut-offs, two-cut-off designs and the intermediate zone">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/day08-companion-diagnostics.html" class="pagination-link" aria-label="Day 8. Companion diagnostics and bridging statistics">
+        <span class="nav-page-text"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

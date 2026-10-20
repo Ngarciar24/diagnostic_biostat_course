@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Interview bank – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cheatsheet.html" rel="next">
+<link href="./chapters/day10-reference-longitudinal.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interview_bank.html"><span class="chapter-title">Interview bank</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interview_bank.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#day-1.-the-landscape-and-vocabulary" id="toc-day-1.-the-landscape-and-vocabulary" class="nav-link active" data-scroll-target="#day-1.-the-landscape-and-vocabulary">Day 1. The landscape and vocabulary</a></li>
+  <li><a href="#day-2.-precision-and-variance-components" id="toc-day-2.-precision-and-variance-components" class="nav-link" data-scroll-target="#day-2.-precision-and-variance-components">Day 2. Precision and variance components</a></li>
+  <li><a href="#day-3.-detection-capability-and-linearity" id="toc-day-3.-detection-capability-and-linearity" class="nav-link" data-scroll-target="#day-3.-detection-capability-and-linearity">Day 3. Detection capability and linearity</a></li>
+  <li><a href="#day-4.-method-comparison-bias-interference-stability-lots" id="toc-day-4.-method-comparison-bias-interference-stability-lots" class="nav-link" data-scroll-target="#day-4.-method-comparison-bias-interference-stability-lots">Day 4. Method comparison, bias, interference, stability, lots</a></li>
+  <li><a href="#day-5.-diagnostic-accuracy-and-roc" id="toc-day-5.-diagnostic-accuracy-and-roc" class="nav-link" data-scroll-target="#day-5.-diagnostic-accuracy-and-roc">Day 5. Diagnostic accuracy and ROC</a></li>
+  <li><a href="#day-6.-cut-offs-two-cut-offs-intermediate-zone-ptau217" id="toc-day-6.-cut-offs-two-cut-offs-intermediate-zone-ptau217" class="nav-link" data-scroll-target="#day-6.-cut-offs-two-cut-offs-intermediate-zone-ptau217">Day 6. Cut-offs, two cut-offs, intermediate zone (pTau217)</a></li>
+  <li><a href="#day-7.-sample-size-and-power" id="toc-day-7.-sample-size-and-power" class="nav-link" data-scroll-target="#day-7.-sample-size-and-power">Day 7. Sample size and power</a></li>
+  <li><a href="#day-8.-companion-diagnostics-and-bridging" id="toc-day-8.-companion-diagnostics-and-bridging" class="nav-link" data-scroll-target="#day-8.-companion-diagnostics-and-bridging">Day 8. Companion diagnostics and bridging</a></li>
+  <li><a href="#day-9.-statistical-analysis-plan" id="toc-day-9.-statistical-analysis-plan" class="nav-link" data-scroll-target="#day-9.-statistical-analysis-plan">Day 9. Statistical analysis plan</a></li>
+  <li><a href="#day-10.-reference-intervals-longitudinal-rehearsal" id="toc-day-10.-reference-intervals-longitudinal-rehearsal" class="nav-link" data-scroll-target="#day-10.-reference-intervals-longitudinal-rehearsal">Day 10. Reference intervals, longitudinal, rehearsal</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Interview bank</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>100 questions, grouped by topic (chapter day). ★ marks the <strong>three hardest per topic</strong>. Answers are collapsed; say yours aloud first. Statements tagged “not verified: paywalled” in an answer are exactly what to avoid asserting as fact.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> <span class="fu">sort</span>(<span class="fu">unique</span>(q<span class="sc">$</span>day))) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"## Day %d. %s</span><span class="sc">\n\n</span><span class="st">"</span>, d, topics[d]))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> q[q<span class="sc">$</span>day <span class="sc">==</span> d, ]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(s))) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    star <span class="ot">&lt;-</span> <span class="cf">if</span> (s<span class="sc">$</span>hardest[i]) <span class="st">"★ "</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"**%s%d.%d** %s</span><span class="sc">\n\n</span><span class="st">"</span>, star, d, i, s<span class="sc">$</span>question[i]))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">'::: {.callout-note collapse="true" title="Answer"}</span><span class="sc">\n</span><span class="st">'</span>, s<span class="sc">$</span>answer[i], <span class="st">'</span><span class="sc">\n</span><span class="st">:::</span><span class="sc">\n\n</span><span class="st">'</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="day-1.-the-landscape-and-vocabulary" class="level2">
+<h2 class="anchored" data-anchor-id="day-1.-the-landscape-and-vocabulary">Day 1. The landscape and vocabulary</h2>
+<p><strong>1.1</strong> Distinguish analytical performance, clinical performance and scientific validity as the IVDR uses them.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Analytical performance = ability to correctly detect or measure an analyte (Art 2(40)). Clinical performance = ability to yield results correlated with a clinical condition in the target population (Art 2(41)). Scientific validity is defined for the analyte: the association of the analyte with a clinical condition or physiological state (Art 2(38)). Art 56(3) makes the three pillars of a performance evaluation.</p>
+</div>
+</div>
+</div>
+<p><strong>1.2</strong> Clinical validity versus clinical utility - what is the difference, and which one does an IVD CE-mark require?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Clinical validity: does the result correlate with / discriminate the condition (sens, spec, PPV, NPV…). Clinical utility: does using the test improve patient outcomes or decisions. IVDR requires scientific validity plus analytical and clinical performance; it speaks of clinical benefit/evidence generally, but does not require outcome trials for typical IVDs. (My synthesis; the IVDR defines no term ‘clinical utility’.)</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 1.3</strong> Why are companion diagnostics class C, and what is special about their conformity assessment?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Annex VIII Rule 3(f) lists devices ‘to be used as companion diagnostics’ under class C. Beyond a notified body, the NB must consult a medicines authority (a competent authority under Directive 2001/83/EC or the EMA, as applicable) on suitability of the CDx for the medicinal product - Art 48(7) for class C via Annex IX 5.2, Art 48(8) via Annex X 3(k). (The brief says Rule 3(f), class C: confirmed.)</p>
+</div>
+</div>
+</div>
+<p><strong>1.4</strong> Name the IVDR classes and give an example rule for each.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: general lab products, instruments, specimen receptacles (Rule 5). B: default class (Rule 6) and controls without assigned values (Rule 7). C: Rule 3 group (e.g.&nbsp;cancer screening/diagnosis/staging 3(h), human genetic testing 3(i), CDx 3(f)), also most self-tests (Rule 4). D: Rule 1 (e.g.&nbsp;transmissible agents in blood donations); ABO/Rhesus blood group markers under Rule 2.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 1.5</strong> What do Articles 47-48 versus Annex I cover? A colleague says they are the safety requirements.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Art 47 = classification of devices; Art 48 = conformity assessment procedures. General safety and performance requirements (GSPR) are Annex I; the analytical-performance list is Annex I 9.1(a) (sensitivity, specificity, trueness, precision, LoD/LoQ, measuring range, linearity, cut-off) and clinical is 9.1(b) (diagnostic sensitivity/specificity, PPV, NPV, likelihood ratio, expected values).</p>
+</div>
+</div>
+</div>
+<p><strong>1.6</strong> What is in a performance evaluation plan and report (Annex XIII Part A)?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Plan: includes methods with the statistical tools and acceptance criteria. Report: scientific validity report, analytical performance report, clinical performance report, and an assessment (A 1.3.2). Clinical performance studies are to be carried out unless duly justified (Art 56(4)). Updated by PMPF (Part B); class C and D reports updated at least annually (Art 56(6)).</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 1.7</strong> 510(k), De Novo, PMA: what do ‘cleared’, ‘granted’ and ‘approved’ mean?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>510(k): substantial equivalence to a predicate -&gt; ‘cleared’ (typically class II). De Novo: new low/moderate-risk device without predicate -&gt; ‘granted’ (class I/II), creates a predicate. PMA: scientific and regulatory review of class III devices -&gt; ‘approved’. (FDA gives no single sentence defining all three verbs; this mapping is a synthesis.) Many CDx are PMA, but the 2014 guidance footnote notes some class II 510(k) cases. The Elecsys pTau217 test was a 510(k) clearance (K261686).</p>
+</div>
+</div>
+</div>
+<p><strong>1.8</strong> Which documents guide the design of a clinical performance study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>IVDR Annex XIII Part A 2.3.2 (the plan items incl.&nbsp;statistical design, endpoints, population size, method for determining true clinical status), ISO 20916:2019 (good study practice for clinical performance studies using specimens from human subjects), MDCG 2022-2 (general principles of clinical evidence for IVDs, Jan 2022), plus FDA guidance and STARD 2015 for reporting.</p>
+</div>
+</div>
+</div>
+<p><strong>1.9</strong> How would you map a question like ‘Is a new reagent lot acceptable?’ to a CLSI document?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>EP26 Ed2 (2022) - user evaluation of acceptability of a reagent lot change. In general EP19 Ed3 (2022) is the framework that points to the EP documents; I know it is organised around the Test Life Phases Model but its full TOC is paywalled.</p>
+</div>
+</div>
+</div>
+<p><strong>1.10</strong> What is the current IVDR transition position?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reg (EU) 2024/1860 (OJ 9 July 2024): legacy certificates stay valid until 31 Dec 2027; devices that newly need a notified body get 31 Dec 2027 (D), 2028 (C), 2029 (B/sterile A) subject to conditions (QMS and NB application by set dates). A Commission simplification proposal (COM(2025) 1023, Dec 2025) exists; status ‘proposal’ only - check before quoting.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-2.-precision-and-variance-components" class="level2">
+<h2 class="anchored" data-anchor-id="day-2.-precision-and-variance-components">Day 2. Precision and variance components</h2>
+<p><strong>2.1</strong> Describe the single-site EP05-A3 precision design and what it estimates.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>20 operating days x 2 runs/day x 2 replicates per sample (EP05-A3, 2014 [S: CLSI press release]). A nested (day &gt; run &gt; replicate) random-effects model gives repeatability (within-run), between-run, between-day and within-laboratory (total single-site) imprecision. Note EP05 is now Ed4 (Dec 2025); I know the Ed4 design only as ‘not verified: paywalled’.</p>
+</div>
+</div>
+</div>
+<p><strong>2.2</strong> How is within-laboratory precision computed from the components?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Add the variances, not the SDs - within-lab SD = sqrt(var_day + var_run + var_repeatability). CV% = 100 x SD / grand mean at that level. Components estimated by ANOVA (method of moments) or REML; identical for balanced data.</p>
+</div>
+</div>
+</div>
+<p><strong>2.3</strong> Why can a variance-component estimate be negative, and what do you report?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In ANOVA, (MS_between - MS_within)/k can be &lt; 0 by sampling noise when the true component is near 0. Report it as 0 (truncate) for the total, state that, and note CI lower limits are constrained at 0. REML/Bayesian estimators cannot go below 0 by construction.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 2.4</strong> How do you get a CI for a variance component or for the within-lab SD?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Chi-square intervals with Satterthwaite-approximated degrees of freedom for the sum of mean squares (what VCA::VCAinference does in its ‘SAS’ mode). The effective df of within-lab SD is ~70 for 20x2x2 - lower than the 80 observations suggest, because day carries only 19 df.</p>
+</div>
+</div>
+</div>
+<p><strong>2.5</strong> How does user verification (EP15) differ from the manufacturer’s EP05 study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>EP05 establishes imprecision claims (manufacturer, large). EP15 is a short lab-level study (public page: completed within five working days; bias needs &gt;= 25 measurements over &gt;= 5 days) that checks whether the lab’s imprecision is consistent with the claim, using an upper verification limit from a chi-square argument [S: clsi.org EP15 page; the UVL formula is my synthesis, text not reproduced].</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 2.6</strong> Show the upper verification limit logic for a claimed repeatability SD.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If observed SD s has df = nu, then s^2<em>nu/sigma_claim^2 ~ chi2(nu). Verification passes if s &lt;= sigma_claim </em> sqrt(chi2_{0.95,nu}/nu) (one-sided 5% test of H0: sigma = claim). Larger nu -&gt; UVL closer to the claim. Synthesis of standard theory.</p>
+</div>
+</div>
+</div>
+<p><strong>2.7</strong> Why 20 days instead of, say, 5 runs on one day?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Day-to-day (calibration, reagent, environment) variance is typically the biggest source of lab imprecision and is only estimable from many independent days; replicates inside a day tell you almost nothing about it. Df for day drives the CI width of within-lab SD.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 2.8</strong> Where does your Bayesian hierarchical variance model map onto EP05, and where does it differ?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Same model structure: day and run random effects around a mean, residual = repeatability. Differences: priors on SDs (shrinkage with few levels, never exactly zero), credible not confidence intervals, no closed-form df, and sensitivity to prior choice. Regulators expect CLSI-style ANOVA/REML estimates for claims; Bayesian is acceptable as a supportive or exploratory analysis, preferably with the frequentist result alongside.</p>
+</div>
+</div>
+</div>
+<p><strong>2.9</strong> How do multi-site / multi-instrument extensions change the model?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Add random effects for site (or instrument/lot) above day: reproducibility = within-lab + between-site. Few sites (3) means very few df for site variance, so the reproducibility CI is wide and CLSI-style designs ask for &gt;= 3 sites/lots as a pragmatic compromise. Exact counts for EP05 Ed4: not verified.</p>
+</div>
+</div>
+</div>
+<p><strong>2.10</strong> A level has repeatability CV 2.2% and within-lab CV 2.5%. What do you conclude about the dominant source?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Repeatability contributes ~77% of total variance here (2.2<sup>2/2.5</sup>2 ~ 0.77): most imprecision is within-run noise, not day/run drift. Comparing variances, not CVs, makes the shares additive.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-3.-detection-capability-and-linearity" class="level2">
+<h2 class="anchored" data-anchor-id="day-3.-detection-capability-and-linearity">Day 3. Detection capability and linearity</h2>
+<p><strong>3.1</strong> Define LoB, LoD and LoQ and how they relate.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>LoB = highest value expected from blank samples (95th percentile). LoD = lowest concentration distinguished from LoB with 95% probability. LoQ = lowest concentration meeting a predefined error goal (CV or total error). LoB &lt; LoD &lt;= LoQ. EP17-A2 (2012) is the CLSI document.</p>
+</div>
+</div>
+</div>
+<p><strong>3.2</strong> Write the parametric LoB and LoD.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>LoB = mean_blank + 1.645 SD_blank; LoD = LoB + 1.645 SD_low (z for 5% one-sided error each). Plain formulas; EP17’s small-sample correction is not verified (paywalled).</p>
+</div>
+</div>
+</div>
+<p><strong>3.3</strong> When do you prefer the nonparametric LoB and what is its cost?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When blanks are skewed or bounded at 0 (common for signal-derived values). The 95th percentile of ranked blanks is distribution-free but rests on few observations; n = 60 gives about the 3rd largest value, which is noisy.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 3.4</strong> Why does LoD depend on both blank and low-level variability?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The LoB is a decision limit (alpha). A true sample at LoD must exceed it 95% of the time, so its distribution must clear LoB by 1.645 SD_low (beta). If low-level SD is greater than blank SD, LoD rises beyond LoB + 1.645 SD_blank.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 3.5</strong> When and how do you use a probit analysis for LoD?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For hit/no-hit outcomes (qPCR, qualitative): replicate dilution series, fit probit(p) = b0 + b1 log10(conc), LoD95 = 10^((1.645 - b0)/b1) with delta or bootstrap CI. Needs concentrations that bracket 95%; if all are above it the fit extrapolates.</p>
+</div>
+</div>
+</div>
+<p><strong>3.6</strong> How do you define LoQ?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lowest level where a predefined goal is met: CV &lt;= goal (functional sensitivity), or total error bias + 1.96 SD &lt;= allowable error, using a precision profile across levels. The goal is clinical, not statistical, and must be set before the study.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 3.7</strong> Your parametric bootstrap gives a CI for LoD. What does it add and what does it not fix?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It shows the uncertainty from limited n (few df for the low-level SD) and propagates both parts. It does not fix non-normality, between-lot/day effects not in the sampling model, or choice of low-level samples. It is my method, not CLSI-prescribed.</p>
+</div>
+</div>
+</div>
+<p><strong>3.8</strong> How would you evaluate linearity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dilution series with replicates across the claimed range, fit linear and higher-order polynomial, test the extra terms, then judge the deviation of the linear fit from the best polynomial at each level against an allowable limit. Statistical significance is not equal to clinical relevance. EP06 Ed2 (2020) also supports LLoQ/ULoQ validation; exact designs not verified.</p>
+</div>
+</div>
+</div>
+<p><strong>3.9</strong> What design factors in LoB/LoD studies beyond number of replicates?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Multiple reagent lots, instruments and days so the SD reflects routine variability; blank matrix that matches patient samples; low-level samples made from patient pools. Specific counts are in EP17 (not verified: paywalled).</p>
+</div>
+</div>
+</div>
+<p><strong>3.10</strong> A claimed LoD is 1.9 pg/mL but the clinical cut-off is 220 pg/mL. Why does it matter little?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>LoD matters when the decision level is near zero. At cut-offs far above LoD, precision and bias at the cut-off (EP05, EP09) matter more than detection capability.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-4.-method-comparison-bias-interference-stability-lots" class="level2">
+<h2 class="anchored" data-anchor-id="day-4.-method-comparison-bias-interference-stability-lots">Day 4. Method comparison, bias, interference, stability, lots</h2>
+<p><strong>4.1</strong> Why not ordinary least squares for method comparison?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>OLS assumes the comparator has no error; with error in x the slope is attenuated and the intercept biased. Deming (known error ratio) or Passing-Bablok (nonparametric) account for error in both methods.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 4.2</strong> When Deming and when Passing-Bablok?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Deming: roughly normal errors, no gross outliers, error ratio known or estimated from replicates (weighted version when CV is constant). Passing-Bablok: robust to outliers and distribution, needs a linear relationship and positively correlated measurements; its CI can be wide and is usually bootstrapped for bias.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 4.3</strong> How do you get the bias and CI at a medical decision level?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>From the regression: bias(Xc) = a + (b - 1) Xc, with CI from jackknife (Deming) or bootstrap (Passing-Bablok), not by combining slope and intercept CIs separately (they are correlated). Compare against allowable bias at that level.</p>
+</div>
+</div>
+</div>
+<p><strong>4.4</strong> What does Bland-Altman add, and what are its limits?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Visualises agreement and the distribution of differences with limits of agreement; use relative differences when error scales with level. It does not provide bias at specific levels with CIs and mixes constant and proportional bias.</p>
+</div>
+</div>
+</div>
+<p><strong>4.5</strong> Three outliers in 100 samples - what do you do?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Never drop them silently. Investigate (sample mix-up, interference), report the analysis with and without them, and prefer a robust estimator. Pre-specify the outlier rule in the plan.</p>
+</div>
+</div>
+</div>
+<p><strong>4.6</strong> Which concentration range and how many samples for a method comparison?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Spread across the measuring interval and around decision levels, patient samples, not spiked pools only. Exact counts and distribution rules are in EP09c (not verified: paywalled); I would justify n by the CI width of bias at decision levels via simulation.</p>
+</div>
+</div>
+</div>
+<p><strong>4.7</strong> How do you decide that an interferent does not matter?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Compare paired results with and without interferent (EP07 Ed3 style), estimate the difference with CI and require the entire CI within the allowable error at relevant levels; test several interferent concentrations. Non-significance is not equivalence.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 4.8</strong> How is a shelf life set from a stability study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Regress response on time, compute a one-sided 95% bound for the mean, and take the time where the bound meets the acceptance limit. EP25 Ed2 (2023) is regression-based; its exact acceptance rules are paywalled (not verified).</p>
+</div>
+</div>
+</div>
+<p><strong>4.9</strong> What does an EP26-style lot-to-lot evaluation test and why use patient samples?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Whether new-lot minus old-lot differences exceed a medically acceptable difference; patient samples because control materials may not be commutable. Stage 1 sets the acceptable difference and risk; Stage 2 is the routine per-lot check (EP26 Ed2, 2022).</p>
+</div>
+</div>
+</div>
+<p><strong>4.10</strong> Which IVDR GSPR statistics do these studies feed?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Annex I 9.1(a): trueness (bias), precision, analytical specificity (interference), limits of detection/quantitation, measuring range, linearity. Each maps to an EP document.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-5.-diagnostic-accuracy-and-roc" class="level2">
+<h2 class="anchored" data-anchor-id="day-5.-diagnostic-accuracy-and-roc">Day 5. Diagnostic accuracy and ROC</h2>
+<p><strong>&lt;U+2605&gt; 5.1</strong> Why does FDA’s 2007 statistical guidance say you may not call agreement with a non-reference comparator sensitivity and specificity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>“When a new test is evaluated by comparison to a non-reference standard, sensitivity and specificity are not appropriate terms to describe the comparative results” - the comparator’s own errors are folded in, so the numbers are percent agreement (PPA, NPA, OPA), and they are asymmetric (which test is the comparator matters). State the calculation explicitly.</p>
+</div>
+</div>
+</div>
+<p><strong>5.2</strong> What is discrepant resolution and why is it biased?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Only discordant results are re-tested with a better method. Cases where both tests are wrong are never examined, so the new test is credited with agreement it does not deserve and its apparent sensitivity/specificity is inflated. FDA 2007: there is no statistical solution; prospectively define the reference standard for all subjects.</p>
+</div>
+</div>
+</div>
+<p><strong>5.3</strong> Wilson versus Clopper-Pearson?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Clopper-Pearson (exact) guarantees at least nominal coverage but is conservative; Wilson has coverage closer to nominal and behaves well near 0 and 1 and with small n.&nbsp;Regulatory summaries often use either; state which. Neither is a good choice when assumptions of independence fail (clustered samples).</p>
+</div>
+</div>
+</div>
+<p><strong>5.4</strong> A test has Se 90% and Sp 85%. What is its PPV at 1% prevalence?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>PPV = 0.9<em>0.01/(0.9</em>0.01+0.15*0.99) = 0.009/0.1575 = 5.7%. Sensitivity and specificity are properties of the test given the population spectrum; predictive values need the prevalence of the intended-use population.</p>
+</div>
+</div>
+</div>
+<p><strong>5.5</strong> How do you compare sensitivity of two tests run on the same subjects?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Restrict to the diseased subjects and use McNemar’s test on the discordant pairs (b vs c); same for specificity in the non-diseased. A confidence interval for the paired difference uses the same discordant counts. Unpaired two-proportion tests ignore the correlation and lose power.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 5.6</strong> What is verification bias and how can you correct it?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If test-positives are more likely to get the reference standard than test-negatives, naive sensitivity rises and specificity falls. Begg-Greenes (inverse-probability style) correction uses P(D|T) in verified subjects and P(T) in all, valid if verification depends only on the test result (MAR). Better: design to verify a random sample of negatives.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 5.7</strong> What if the reference standard is imperfect?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sensitivity and specificity are biased (usually toward 0.5 if errors are independent of the test). Options: composite/expert-panel reference blinded to the index test (as in the pTau217 pivotal reader panel), latent class models, report as agreement. Document in the SAP.</p>
+</div>
+</div>
+</div>
+<p><strong>5.8</strong> What is the AUC and how do you get its CI and compare two AUCs?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>AUC = P(case result &gt; control result) (Mann-Whitney). DeLong’s method gives the variance from structural components, and for two correlated AUCs on the same subjects the covariance too. pROC::ci.auc and roc.test(method = “delong”, paired = TRUE).</p>
+</div>
+</div>
+</div>
+<p><strong>5.9</strong> Why a partial AUC?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Whole-curve AUC averages regions of no clinical relevance. When the test is used at high specificity (rule-in) or high sensitivity (rule-out), summarise only that range; standardise (McClish) to 0.5-1 to read like an AUC.</p>
+</div>
+</div>
+</div>
+<p><strong>5.10</strong> What are STARD 2015 and QUADAS-2 for?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>STARD 2015 is a 30-item reporting checklist for diagnostic accuracy studies. QUADAS-2 assesses risk of bias and applicability (patient selection, index test, reference standard, flow and timing), used in systematic reviews and as a design checklist.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-6.-cut-offs-two-cut-offs-intermediate-zone-ptau217" class="level2">
+<h2 class="anchored" data-anchor-id="day-6.-cut-offs-two-cut-offs-intermediate-zone-ptau217">Day 6. Cut-offs, two cut-offs, intermediate zone (pTau217)</h2>
+<p><strong>6.1</strong> Describe the Elecsys pTau217 cleared cut-off scheme and what it reported.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>FDA K261686 (decision 2026-08-19): negative &lt;= 0.223, intermediate &gt; 0.223 to &lt;= 0.378, positive &gt; 0.378 pg/mL. Pivotal N = 958 vs amyloid PET visual read (6 blinded readers): PV of positive 88.5% (285/322), NPV of negative 95.3% (424/445), intermediate 19.9% (191/958); PPA 75.4% and NPA 73.1% with intermediates counted as misses. Indication: aid in identifying amyloid pathology, age &gt;= 55 with cognitive decline, with other clinical information.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 6.2</strong> Why is the PPA only 75% if the test is called good?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Intermediates count as non-agreement: 72 of 378 PET+ fall in the intermediate zone and 21 in the negative zone. Excluding the 19.9% intermediates would flatter the numbers. The real information is in the category-specific predictive values and likelihood ratios (LR+ 11.8 for positive, 0.08 for negative).</p>
+</div>
+</div>
+</div>
+<p><strong>6.3</strong> What determines the width of the intermediate zone?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Separation of the group distributions (AUC), variability of the marker (biological and analytical), and the target performance for the two steps. Better separation or looser targets narrow it. It also depends on the population spectrum, not just the assay (Coste and Pouchot 2003).</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 6.4</strong> How would you derive two cut-offs, and why lock them?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>On a derivation cohort: rule-out cut-off = highest value keeping sensitivity &gt;= target; rule-in cut-off = lowest value keeping specificity &gt;= target. Freeze them in the plan and evaluate once on an independent validation cohort, otherwise performance is optimistic (selection bias on the same data).</p>
+</div>
+</div>
+</div>
+<p><strong>6.5</strong> What did the FDA summary say about how 0.223 and 0.378 were chosen?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>They were derived on 687 banked samples (286 PET+), but the target sensitivity/specificity or selection rule is not stated in the summary text I read (not verified). In an interview say what the public data show and that the rule is not disclosed.</p>
+</div>
+</div>
+</div>
+<p><strong>6.6</strong> How do you state performance when results can be indeterminate?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Report the indeterminate fraction, performance of each category (PV, LR), and PPA/NPA both with indeterminates counted as misses and, if useful, excluding them, being clear which is which. FDA’s summary reports the intermediate row explicitly and counts it as non-agreement in PPA/NPA.</p>
+</div>
+</div>
+</div>
+<p><strong>6.7</strong> Same cut-offs, primary vs specialist care - what changes?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-57" class="callout-57-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sensitivity and specificity per class are roughly constant (given the same spectrum), but PPV falls and NPV rises as prevalence falls; the zone fractions shift with spectrum. FDA reports PV of positive 78.3% in primary care vs 90.2% in secondary/tertiary, and a footnote about lower PPV in low-prevalence settings.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 6.8</strong> How does kidney function affect plasma pTau217, and what does the FDA data show?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Prototype-assay data (Hortsch et al.&nbsp;2026) show higher pTau217 with worse kidney function, with false positives in advanced CKD. The FDA decision summary has no eGFR-stratified analysis, only a kidney-disease comorbidity subgroup of N = 24, too small to conclude. A pre-specified eGFR subgroup analysis or eGFR-aware reporting would be a sensible plan item.</p>
+</div>
+</div>
+</div>
+<p><strong>6.9</strong> How do Hibar 2026 and Hortsch 2026 relate to the cleared test?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-59" class="callout-59-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both use a prototype assay and do not report the cleared cut-offs. Hibar: five cohorts, N = 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone. Hortsch: N = 588, centiloid reference, exploratory 90%/90% double cut-off, 5.78% indeterminate at CL 30. They are supportive evidence, not the pivotal data.</p>
+</div>
+</div>
+</div>
+<p><strong>6.10</strong> Is monitoring a claim for the cleared test?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Roche’s 24 Aug 2026 release states it is not intended as a stand-alone test and that safety and effectiveness are not established for predicting dementia or for monitoring therapy. This appears in the release, not in the decision summary text I read; I have not seen the labelling.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-7.-sample-size-and-power" class="level2">
+<h2 class="anchored" data-anchor-id="day-7.-sample-size-and-power">Day 7. Sample size and power</h2>
+<p><strong>7.1</strong> How many subjects do you need to estimate sensitivity to +-5% when you expect 90% and prevalence is 20%?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-61-contents" aria-controls="callout-61" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-61" class="callout-61-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cases: n = z^2 p(1-p)/d^2 = 1.96^2*0.09/0.0025 = 138 (Wald); Wilson-based presize gives 141. Total = cases / prevalence = about 692-705. The prevalence turns 140 cases into about 700 subjects.</p>
+</div>
+</div>
+</div>
+<p><strong>7.2</strong> Why does prevalence inflate sample size for sensitivity but not for specificity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-62" class="callout-62-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sensitivity uses only cases, specificity only non-cases. Total n = n_cases/prev for sensitivity and n_controls/(1-prev) for specificity. At low prevalence cases are scarce. Fix: enriched sampling, with PPV/NPV reweighted to the true prevalence.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 7.3</strong> How do you size a study to show sensitivity exceeds an 80% performance goal?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-63-contents" aria-controls="callout-63" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-63" class="callout-63-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose the expected true sensitivity (say 90%), one-sided alpha (0.025), power (80%); use the exact binomial test: about 94-113 cases depending on alpha (0.05 -&gt; 94, 0.025 -&gt; 113 in my calculation). Check by simulation and note the sawtooth in exact power.</p>
+</div>
+</div>
+</div>
+<p><strong>7.4</strong> Why is exact power not monotone in n?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The binomial is discrete: the critical count jumps by integers while power varies smoothly, so power can fall when n increases by one. Report the smallest n beyond which power stays above target.</p>
+</div>
+</div>
+</div>
+<p><strong>7.5</strong> How do you choose the expected sensitivity to size the study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-65-contents" aria-controls="callout-65" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-65" class="callout-65-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>From prior studies or pilot data, shaded conservatively (use the lower end of a prior CI), and show a sensitivity table over a range. Over-optimism leads to underpowered studies; the goal itself comes from clinical need or comparators.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 7.6</strong> How do you size a study for AUC?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-66-contents" aria-controls="callout-66" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-66" class="callout-66-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Specify expected AUC, AUC0 (null or goal), alpha, power, case:control ratio, then use Hanley-McNeil (or DeLong-based) variances. Cross-check with pROC::power.roc.test (versus 0.5) and presize::prec_auc (CI width) and simulation.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 7.7</strong> How does a 20% indeterminate fraction change the plan?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-67-contents" aria-controls="callout-67" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-67" class="callout-67-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If intermediates count as misses, expected PPA falls (94% determinate sensitivity x 0.8 = 75%), so the goal must be set on that scale; if you need a number of determinate cases, inflate n by 1/(1-f). Pre-specify which endpoint is primary.</p>
+</div>
+</div>
+</div>
+<p><strong>7.8</strong> Why does a precision study need many days?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-68-contents" aria-controls="callout-68" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-68" class="callout-68-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Df for the day component is days-1; within-lab SD CI is driven by that df. 20 days with 2x2 per day gives about 70 Satterthwaite df and an expected 95% CI of about 0.85-1.22 times the estimate in my example (0.80-1.35 with 10 days).</p>
+</div>
+</div>
+</div>
+<p><strong>7.9</strong> How many blanks for LoB?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-69-contents" aria-controls="callout-69" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-69" class="callout-69-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>EP17 gives numbers (not verified, paywalled). Statistically, the parametric LoB SD is about sqrt(1/n + 1.645^2/(2(n-1))) x SD_blank; the nonparametric 95th percentile is noisier, so n of 60 or more is a reasonable starting point for a nonparametric claim.</p>
+</div>
+</div>
+</div>
+<p><strong>7.10</strong> Name sources for diagnostic sample size and say what each gives.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-70-contents" aria-controls="callout-70" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-70" class="callout-70-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Buderer 1996 (Se/Sp with prevalence), Flahault et al.&nbsp;2005 (case tables for an acceptable lower limit), Hanley and McNeil 1982 (AUC SE), Obuchowski (ROC sample size tables, AJR 2000 / Invest Radiol 1994), Zhou, Obuchowski and McClish (textbook). Tools: presize, MKmisc, pROC.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-8.-companion-diagnostics-and-bridging" class="level2">
+<h2 class="anchored" data-anchor-id="day-8.-companion-diagnostics-and-bridging">Day 8. Companion diagnostics and bridging</h2>
+<p><strong>8.1</strong> What is a companion diagnostic and which regulatory consequences follow in EU and US?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-71-contents" aria-controls="callout-71" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-71" class="callout-71-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A device essential for the safe and effective use of a corresponding medicinal product (IVDR Art 2(7); FDA 2014 guidance). EU: class C via Annex VIII Rule 3(f); the notified body consults a medicines competent authority or the EMA (Art 48(7)/(8), Annex IX 5.2). US: usually PMA/Class III, though the 2014 guidance footnote allows Class II/510(k) in some cases; labelled in both device and drug labelling.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 8.2</strong> What is the bridging problem?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-72" class="callout-72-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The pivotal trial used a clinical trial assay; the commercial CDx differs. Show concordance of the CDx with the CTA on trial samples and estimate the effect in the population the CDx will actually select, using the trial result and the discordance.</p>
+</div>
+</div>
+</div>
+<p><strong>8.3</strong> Why report PPA/NPA between CTA and CDx instead of sensitivity and specificity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-73-contents" aria-controls="callout-73" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-73" class="callout-73-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Neither assay is a reference standard; FDA 2007 guidance says sensitivity and specificity are inappropriate for comparisons to a non-reference. PPA/NPA depend on which assay is the comparator and on the prevalence/spectrum of the bridging samples.</p>
+</div>
+</div>
+</div>
+<p><strong>8.4</strong> Only 60% of trial patients have a sample for the CDx. What do you do?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-74-contents" aria-controls="callout-74" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-74" class="callout-74-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First understand why (MCAR, MAR on measured variables, MNAR on the CDx itself). Compare available vs missing on baseline variables and outcomes; analyse with IPW or multiple imputation (include arm x outcome interaction), and run tipping-point/bounds analyses for MNAR. Pre-specify this in the SAP.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 8.5</strong> In your simulation multiple imputation was biased until you added the arm x response interaction. Why?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-75-contents" aria-controls="callout-75" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-75" class="callout-75-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The drug only works in biomarker-positive patients, so the relation between response and CDx status differs by arm. An imputation model omitting that interaction is misspecified and biases the treatment effect in the imputed CDx+ group (0.264 vs 0.283 with it, truth 0.278 in my run). Imputation models must be at least as rich as the analysis model.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 8.6</strong> Why is the effect in the CDx+ population different from the trial’s headline effect?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-76-contents" aria-controls="callout-76" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-76" class="callout-76-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Selection by an imperfect assay mixes true positives (benefit) and false positives (no benefit). The effect in the selected population is a weighted average with weight = PPV of the assay for the biomarker. In my simulation: 0.30 in true positives, 0.278 in CDx+ (PPV 0.93), lower with a worse assay.</p>
+</div>
+</div>
+</div>
+<p><strong>8.7</strong> Enrichment vs all-comers designs?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-77-contents" aria-controls="callout-77" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-77" class="callout-77-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Enrichment: higher power in the selected population, but no data on biomarker-negatives or on CTA false negatives, so a restricted claim cannot be tested and false negatives are unknowable. All-comers/stratified: allows treatment-by-biomarker interaction and effect in negatives; needs more patients.</p>
+</div>
+</div>
+</div>
+<p><strong>8.8</strong> How would you frame the estimand for a CDx claim?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-78-contents" aria-controls="callout-78" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-78" class="callout-78-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Population: CDx+ per the intended-use setting; treatment policy; summary measure risk or hazard ratio in CDx+; intercurrent events handled per ICH E9(R1) by analogy; add how missing bridging samples and discordant CTA/CDx subjects are handled.</p>
+</div>
+</div>
+</div>
+<p><strong>8.9</strong> What else matters in a bridging study beyond concordance?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-79-contents" aria-controls="callout-79" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-79" class="callout-79-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reagent lot and site effects on classification near the cut-off, precision at the cut-off (C5/C95), sample type/handling differences, prevalence and spectrum of the bridging samples relative to the intended-use population.</p>
+</div>
+</div>
+</div>
+<p><strong>8.10</strong> Which FDA guidances anchor CDx development and what is their status?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-80-contents" aria-controls="callout-80" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-80" class="callout-80-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In Vitro Companion Diagnostic Devices (Aug 2014, final); Principles for Codevelopment of an IVD CDx with a Therapeutic Product (July 2016, still marked draft on FDA’s page); Developing and Labeling IVD CDx for a Specific Group of Oncology Therapeutic Products (Apr 2020, final; “Group or Class” was the draft title).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-9.-statistical-analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="day-9.-statistical-analysis-plan">Day 9. Statistical analysis plan</h2>
+<p><strong>9.1</strong> What goes into a SAP for a diagnostic clinical performance study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-81-contents" aria-controls="callout-81" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-81" class="callout-81-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Objectives and hypotheses with performance goals; intended use population; reference standard and timing; locked cut-offs and the rule for indeterminates; analysis populations; primary and secondary endpoints with CI methods; sample size; missing and invalid data; subgroups; multiplicity; sensitivity analyses; data standards; software and QC; table shells. IVDR Annex XIII Part A 2.3.2 lists plan items including statistical design, endpoints, population size and the method for determining true clinical status.</p>
+</div>
+</div>
+</div>
+<p><strong>9.2</strong> What is the diagnostic analogue of ITT and per-protocol?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-82-contents" aria-controls="callout-82" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-82" class="callout-82-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Primary set: evaluable subjects with a valid index result and a readable reference result (analogue of full analysis set); per-protocol: evaluable plus reference within the pre-specified window and no major deviation. Unlike a therapeutic trial there is no randomisation; the risk is selective exclusion, so a STARD flow diagram documents every exclusion.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 9.3</strong> How does your SAP deal with indeterminate results?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-83-contents" aria-controls="callout-83" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-83" class="callout-83-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Report them as their own category with the fraction, count them as non-agreement in PPA/NPA (as the public FDA summary does), give PV and LR per category, and add a sensitivity analysis excluding them if useful. Decide before unblinding.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 9.4</strong> How do you set the performance goal for the primary endpoint?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-84-contents" aria-controls="callout-84" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-84" class="callout-84-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>From clinical need and comparators (predicate, standard of care), not from the pilot result. The success rule is the lower limit of the CI above the goal. In the mock SAP: PPV lower limit &gt; 0.75 and NPV lower limit &gt; 0.90, both required. Note the public FDA summary I read compared PV with prevalence and gave no pre-specified performance goal.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 9.5</strong> Why must cut-offs be locked, and what can go wrong at the boundary?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-85-contents" aria-controls="callout-85" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-85" class="callout-85-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Locking prevents optimistic bias. The boundary convention (&lt;= versus &lt;) must be in the SAP and the code: with rounded assay values, many results sit exactly on the cut-off. In my mock SAP, independent double programming found the shared helper used &gt;= for the upper cut-off where the plan said &gt;, which changed the counts.</p>
+</div>
+</div>
+</div>
+<p><strong>9.6</strong> Co-primary PPV and NPV: do you adjust alpha?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-86-contents" aria-controls="callout-86" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-86" class="callout-86-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Not if both must succeed (intersection-union test): each is tested at the full level and the overall type I error is controlled. If success of either would suffice you would need an adjustment. Joint power is about the product of the individual powers if they are nearly independent.</p>
+</div>
+</div>
+</div>
+<p><strong>9.7</strong> Which subgroups and how are they analysed?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-87-contents" aria-controls="callout-87" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-87" class="callout-87-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pre-specified: age, sex, care setting, cognitive status, kidney function (eGFR), race/ethnicity descriptively. Report estimates with CIs, suppress tiny cells, no claims from interaction tests. The public FDA summary I read lacked eGFR-stratified results, which makes a pre-specified eGFR subgroup valuable.</p>
+</div>
+</div>
+</div>
+<p><strong>9.8</strong> What of CDISC applies to a device study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-88-contents" aria-controls="callout-88" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-88" class="callout-88-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>CDISC publishes SDTMIG for Medical Devices (v1.1, 2019) and ADaMIG for Medical Devices (v1.0, 2021). I found no IVD-specific standard and nothing verifying that CDISC is mandated for IVDR submissions; ADaM-style subject-level and performance datasets are used by analogy.</p>
+</div>
+</div>
+</div>
+<p><strong>9.9</strong> What makes an R analysis acceptable in a regulated setting?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-89-contents" aria-controls="callout-89" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-89" class="callout-89-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pinned environment (renv), risk-based package assessment, unit-tested own functions, double programming of primary endpoints, independent review, script QC checklists, version control with signed tags at lock, file hashes, scripted outputs and logged session info, all linked to SOPs. This is common practice, not a quoted requirement; company SOPs rule.</p>
+</div>
+</div>
+</div>
+<p><strong>9.10</strong> Can you use the ICH E9(R1) estimand framework for a diagnostic study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-90-contents" aria-controls="callout-90" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-90" class="callout-90-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By analogy: population, variable, intercurrent events (e.g.&nbsp;invalid assay, unreadable reference, protocol deviations), summary measure and strategy per event. It clarifies handling of invalid results, but ICH E9 is a drug-trial guideline and I know of no IVD authority mandating it.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="day-10.-reference-intervals-longitudinal-rehearsal" class="level2">
+<h2 class="anchored" data-anchor-id="day-10.-reference-intervals-longitudinal-rehearsal">Day 10. Reference intervals, longitudinal, rehearsal</h2>
+<p><strong>10.1</strong> How do you establish a reference interval directly?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-91-contents" aria-controls="callout-91" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-91" class="callout-91-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Recruit a well-defined healthy reference population, standardise preanalytics, measure, check outliers and partitions, take the nonparametric 2.5th and 97.5th percentiles with CIs (bootstrap or order-statistic), as in EP28-A3c (2010, reaffirmed 2020). The often-quoted n &gt;= 120 is not verified (paywalled).</p>
+</div>
+</div>
+</div>
+<p><strong>10.2</strong> Why are the CIs of the reference limits so different at the two ends?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-92-contents" aria-controls="callout-92" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-92" class="callout-92-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The tails of a skewed distribution are sparse; with n = 240 each limit rests on about 6 observations and the upper tail of a lognormal is stretched, so its CI is wide.</p>
+</div>
+</div>
+</div>
+<p><strong>10.3</strong> What is the indirect method and when would you use it?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-93-contents" aria-controls="callout-93" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-93" class="callout-93-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use routine patient data and statistically isolate the non-pathological component (refineR: Box-Cox-transformed normal fitted to the dominant part). Useful when recruiting healthy subjects is hard (children, elderly, rare analytes). Assumes the healthy component dominates; judgement on population and preanalytics is still needed.</p>
+</div>
+</div>
+</div>
+<p><strong>10.4</strong> When do you partition reference intervals by sex or age?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-94-contents" aria-controls="callout-94" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-94" class="callout-94-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When the subgroup distributions differ enough to change clinical decisions, not merely statistically (large n makes tiny differences significant). Each partition needs adequate n for its own CI.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 10.5</strong> How do you compute a reference change value?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-95-contents" aria-controls="callout-95" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-95" class="callout-95-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within-subject SD from a mixed model (analytical + biological), RCV = +/- 1.96 sqrt(2) SD (log scale gives an asymmetric percent interval). In my simulation with CV 4% analytical and 8% biological: about -22%/+28%. Verified three ways: lmer, SD of paired differences, simulation (false flag rate about 5% in stable people).</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 10.6</strong> Why is monitoring a separate intended use from diagnosis?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-96-contents" aria-controls="callout-96" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-96" class="callout-96-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It needs within-person precision and RCV, responsiveness to change, relationship of change to clinical or imaging change, long-term assay stability and an action rule, none of which an AUC shows. The Roche 24 Aug 2026 pTau217 release says safety and effectiveness are not established for monitoring effect of therapeutic products; this is in the release, not the decision summary text.</p>
+</div>
+</div>
+</div>
+<p><strong>&lt;U+2605&gt; 10.7</strong> What is an MMRM and why use it for longitudinal biomarker or clinical endpoints?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-97-contents" aria-controls="callout-97" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-97" class="callout-97-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A mixed model for repeated measures: categorical visit, treatment-by-visit interaction, unstructured covariance, using all available data. Valid under MAR dropout; with balanced complete data it equals per-visit mean differences (exact in my check). Completer analysis is biased when dropout depends on earlier outcomes.</p>
+</div>
+</div>
+</div>
+<p><strong>10.8</strong> Random-intercept versus MMRM for repeated biomarker measurements?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-98-contents" aria-controls="callout-98" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-98" class="callout-98-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Random intercept (or intercept and slope) models assume a parametric covariance structure and suit irregular timing and continuous time; MMRM with unstructured covariance makes fewer assumptions for fixed visits. Check covariance fit (AIC) and the impact of the choice on the contrast of interest.</p>
+</div>
+</div>
+</div>
+<p><strong>10.9</strong> Summarise the whole regulated-diagnostics map in one minute.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-99-contents" aria-controls="callout-99" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-99" class="callout-99-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Analytical: precision EP05/EP15, detection EP17, linearity EP06, comparison EP09c, interference EP07, stability EP25, lots EP26. Clinical: binary EP12, ROC EP24, FDA 2007 PPA/NPA language, cut-offs locked, two-cut-off with intermediate zone. Regulatory: IVDR Annex I GSPR, Annex VIII classes (CDx Rule 3(f), class C), Art 48(7)/(8) consultation, Annex XIII PEP/PER/PMPF, ISO 20916, MDCG 2022-2; FDA 510(k)/De Novo/PMA. Plan: SAP with goals, populations, subgroups, sensitivity analyses, QC.</p>
+</div>
+</div>
+</div>
+<p><strong>10.10</strong> What would you tell the interviewer you do not know yet?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-100-contents" aria-controls="callout-100" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-100" class="callout-100-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The paywalled details: CLSI design counts in EP05 Ed4, EP17-A2, EP28; FDA labelling of pTau217 and the rule behind its cut-offs. I know where each is stated and how I would derive the statistics myself, and I flag clearly what is verified versus synthesis.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapters/day10-reference-longitudinal.html" class="pagination-link" aria-label="Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cheatsheet.html" class="pagination-link" aria-label="Cheat sheet: regulated diagnostic biostatistics">
+        <span class="nav-page-text"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 8. Companion diagnostics and bridging statistics – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/day09-sap.html" rel="next">
+<link href="../chapters/day07-sample-size.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day08-companion-diagnostics.html"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-regulatory-anchor" id="toc-b-regulatory-anchor" class="nav-link" data-scroll-target="#b-regulatory-anchor">(b) Regulatory anchor</a></li>
+  <li><a href="#c-r-lab" id="toc-c-r-lab" class="nav-link" data-scroll-target="#c-r-lab">(c) R lab</a>
+  <ul class="collapse">
+  <li><a href="#setting-a" id="toc-setting-a" class="nav-link" data-scroll-target="#setting-a">Setting [A]</a></li>
+  <li><a href="#concordance-on-the-bridging-samples-ppanpaopa" id="toc-concordance-on-the-bridging-samples-ppanpaopa" class="nav-link" data-scroll-target="#concordance-on-the-bridging-samples-ppanpaopa">Concordance on the bridging samples (PPA/NPA/OPA)</a></li>
+  <li><a href="#estimating-efficacy-in-the-cdx-population-when-bridging-samples-are-missing" id="toc-estimating-efficacy-in-the-cdx-population-when-bridging-samples-are-missing" class="nav-link" data-scroll-target="#estimating-efficacy-in-the-cdx-population-when-bridging-samples-are-missing">Estimating efficacy in the CDx+ population when bridging samples are missing</a></li>
+  <li><a href="#tipping-point-sensitivity-analysis-mnar" id="toc-tipping-point-sensitivity-analysis-mnar" class="nav-link" data-scroll-target="#tipping-point-sensitivity-analysis-mnar">Tipping-point sensitivity analysis (MNAR)</a></li>
+  <li><a href="#cross-check-of-the-imputation-with-mice" id="toc-cross-check-of-the-imputation-with-mice" class="nav-link" data-scroll-target="#cross-check-of-the-imputation-with-mice">Cross-check of the imputation with <code>mice</code></a></li>
+  <li><a href="#design-enrichment-vs-all-comers-a" id="toc-design-enrichment-vs-all-comers-a" class="nav-link" data-scroll-target="#design-enrichment-vs-all-comers-a">Design: enrichment vs all-comers [A]</a></li>
+  <li><a href="#estimand-sketch-for-a-cdx-claim-ich-e9r1-vocabulary-by-analogy-y" id="toc-estimand-sketch-for-a-cdx-claim-ich-e9r1-vocabulary-by-analogy-y" class="nav-link" data-scroll-target="#estimand-sketch-for-a-cdx-claim-ich-e9r1-vocabulary-by-analogy-y">Estimand sketch for a CDx claim (ICH E9(R1) vocabulary by analogy) [Y]</a></li>
+  </ul></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis, <strong>[A]</strong> simulation assumption. All trial data are simulated.</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Companion diagnostic (CDx)</td>
+<td>Test essential for the safe and effective use of a specific medicine (selects patients, or flags risk)</td>
+</tr>
+<tr class="even">
+<td>Clinical trial assay (CTA)</td>
+<td>The assay used to select/stratify patients in the pivotal drug trial; often not the final commercial IVD</td>
+</tr>
+<tr class="odd">
+<td>Bridging study</td>
+<td>Shows the final CDx classifies like the CTA, and translates the trial result to the CDx+ population</td>
+</tr>
+<tr class="even">
+<td>Concordance</td>
+<td>PPA, NPA, OPA between CTA and CDx. <strong>Not</strong> sensitivity/specificity: neither assay is a reference</td>
+</tr>
+<tr class="odd">
+<td>Enrichment design</td>
+<td>Only biomarker-positive patients randomised: cannot assess benefit in biomarker-negatives</td>
+</tr>
+<tr class="even">
+<td>All-comers / stratified design</td>
+<td>Everyone randomised, analysed by biomarker status; allows the treatment × biomarker interaction</td>
+</tr>
+</tbody>
+</table>
+<p>Core problem: the drug effect was estimated in <em>CTA-defined</em> patients, but patients will be selected by the <em>CDx</em>. If the two disagree, the effect in the CDx+ population is not what the trial reported, and the bridging set is usually <strong>incomplete</strong> (samples not retained). [Y]</p>
+</section>
+<section id="b-regulatory-anchor" class="level2">
+<h2 class="anchored" data-anchor-id="b-regulatory-anchor">(b) Regulatory anchor</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Document</th>
+<th>Verified statement</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDA, <em>In Vitro Companion Diagnostic Devices</em> (Aug 2014, final)</td>
+<td>“An IVD companion diagnostic device is an in vitro diagnostic device that provides information that is essential for the safe and effective use of a corresponding therapeutic product.” Footnote 10: most will be Class III, though a Class II/510(k) classification may be appropriate in some cases</td>
+<td>[S] fda.gov/media/81309</td>
+</tr>
+<tr class="even">
+<td>FDA, <em>Principles for Codevelopment of an IVD CDx with a Therapeutic Product</em> (July 2016)</td>
+<td><strong>Still a draft</strong> (“not for implementation”) on FDA’s page, content-current 2018</td>
+<td>[S] fda.gov/media/99030</td>
+</tr>
+<tr class="odd">
+<td>FDA, <em>Developing and Labeling IVD CDx for a Specific Group of Oncology Therapeutic Products</em> (Apr 2020, final)</td>
+<td>The final title is “…Specific <strong>Group</strong> of…”; “Group or Class” was the draft title. Guidance body not read (landing page only)</td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>IVDR Art 2(7)</td>
+<td>CDx = device “essential for the safe and effective use of a corresponding medicinal product” to identify patients most likely to benefit, or at increased risk of serious adverse reactions</td>
+<td>[S]</td>
+</tr>
+<tr class="odd">
+<td>IVDR Annex VIII Rule 3(f)</td>
+<td>CDx → <strong>class C</strong></td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>IVDR Art 48(7), 48(8)</td>
+<td>For CDx the notified body consults “a competent authority … under Directive 2001/83/EC or the EMA, as applicable” (Annex IX 5.2 / Annex X 3(k)); also 48(3)/(4) for class D</td>
+<td>[S]</td>
+</tr>
+<tr class="odd">
+<td>IVDR Art 58(2)</td>
+<td>CDx performance studies follow the additional-requirements articles; left-over-sample CDx studies are notified to the competent authority</td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>Annex XIII Part A</td>
+<td>The performance evaluation report must cover scientific validity, analytical and clinical performance</td>
+<td>[S]</td>
+</tr>
+<tr class="odd">
+<td>Specific bridging-study sample sizes, acceptance criteria</td>
+<td>not set by these documents as far as read; <em>not verified</em> beyond the quoted text</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-r-lab" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab">(c) R lab</h2>
+<section id="setting-a" class="level3">
+<h3 class="anchored" data-anchor-id="setting-a">Setting [A]</h3>
+<p>Randomised all-comers trial, n = 1200, biomarker prevalence 40%. Response rates: control 20%; treatment 50% in biomarker-positive, 20% in negative (no benefit). CTA sensitivity/specificity vs the true biomarker state 0.93/0.90, CDx 0.97/0.95, errors independent given the true state (a simplification; real errors correlate). The simulation knows the truth; reality does not.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>truth_cdx <span class="ot">&lt;-</span> <span class="fu">true_effect_cdx_pos</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>truth_cta <span class="ot">&lt;-</span> <span class="fu">true_effect_cdx_pos</span>(<span class="at">cdx =</span> <span class="fu">c</span>(<span class="at">se =</span> <span class="fl">0.93</span>, <span class="at">sp =</span> <span class="fl">0.90</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Population =</span> <span class="fu">c</span>(<span class="st">"True biomarker-positive"</span>, <span class="st">"CTA-positive (what the trial analysed)"</span>, <span class="st">"CDx-positive (who will be treated)"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Risk difference (treatment - control)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fl">0.30</span>, truth_cta, truth_cdx), <span class="dv">3</span>), <span class="at">check.names =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Dilution by false positives: the effect depends on how the population is selected"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Dilution by false positives: the effect depends on how the population is selected</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Population</th>
+<th style="text-align: right;">Risk difference (treatment - control)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">True biomarker-positive</td>
+<td style="text-align: right;">0.300</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CTA-positive (what the trial analysed)</td>
+<td style="text-align: right;">0.258</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CDx-positive (who will be treated)</td>
+<td style="text-align: right;">0.278</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="concordance-on-the-bridging-samples-ppanpaopa" class="level3">
+<h3 class="anchored" data-anchor-id="concordance-on-the-bridging-samples-ppanpaopa">Concordance on the bridging samples (PPA/NPA/OPA)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">81</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(<span class="dv">1200</span>, <span class="at">miss =</span> <span class="st">"MCAR"</span>, <span class="at">p_obs =</span> <span class="fl">0.60</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> d[d<span class="sc">$</span>obs <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">report_agreement</span>(b<span class="sc">$</span>cdx <span class="sc">==</span> <span class="dv">1</span>, b<span class="sc">$</span>cta <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Measure =</span> a<span class="sc">$</span>measure, <span class="st">`</span><span class="at">x/n</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">paste0</span>(a<span class="sc">$</span>x, <span class="st">"/"</span>, a<span class="sc">$</span>n), <span class="at">Estimate =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> a<span class="sc">$</span>est, <span class="dv">1</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Wilson 95% CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f - %.1f"</span>, <span class="dv">100</span> <span class="sc">*</span> a<span class="sc">$</span>lower, <span class="dv">100</span> <span class="sc">*</span> a<span class="sc">$</span>upper), <span class="at">check.names =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="fu">sprintf</span>(<span class="st">"CDx vs CTA in %d bridging samples (%.0f%% of the trial)"</span>, <span class="fu">nrow</span>(b), <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(d<span class="sc">$</span>obs)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>CDx vs CTA in 710 bridging samples (59% of the trial)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Measure</th>
+<th style="text-align: left;">x/n</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: left;">Wilson 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PPA</td>
+<td style="text-align: left;">257/311</td>
+<td style="text-align: right;">82.6</td>
+<td style="text-align: left;">78.0 - 86.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPA</td>
+<td style="text-align: left;">366/399</td>
+<td style="text-align: right;">91.7</td>
+<td style="text-align: left;">88.6 - 94.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OPA</td>
+<td style="text-align: left;">623/710</td>
+<td style="text-align: right;">87.7</td>
+<td style="text-align: left;">85.1 - 90.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The CTA is the <strong>comparator</strong>, not a reference: call these PPA/NPA/OPA (FDA 2007 logic, Day 5). The reported agreement is below 100% <em>even though both assays are fairly accurate</em>, because both have errors against the (unobservable) truth. [Y]</p>
+</section>
+<section id="estimating-efficacy-in-the-cdx-population-when-bridging-samples-are-missing" class="level3">
+<h3 class="anchored" data-anchor-id="estimating-efficacy-in-the-cdx-population-when-bridging-samples-are-missing">Estimating efficacy in the CDx+ population when bridging samples are missing</h3>
+<p>Estimators of the risk difference among CDx+ subjects: <strong>full</strong> (impossible in practice: CDx known for all), <strong>complete case</strong> (only subjects with a sample), <strong>IPW</strong> (weights 1/P(sample | CTA, arm)), <strong>multiple imputation</strong> of the CDx result (logistic on CTA, arm, response and arm×response; Rubin’s rules). Missingness mechanisms: <strong>MCAR</strong> (60% random), <strong>MAR</strong> (sample more likely when CTA+), <strong>MNAR</strong> (sample more likely when the CDx itself is positive), <strong>MNAR_resp</strong> (as MNAR, and among CDx+ subjects responders are more likely to have a retained sample).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">82</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="cf">function</span>(miss) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(R, {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(<span class="dv">1200</span>, <span class="at">miss =</span> miss)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    e <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">full =</span> <span class="fu">est_full</span>(d), <span class="at">cc =</span> <span class="fu">est_cc</span>(d), <span class="at">ipw =</span> <span class="fu">est_ipw</span>(d), <span class="at">mi =</span> <span class="fu">est_mi</span>(d, <span class="dv">10</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>(<span class="fu">lapply</span>(e, <span class="cf">function</span>(v) <span class="fu">c</span>(v[[<span class="st">"est"</span>]], v[[<span class="st">"se"</span>]])))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"full"</span>, <span class="st">"cc"</span>, <span class="st">"ipw"</span>, <span class="st">"mi"</span>), <span class="cf">function</span>(m) {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    est <span class="ot">&lt;-</span> out[<span class="fu">paste0</span>(m, <span class="st">"1"</span>), ]; se <span class="ot">&lt;-</span> out[<span class="fu">paste0</span>(m, <span class="st">"2"</span>), ]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(<span class="at">Missingness =</span> miss, <span class="at">Estimator =</span> m, <span class="at">Bias =</span> <span class="fu">mean</span>(est) <span class="sc">-</span> truth_cdx, <span class="at">RMSE =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((est <span class="sc">-</span> truth_cdx)<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">Coverage =</span> <span class="fu">mean</span>(<span class="fu">abs</span>(est <span class="sc">-</span> truth_cdx) <span class="sc">&lt;=</span> <span class="fl">1.96</span> <span class="sc">*</span> se))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  }))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">run</span>(<span class="st">"MCAR"</span>), <span class="fu">run</span>(<span class="st">"MAR"</span>), <span class="fu">run</span>(<span class="st">"MNAR"</span>), <span class="fu">run</span>(<span class="st">"MNAR_resp"</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="fu">sprintf</span>(<span class="st">"%d simulated trials per scenario; truth = %.3f"</span>, R, truth_cdx))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>300 simulated trials per scenario; truth = 0.278</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Missingness</th>
+<th style="text-align: left;">Estimator</th>
+<th style="text-align: right;">Bias</th>
+<th style="text-align: right;">RMSE</th>
+<th style="text-align: right;">Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MCAR</td>
+<td style="text-align: left;">full</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.940</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MCAR</td>
+<td style="text-align: left;">cc</td>
+<td style="text-align: right;">-0.001</td>
+<td style="text-align: right;">0.055</td>
+<td style="text-align: right;">0.947</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MCAR</td>
+<td style="text-align: left;">ipw</td>
+<td style="text-align: right;">-0.001</td>
+<td style="text-align: right;">0.055</td>
+<td style="text-align: right;">0.953</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MCAR</td>
+<td style="text-align: left;">mi</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.047</td>
+<td style="text-align: right;">0.933</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">full</td>
+<td style="text-align: right;">-0.004</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.970</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">cc</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">0.048</td>
+<td style="text-align: right;">0.950</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">ipw</td>
+<td style="text-align: right;">-0.002</td>
+<td style="text-align: right;">0.049</td>
+<td style="text-align: right;">0.950</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">mi</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.042</td>
+<td style="text-align: right;">0.963</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MNAR</td>
+<td style="text-align: left;">full</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.960</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MNAR</td>
+<td style="text-align: left;">cc</td>
+<td style="text-align: right;">-0.001</td>
+<td style="text-align: right;">0.043</td>
+<td style="text-align: right;">0.960</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MNAR</td>
+<td style="text-align: left;">ipw</td>
+<td style="text-align: right;">-0.011</td>
+<td style="text-align: right;">0.046</td>
+<td style="text-align: right;">0.937</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MNAR</td>
+<td style="text-align: left;">mi</td>
+<td style="text-align: right;">-0.026</td>
+<td style="text-align: right;">0.049</td>
+<td style="text-align: right;">0.920</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MNAR_resp</td>
+<td style="text-align: left;">full</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.933</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MNAR_resp</td>
+<td style="text-align: left;">cc</td>
+<td style="text-align: right;">0.032</td>
+<td style="text-align: right;">0.063</td>
+<td style="text-align: right;">0.917</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MNAR_resp</td>
+<td style="text-align: left;">ipw</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.061</td>
+<td style="text-align: right;">0.920</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MNAR_resp</td>
+<td style="text-align: left;">mi</td>
+<td style="text-align: right;">-0.010</td>
+<td style="text-align: right;">0.046</td>
+<td style="text-align: right;">0.930</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(Estimator, Bias, <span class="at">fill =</span> Estimator)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Missingness) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Bias in the CDx+ risk difference by missingness mechanism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day08-companion-diagnostics_files/figure-html/mc-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Reading [Y]:</p>
+<ul>
+<li><strong>MCAR/MAR</strong>: all estimators are close to unbiased here; MI and IPW are the principled choices when availability depends on measured variables, and MI gains precision (smaller RMSE than complete case).</li>
+<li><strong>MNAR (availability depends on the CDx result only)</strong>: complete case is <em>still unbiased</em>. The analysis population is “CDx+ subjects”, and selection that depends only on the stratifying variable does not distort a comparison <em>within</em> that stratum. IPW and MI, which model missingness through the CTA, are the ones that drift (MI worst).</li>
+<li><strong>MNAR_resp (availability also depends on the outcome)</strong>: now complete case (+0.032) and IPW (+0.026) are distorted, because responders are over-represented among retained samples. MI, which conditions on the outcome, is least affected here (−0.010) but is not protected in general: availability still depends on the CDx result itself. Only a sensitivity analysis can bracket the remaining risk.</li>
+<li>The imputation model needed the arm × response term: omitting it gave a visible bias in my check, because the drug works only in biomarker-positives.</li>
+</ul>
+<p>The practical lesson is to <strong>find out why samples are missing</strong> before choosing the estimator, and to pre-specify the sensitivity analysis. [Y]</p>
+</section>
+<section id="tipping-point-sensitivity-analysis-mnar" class="level3">
+<h3 class="anchored" data-anchor-id="tipping-point-sensitivity-analysis-mnar">Tipping-point sensitivity analysis (MNAR)</h3>
+<p>Assume a fraction <code>pi_miss</code> of the subjects without a sample are CDx+ (the observed fraction among those with a sample is the reference value), and see where the conclusion changes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">83</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(<span class="dv">1200</span>, <span class="at">miss =</span> <span class="st">"MNAR"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ref <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>cdx[d<span class="sc">$</span>obs <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="at">by =</span> <span class="fl">0.05</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>tp <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(grid, <span class="cf">function</span>(p) { e <span class="ot">&lt;-</span> <span class="fu">est_tipping</span>(d, p)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">pi_miss =</span> p, <span class="at">est =</span> e[[<span class="st">"est"</span>]], <span class="at">lo =</span> e[[<span class="st">"est"</span>]] <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> e[[<span class="st">"se"</span>]], <span class="at">hi =</span> e[[<span class="st">"est"</span>]] <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> e[[<span class="st">"se"</span>]]) }))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">observed_CDx_pos_fraction_in_bridging_set =</span> ref, <span class="at">true_fraction =</span> <span class="fu">mean</span>(d<span class="sc">$</span>cdx), <span class="at">fraction_among_missing =</span> <span class="fu">mean</span>(d<span class="sc">$</span>cdx[d<span class="sc">$</span>obs <span class="sc">==</span> <span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>observed_CDx_pos_fraction_in_bridging_set 
+                                0.6211454 
+                            true_fraction 
+                                0.4450000 
+                   fraction_among_missing 
+                                0.2138728 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tp, <span class="fu">aes</span>(pi_miss, est)) <span class="sc">+</span> <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lo, <span class="at">ymax =</span> hi), <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> truth_cdx, <span class="at">linetype =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ref, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Assumed CDx+ probability among subjects without a sample"</span>, <span class="at">y =</span> <span class="st">"Risk difference in CDx+"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"dashed = observed fraction in bridging set; dotted = true effect"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day08-companion-diagnostics_files/figure-html/tipping-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">est_min =</span> <span class="fu">min</span>(tp<span class="sc">$</span>est), <span class="at">est_max =</span> <span class="fu">max</span>(tp<span class="sc">$</span>est), <span class="at">lower_CI_min =</span> <span class="fu">min</span>(tp<span class="sc">$</span>lo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     est_min      est_max lower_CI_min 
+   0.1800380    0.2785782    0.1234385 </code></pre>
+</div>
+</div>
+<p>Across the whole grid the estimate stays well above zero (the minimum lower CI limit is shown above), so the conclusion is <strong>robust to this assumption</strong> in this dataset. A real report would state the range of assumptions examined and the point at which the conclusion would change (the tipping point), if there is one. [Y]</p>
+</section>
+<section id="cross-check-of-the-imputation-with-mice" class="level3">
+<h3 class="anchored" data-anchor-id="cross-check-of-the-imputation-with-mice">Cross-check of the imputation with <code>mice</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">84</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(<span class="dv">1200</span>, <span class="at">miss =</span> <span class="st">"MAR"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>cdx_m <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d<span class="sc">$</span>obs <span class="sc">==</span> <span class="dv">1</span>, d<span class="sc">$</span>cdx, <span class="cn">NA</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>ar <span class="ot">&lt;-</span> d<span class="sc">$</span>arm <span class="sc">*</span> d<span class="sc">$</span>resp</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(d[, <span class="fu">c</span>(<span class="st">"cdx_m"</span>, <span class="st">"cta"</span>, <span class="st">"arm"</span>, <span class="st">"resp"</span>, <span class="st">"ar"</span>)], <span class="at">m =</span> <span class="dv">20</span>, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"logreg"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>), <span class="at">printFlag =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>mi_mice <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sapply</span>(<span class="fu">seq_len</span>(<span class="dv">20</span>), <span class="cf">function</span>(i) {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, i); k <span class="ot">&lt;-</span> x<span class="sc">$</span>cdx_m <span class="sc">==</span> <span class="dv">1</span>; <span class="fu">rd_est</span>(x<span class="sc">$</span>arm[k], x<span class="sc">$</span>resp[k])[[<span class="st">"est"</span>]] }))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>mi_mine <span class="ot">&lt;-</span> <span class="fu">est_mi</span>(d, <span class="dv">40</span>)[[<span class="st">"est"</span>]]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"hand MI"</span>, <span class="st">"mice (logreg)"</span>, <span class="st">"full information"</span>, <span class="st">"analytic truth"</span>),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Risk difference CDx+</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(mi_mine, mi_mice, <span class="fu">est_full</span>(d)[[<span class="st">"est"</span>]], truth_cdx), <span class="dv">3</span>), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">Risk difference CDx+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">hand MI</td>
+<td style="text-align: right;">0.300</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mice (logreg)</td>
+<td style="text-align: right;">0.303</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">full information</td>
+<td style="text-align: right;">0.296</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">analytic truth</td>
+<td style="text-align: right;">0.278</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(mi_mine <span class="sc">-</span> mi_mice) <span class="sc">&lt;</span> <span class="fl">0.03</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="design-enrichment-vs-all-comers-a" class="level3">
+<h3 class="anchored" data-anchor-id="design-enrichment-vs-all-comers-a">Design: enrichment vs all-comers [A]</h3>
+<p>Same number <em>randomised</em> (n = 160): enrichment randomises CTA+ only (screening about 2.5 patients per randomised one); all-comers randomises everyone, so only about 43% of its patients are CTA+. Power for the effect in the CTA+ population, and power of the treatment × biomarker interaction test (only possible with all-comers).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">85</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>nn <span class="ot">&lt;-</span> <span class="dv">160</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cmp_prop <span class="ot">&lt;-</span> <span class="cf">function</span>(d) <span class="fu">suppressWarnings</span>(<span class="fu">prop.test</span>(<span class="fu">table</span>(<span class="fu">factor</span>(d<span class="sc">$</span>arm, <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>), <span class="fu">factor</span>(d<span class="sc">$</span>resp, <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>))[, <span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>])<span class="sc">$</span>p.value) <span class="sc">&lt;</span> .<span class="dv">05</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>pw_enrich <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">reps =</span> <span class="dv">600</span>) <span class="fu">mean</span>(<span class="fu">replicate</span>(reps, {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(<span class="fu">ceiling</span>(nn <span class="sc">/</span> <span class="fl">0.40</span>) <span class="sc">+</span> <span class="dv">60</span>, <span class="at">miss =</span> <span class="st">"none"</span>); <span class="fu">cmp_prop</span>(d[d<span class="sc">$</span>cta <span class="sc">==</span> <span class="dv">1</span>, ][<span class="fu">seq_len</span>(nn), ]) }))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>pw_all <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">reps =</span> <span class="dv">600</span>) <span class="fu">mean</span>(<span class="fu">replicate</span>(reps, { d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(nn, <span class="at">miss =</span> <span class="st">"none"</span>); <span class="fu">cmp_prop</span>(d[d<span class="sc">$</span>cta <span class="sc">==</span> <span class="dv">1</span>, ]) }))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>inter <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">reps =</span> <span class="dv">600</span>) <span class="fu">mean</span>(<span class="fu">replicate</span>(reps, {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">sim_trial</span>(nn, <span class="at">miss =</span> <span class="st">"none"</span>); f <span class="ot">&lt;-</span> <span class="fu">glm</span>(resp <span class="sc">~</span> arm <span class="sc">*</span> cta, binomial, d)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(f)<span class="sc">$</span>coefficients[<span class="st">"arm:cta"</span>, <span class="dv">4</span>] <span class="sc">&lt;</span> .<span class="dv">05</span> }))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Design =</span> <span class="fu">c</span>(<span class="st">"Enrichment: effect in CTA+ (160 randomised CTA+)"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">"All-comers (160 randomised): effect in its CTA+ subgroup"</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">"All-comers (160 randomised): treatment x CTA interaction"</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Power =</span> <span class="fu">c</span>(<span class="fu">pw_enrich</span>(), <span class="fu">pw_all</span>(), <span class="fu">inter</span>())), <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Design</th>
+<th style="text-align: right;">Power</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Enrichment: effect in CTA+ (160 randomised CTA+)</td>
+<td style="text-align: right;">0.930</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">All-comers (160 randomised): effect in its CTA+ subgroup</td>
+<td style="text-align: right;">0.485</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">All-comers (160 randomised): treatment x CTA interaction</td>
+<td style="text-align: right;">0.315</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Enrichment gives the most power for the effect in the selected population but no information on biomarker-negatives (and none on CTA false negatives); the all-comers design costs power but supports the claim that benefit is <em>restricted</em> to biomarker-positives and is the base for a CDx labelling decision. [Y]</p>
+</section>
+<section id="estimand-sketch-for-a-cdx-claim-ich-e9r1-vocabulary-by-analogy-y" class="level3">
+<h3 class="anchored" data-anchor-id="estimand-sketch-for-a-cdx-claim-ich-e9r1-vocabulary-by-analogy-y">Estimand sketch for a CDx claim (ICH E9(R1) vocabulary by analogy) [Y]</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Choice here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population</td>
+<td>Patients who test CDx+ with the final IVD in the intended-use setting</td>
+</tr>
+<tr class="even">
+<td>Treatment</td>
+<td>Drug vs control, treatment-policy</td>
+</tr>
+<tr class="odd">
+<td>Variable</td>
+<td>Response (or time to event)</td>
+</tr>
+<tr class="even">
+<td>Intercurrent events</td>
+<td>Discontinuation, switching: treatment-policy or hypothetical, pre-specified</td>
+</tr>
+<tr class="odd">
+<td>Summary measure</td>
+<td>Risk difference or ratio / hazard ratio in CDx+</td>
+</tr>
+<tr class="even">
+<td>Bridging-specific</td>
+<td>How subjects without CDx samples are handled (IPW / MI / bounds), analysis of CTA-CDx discordant subjects</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">8</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> What is a companion diagnostic and which regulatory consequences follow in EU and US?</p>
+<blockquote class="blockquote">
+<p>A device essential for the safe and effective use of a corresponding medicinal product (IVDR Art 2(7); FDA 2014 guidance). EU: class C via Annex VIII Rule 3(f); the notified body consults a medicines competent authority or the EMA (Art 48(7)/(8), Annex IX 5.2). US: usually PMA/Class III, though the 2014 guidance footnote allows Class II/510(k) in some cases; labelled in both device and drug labelling.</p>
+</blockquote>
+<p><strong>Q2. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> What is the bridging problem?</p>
+<blockquote class="blockquote">
+<p>The pivotal trial used a clinical trial assay; the commercial CDx differs. Show concordance of the CDx with the CTA on trial samples and estimate the effect in the population the CDx will actually select, using the trial result and the discordance.</p>
+</blockquote>
+<p><strong>Q3.</strong> Why report PPA/NPA between CTA and CDx instead of sensitivity and specificity?</p>
+<blockquote class="blockquote">
+<p>Neither assay is a reference standard; FDA 2007 guidance says sensitivity and specificity are inappropriate for comparisons to a non-reference. PPA/NPA depend on which assay is the comparator and on the prevalence/spectrum of the bridging samples.</p>
+</blockquote>
+<p><strong>Q4.</strong> Only 60% of trial patients have a sample for the CDx. What do you do?</p>
+<blockquote class="blockquote">
+<p>First understand why (MCAR, MAR on measured variables, MNAR on the CDx itself). Compare available vs missing on baseline variables and outcomes; analyse with IPW or multiple imputation (include arm x outcome interaction), and run tipping-point/bounds analyses for MNAR. Pre-specify this in the SAP.</p>
+</blockquote>
+<p><strong>Q5. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> In your simulation multiple imputation was biased until you added the arm x response interaction. Why?</p>
+<blockquote class="blockquote">
+<p>The drug only works in biomarker-positive patients, so the relation between response and CDx status differs by arm. An imputation model omitting that interaction is misspecified and biases the treatment effect in the imputed CDx+ group (0.264 vs 0.283 with it, truth 0.278 in my run). Imputation models must be at least as rich as the analysis model.</p>
+</blockquote>
+<p><strong>Q6. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Why is the effect in the CDx+ population different from the trial’s headline effect?</p>
+<blockquote class="blockquote">
+<p>Selection by an imperfect assay mixes true positives (benefit) and false positives (no benefit). The effect in the selected population is a weighted average with weight = PPV of the assay for the biomarker. In my simulation: 0.30 in true positives, 0.278 in CDx+ (PPV 0.93), lower with a worse assay.</p>
+</blockquote>
+<p><strong>Q7.</strong> Enrichment vs all-comers designs?</p>
+<blockquote class="blockquote">
+<p>Enrichment: higher power in the selected population, but no data on biomarker-negatives or on CTA false negatives, so a restricted claim cannot be tested and false negatives are unknowable. All-comers/stratified: allows treatment-by-biomarker interaction and effect in negatives; needs more patients.</p>
+</blockquote>
+<p><strong>Q8.</strong> How would you frame the estimand for a CDx claim?</p>
+<blockquote class="blockquote">
+<p>Population: CDx+ per the intended-use setting; treatment policy; summary measure risk or hazard ratio in CDx+; intercurrent events handled per ICH E9(R1) by analogy; add how missing bridging samples and discordant CTA/CDx subjects are handled.</p>
+</blockquote>
+<p><strong>Q9.</strong> What else matters in a bridging study beyond concordance?</p>
+<blockquote class="blockquote">
+<p>Reagent lot and site effects on classification near the cut-off, precision at the cut-off (C5/C95), sample type/handling differences, prevalence and spectrum of the bridging samples relative to the intended-use population.</p>
+</blockquote>
+<p><strong>Q10.</strong> Which FDA guidances anchor CDx development and what is their status?</p>
+<blockquote class="blockquote">
+<p>In Vitro Companion Diagnostic Devices (Aug 2014, final); Principles for Codevelopment of an IVD CDx with a Therapeutic Product (July 2016, still marked draft on FDA’s page); Developing and Labeling IVD CDx for a Specific Group of Oncology Therapeutic Products (Apr 2020, final; “Group or Class” was the draft title).</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>FDA 2014 / 2016 / 2020 guidance facts, IVDR Art 2(7), Rule 3(f), Art 48(7)/(8), Art 58(2) are in the ledger (chapter 8). Simulation conclusions are my synthesis and depend on assumptions stated above.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day07-sample-size.html" class="pagination-link" aria-label="Day 7. Sample size and power for diagnostic studies">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/day09-sap.html" class="pagination-link" aria-label="Day 9. The statistical analysis plan for a diagnostic clinical performance study">
+        <span class="nav-page-text"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

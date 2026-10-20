@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 6. Cut-offs, two-cut-off designs and the intermediate zone – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/day07-sample-size.html" rel="next">
+<link href="../chapters/day05-diagnostic-accuracy.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day06-cutoffs.html"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-regulatory-anchor-and-worked-example-elecsys-phospho-tau-217p-plasma" id="toc-b-regulatory-anchor-and-worked-example-elecsys-phospho-tau-217p-plasma" class="nav-link" data-scroll-target="#b-regulatory-anchor-and-worked-example-elecsys-phospho-tau-217p-plasma">(b) Regulatory anchor and worked example: Elecsys Phospho-Tau (217P) Plasma</a></li>
+  <li><a href="#c-r-lab-simulated" id="toc-c-r-lab-simulated" class="nav-link" data-scroll-target="#c-r-lab-simulated">(c) R lab (simulated)</a>
+  <ul class="collapse">
+  <li><a href="#cohorts" id="toc-cohorts" class="nav-link" data-scroll-target="#cohorts">Cohorts</a></li>
+  <li><a href="#derive-the-two-cut-offs-on-the-derivation-cohort" id="toc-derive-the-two-cut-offs-on-the-derivation-cohort" class="nav-link" data-scroll-target="#derive-the-two-cut-offs-on-the-derivation-cohort">Derive the two cut-offs on the derivation cohort</a></li>
+  <li><a href="#lock-then-validate" id="toc-lock-then-validate" class="nav-link" data-scroll-target="#lock-then-validate">Lock, then validate</a></li>
+  <li><a href="#prevalence-and-spectrum-change-the-zones" id="toc-prevalence-and-spectrum-change-the-zones" class="nav-link" data-scroll-target="#prevalence-and-spectrum-change-the-zones">Prevalence and spectrum change the zones</a></li>
+  <li><a href="#kidney-function-as-a-covariate-assumed-effect" id="toc-kidney-function-as-a-covariate-assumed-effect" class="nav-link" data-scroll-target="#kidney-function-as-a-covariate-assumed-effect">Kidney function as a covariate (assumed effect)</a></li>
+  </ul></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis, <strong>[D]</strong> derived by me by arithmetic from a cited count. The lab uses <strong>simulated</strong> data only.</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Idea</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Single cut-off</td>
+<td>one threshold; Youden (max Se+Sp−1), a targeted Se or Sp, or cost-weighted</td>
+</tr>
+<tr class="even">
+<td>Two cut-offs</td>
+<td><strong>rule-out</strong> cut-off set for sensitivity/NPV; <strong>rule-in</strong> cut-off set for specificity/PPV</td>
+</tr>
+<tr class="odd">
+<td>Intermediate (“grey”) zone</td>
+<td>results between the two; the price paid for high predictive values</td>
+</tr>
+<tr class="even">
+<td>Lock before validation</td>
+<td>derive on one cohort, freeze, validate on another; never re-tune on validation data</td>
+</tr>
+<tr class="odd">
+<td>Spectrum and prevalence</td>
+<td>the same cut-offs give different zone fractions and PPV/NPV in primary vs specialty care</td>
+</tr>
+</tbody>
+</table>
+<p>Grey-zone approach: Coste &amp; Pouchot, <em>Int J Epidemiol</em> 2003;32:304-313 [S: abstract]: a three-zone partition whose width depends on the separation of the group means, variability, and the accepted misclassification risks. TG-ROC plots sensitivity and specificity against the threshold so the zone limits can be read off.</p>
+</section>
+<section id="b-regulatory-anchor-and-worked-example-elecsys-phospho-tau-217p-plasma" class="level2">
+<h2 class="anchored" data-anchor-id="b-regulatory-anchor-and-worked-example-elecsys-phospho-tau-217p-plasma">(b) Regulatory anchor and worked example: Elecsys Phospho-Tau (217P) Plasma</h2>
+<p>Facts below were read from the <strong>FDA 510(k) Decision Summary K261686</strong> (37 pp.) and re-checked by me against the PDF for the tables marked ✔. Everything else is from the research notes (<code>research/ptau217_notes.md</code>).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>510(k) / decision</td>
+<td>K261686, decision <strong>2026-08-19</strong>, SESE, Class II, 21 CFR 866.5840 “Alzheimer’s Disease Pathology Assessment Test”</td>
+<td>FDA-DS p.1, openFDA record</td>
+</tr>
+<tr class="even">
+<td>Predicate</td>
+<td>Lumipulse G pTau 217/beta-Amyloid 1-42 Plasma Ratio, K242706 ✔</td>
+<td>FDA-DS p.4</td>
+</tr>
+<tr class="odd">
+<td>Indication</td>
+<td>aid in identifying amyloid pathology in patients with cognitive decline, plasma of individuals ≥ 55 years, used with other clinical information ✔</td>
+<td>FDA-DS p.2</td>
+</tr>
+<tr class="even">
+<td>Cut-offs (pg/mL)</td>
+<td><strong>Negative ≤ 0.223; Intermediate &gt; 0.223 to ≤ 0.378; Positive &gt; 0.378</strong> ✔</td>
+<td>FDA-DS p.3</td>
+</tr>
+<tr class="odd">
+<td>Cut-off derivation cohort</td>
+<td>687 banked samples; 286 PET+ (41.6%); the selection rule for 0.223/0.378 is <strong>not stated</strong></td>
+<td>FDA-DS p.20</td>
+</tr>
+<tr class="even">
+<td>Pivotal cohort</td>
+<td>N = 958; 378 PET+ (39.5%); reference = amyloid PET visual read by 6 blinded readers; CSF only as a tie-breaker</td>
+<td>FDA-DS pp.22-26</td>
+</tr>
+<tr class="odd">
+<td>Monitoring / dementia prediction</td>
+<td><strong>Not</strong> in the decision summary; stated in the Roche 24 Aug 2026 release only</td>
+<td>ROCHE-0824</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pivotal 3×2 table</strong> ✔ (FDA-DS p.26):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fda <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">285</span>, <span class="dv">37</span>, <span class="dv">72</span>, <span class="dv">119</span>, <span class="dv">21</span>, <span class="dv">424</span>), <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">Assay =</span> <span class="fu">c</span>(<span class="st">"Positive (&gt;0.378)"</span>, <span class="st">"Intermediate"</span>, <span class="st">"Negative (&lt;=0.223)"</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">`</span><span class="at">Amyloid PET</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"PET+"</span>, <span class="st">"PET-"</span>)))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">addmargins</span>(fda))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">PET+</th>
+<th style="text-align: right;">PET-</th>
+<th style="text-align: right;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Positive (&gt;0.378)</td>
+<td style="text-align: right;">285</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">322</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Intermediate</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">119</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Negative (&lt;=0.223)</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">424</td>
+<td style="text-align: right;">445</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">580</td>
+<td style="text-align: right;">958</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Reproduce what FDA reported, then compare <strong>our</strong> CI methods with theirs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">sum</span>(fda); pet_pos <span class="ot">&lt;-</span> <span class="fu">sum</span>(fda[, <span class="dv">1</span>]); pet_neg <span class="ot">&lt;-</span> <span class="fu">sum</span>(fda[, <span class="dv">2</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"PPA (positive among PET+)"</span>, <span class="dv">285</span>, pet_pos, <span class="st">"75.4 (70.8-79.5)"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"NPA (negative among PET-)"</span>, <span class="dv">424</span>, pet_neg, <span class="st">"73.1 (69.4-76.6)"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"PPV of positive"</span>, <span class="dv">285</span>, <span class="dv">322</span>, <span class="st">"88.5 (84.9-91.4)"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"NPV of negative"</span>, <span class="dv">424</span>, <span class="dv">445</span>, <span class="st">"95.3 (93.1-96.8)"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(rows, <span class="cf">function</span>(r) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(r[<span class="dv">2</span>]); n <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(r[<span class="dv">3</span>]); w <span class="ot">&lt;-</span> <span class="fu">ci_wilson</span>(x, n); cp <span class="ot">&lt;-</span> <span class="fu">ci_clopper_pearson</span>(x, n)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Measure =</span> r[<span class="dv">1</span>], <span class="st">`</span><span class="at">FDA reported</span><span class="st">`</span> <span class="ot">=</span> r[<span class="dv">4</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Wilson</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f-%.1f)"</span>, <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">1</span>], <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">2</span>], <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">3</span>]),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Clopper-Pearson</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f-%.1f)"</span>, <span class="dv">100</span> <span class="sc">*</span> cp[<span class="dv">1</span>], <span class="dv">100</span> <span class="sc">*</span> cp[<span class="dv">2</span>], <span class="dv">100</span> <span class="sc">*</span> cp[<span class="dv">3</span>]),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">check.names =</span> <span class="cn">FALSE</span>)}))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(out, <span class="at">caption =</span> <span class="st">"FDA CIs vs ours. FDA states the PV CIs derive from likelihood-ratio CIs; the PPA/NPA CI method is not stated"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>FDA CIs vs ours. FDA states the PV CIs derive from likelihood-ratio CIs; the PPA/NPA CI method is not stated</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Measure</th>
+<th style="text-align: left;">FDA reported</th>
+<th style="text-align: left;">Wilson</th>
+<th style="text-align: left;">Clopper-Pearson</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PPA (positive among PET+)</td>
+<td style="text-align: left;">75.4 (70.8-79.5)</td>
+<td style="text-align: left;">75.4 (70.8-79.5)</td>
+<td style="text-align: left;">75.4 (70.7-79.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPA (negative among PET-)</td>
+<td style="text-align: left;">73.1 (69.4-76.6)</td>
+<td style="text-align: left;">73.1 (69.4-76.6)</td>
+<td style="text-align: left;">73.1 (69.3-76.7)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PPV of positive</td>
+<td style="text-align: left;">88.5 (84.9-91.4)</td>
+<td style="text-align: left;">88.5 (84.6-91.5)</td>
+<td style="text-align: left;">88.5 (84.5-91.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NPV of negative</td>
+<td style="text-align: left;">95.3 (93.1-96.8)</td>
+<td style="text-align: left;">95.3 (92.9-96.9)</td>
+<td style="text-align: left;">95.3 (92.9-97.1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Our Wilson intervals reproduce FDA’s PPA and NPA CIs to the printed digit (70.8-79.5, 69.4-76.6), so Wilson is the likely method [D: inference, not stated by FDA]. The PV CIs differ slightly because FDA derives them from likelihood-ratio CIs.</p>
+<p>The <strong>PPA/NPA are low (≈75%)</strong> because intermediates count as misses (denominators include all PET+ and PET−). The headline strength is in the categories: <strong>PV 88.5% for positive, 95.3% NPV for negative, 19.9% (191/958) intermediate</strong> ✔. Derived by me [D] from the counts above (no CI in the FDA summary):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Rule-out step: not-negative among PET+ (357/378)"</span>, <span class="dv">357</span>, <span class="dv">378</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Rule-in step: not-positive among PET- (543/580)"</span>, <span class="dv">543</span>, <span class="dv">580</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"Intermediate fraction (191/958)"</span>, <span class="dv">191</span>, <span class="dv">958</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Quantity =</span> d[, <span class="dv">1</span>],</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Estimate (Wilson 95% CI), %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sapply</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(d)), <span class="cf">function</span>(i) {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    w <span class="ot">&lt;-</span> <span class="fu">ci_wilson</span>(<span class="fu">as.numeric</span>(d[i, <span class="dv">2</span>]), <span class="fu">as.numeric</span>(d[i, <span class="dv">3</span>]))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f-%.1f)"</span>, <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">1</span>], <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">2</span>], <span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">3</span>]) }), <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 63%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: left;">Estimate (Wilson 95% CI), %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rule-out step: not-negative among PET+ (357/378)</td>
+<td style="text-align: left;">94.4 (91.7-96.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rule-in step: not-positive among PET- (543/580)</td>
+<td style="text-align: left;">93.6 (91.3-95.3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intermediate fraction (191/958)</td>
+<td style="text-align: left;">19.9 (17.5-22.6)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Also FDA’s decision logic is worth noting: the <strong>PV is judged “statistically higher than prevalence”</strong> (lower CI bound 84.9% &gt; prevalence 39.5%), a comparison with the prevalence rather than a pre-specified performance goal; none of a sample-size calculation or goal was found in the text read. ✔ (FDA-DS p.27)</p>
+<p><strong>Known blemishes in the summary</strong> (do not copy tables uncritically) ✔: p.26 says “pre-specified cut-offs of 0.225 pg/mL” while the table uses 0.223, and “prevalence 13.1%” in one sentence vs 39.5% elsewhere; others are listed in the notes.</p>
+<p><strong>What the two papers do and do not give.</strong> Both use the <em>prototype</em> assay, not the cleared one, and neither reports 0.223/0.378. <em>Hibar et al., Alzheimers Dement 2026;22(1):e71009</em>: five cohorts, N = 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone; e.g.&nbsp;cognitively impaired (n = 538) sensitivity 98.98%, specificity 29.17%, NPV 92.51% [S]. <em>Hortsch et al., J Prev Alzheimers Dis 2026;13(5):100534</em>: APPROACH, N = 588, centiloid reference, exploratory double cut-off at 90% PPA / 90% NPA, <strong>indeterminate 5.78% at centiloid 30</strong>, Wilson CIs, eGFR distribution reported and “higher pTau217 with worse kidney function” [S]. Nothing here is the pivotal data behind the clearance.</p>
+</section>
+<section id="c-r-lab-simulated" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab-simulated">(c) R lab (simulated)</h2>
+<section id="cohorts" class="level3">
+<h3 class="anchored" data-anchor-id="cohorts">Cohorts</h3>
+<p>pTau217-<em>like</em>: log10 concentration normal in both groups, higher in amyloid-positive.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sim_cohort <span class="ot">&lt;-</span> <span class="cf">function</span>(n, prev, seed, <span class="at">egfr_shift =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, prev)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  lx <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(y <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">rnorm</span>(n, <span class="sc">-</span><span class="fl">0.20</span>, <span class="fl">0.30</span>), <span class="fu">rnorm</span>(n, <span class="sc">-</span><span class="fl">0.80</span>, <span class="fl">0.25</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  egfr <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">pmin</span>(<span class="dv">120</span>, <span class="fu">pmax</span>(<span class="dv">8</span>, <span class="fu">rnorm</span>(n, <span class="dv">78</span>, <span class="dv">22</span>))))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (egfr_shift) lx <span class="ot">&lt;-</span> lx <span class="sc">+</span> <span class="fu">ifelse</span>(egfr <span class="sc">&gt;=</span> <span class="dv">60</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(egfr <span class="sc">&gt;=</span> <span class="dv">30</span>, <span class="fl">0.10</span>, <span class="fl">0.30</span>))  <span class="co"># assumed effect</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(y, <span class="at">x =</span> <span class="dv">10</span><span class="sc">^</span>lx, egfr)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> <span class="fu">sim_cohort</span>(<span class="dv">700</span>, <span class="fl">0.40</span>, <span class="dv">61</span>)      <span class="co"># derivation cohort</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>valid <span class="ot">&lt;-</span> <span class="fu">sim_cohort</span>(<span class="dv">950</span>, <span class="fl">0.40</span>, <span class="dv">62</span>)      <span class="co"># separate validation cohort</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">train_AUC =</span> <span class="fu">as.numeric</span>(<span class="fu">auc</span>(<span class="fu">roc</span>(train<span class="sc">$</span>y, train<span class="sc">$</span>x, <span class="at">quiet =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">"&lt;"</span>))),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">valid_AUC =</span> <span class="fu">as.numeric</span>(<span class="fu">auc</span>(<span class="fu">roc</span>(valid<span class="sc">$</span>y, valid<span class="sc">$</span>x, <span class="at">quiet =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">"&lt;"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>train_AUC valid_AUC 
+0.9185108 0.9228144 </code></pre>
+</div>
+</div>
+</section>
+<section id="derive-the-two-cut-offs-on-the-derivation-cohort" class="level3">
+<h3 class="anchored" data-anchor-id="derive-the-two-cut-offs-on-the-derivation-cohort">Derive the two cut-offs on the derivation cohort</h3>
+<p>Targets (assumed): sensitivity ≥ 94% for the rule-out step, specificity ≥ 93% for the rule-in step, chosen to resemble the derived operating points of the public pivotal data. [Y]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>co <span class="ot">&lt;-</span> <span class="fu">derive_two_cutoffs</span>(train<span class="sc">$</span>x, train<span class="sc">$</span>y, <span class="fl">0.94</span>, <span class="fl">0.93</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cross-check 1: cutpointr</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">cutpointr</span>(train, x, y, <span class="at">pos_class =</span> <span class="dv">1</span>, <span class="at">neg_class =</span> <span class="dv">0</span>, <span class="at">direction =</span> <span class="st">"&gt;="</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">method =</span> maximize_metric, <span class="at">metric =</span> spec_constrain, <span class="at">min_constrain =</span> <span class="fl">0.94</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">cutpointr</span>(train, x, y, <span class="at">pos_class =</span> <span class="dv">1</span>, <span class="at">neg_class =</span> <span class="dv">0</span>, <span class="at">direction =</span> <span class="st">"&gt;="</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">method =</span> maximize_metric, <span class="at">metric =</span> sens_constrain, <span class="at">min_constrain =</span> <span class="fl">0.93</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># cross-check 2: OptimalCutpoints</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>oc_lo <span class="ot">&lt;-</span> <span class="fu">optimal.cutpoints</span>(<span class="at">X =</span> <span class="st">"x"</span>, <span class="at">status =</span> <span class="st">"y"</span>, <span class="at">tag.healthy =</span> <span class="dv">0</span>, <span class="at">methods =</span> <span class="st">"ValueSe"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">control =</span> <span class="fu">control.cutpoints</span>(<span class="at">valueSe =</span> <span class="fl">0.94</span>), <span class="at">data =</span> train)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>oc_hi <span class="ot">&lt;-</span> <span class="fu">optimal.cutpoints</span>(<span class="at">X =</span> <span class="st">"x"</span>, <span class="at">status =</span> <span class="st">"y"</span>, <span class="at">tag.healthy =</span> <span class="dv">0</span>, <span class="at">methods =</span> <span class="st">"ValueSp"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                           <span class="at">control =</span> <span class="fu">control.cutpoints</span>(<span class="at">valueSp =</span> <span class="fl">0.93</span>), <span class="at">data =</span> train)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>pick <span class="ot">&lt;-</span> <span class="cf">function</span>(o, nm) <span class="fu">as.numeric</span>(o<span class="sc">$</span>Global<span class="sc">$</span>optimal.cutoff[[nm]])[<span class="dv">1</span>]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>oc_lo_c <span class="ot">&lt;-</span> <span class="fu">pick</span>(oc_lo<span class="sc">$</span>ValueSe, <span class="st">"cutoff"</span>); oc_lo_se <span class="ot">&lt;-</span> <span class="fu">pick</span>(oc_lo<span class="sc">$</span>ValueSe, <span class="st">"Se"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>oc_hi_c <span class="ot">&lt;-</span> <span class="fu">pick</span>(oc_hi<span class="sc">$</span>ValueSp, <span class="st">"cutoff"</span>); oc_hi_sp <span class="ot">&lt;-</span> <span class="fu">pick</span>(oc_hi<span class="sc">$</span>ValueSp, <span class="st">"Sp"</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>se_at <span class="ot">&lt;-</span> <span class="cf">function</span>(c) <span class="fu">mean</span>(train<span class="sc">$</span>x[train<span class="sc">$</span>y <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">&gt;</span> c)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>sp_at <span class="ot">&lt;-</span> <span class="cf">function</span>(c) <span class="fu">mean</span>(train<span class="sc">$</span>x[train<span class="sc">$</span>y <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">&lt;=</span> c)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"hand"</span>, <span class="st">"cutpointr"</span>, <span class="st">"OptimalCutpoints"</span>),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Rule-out cut-off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(co[[<span class="st">"lo"</span>]], a<span class="sc">$</span>optimal_cutpoint, oc_lo_c), <span class="dv">4</span>),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Sens at it</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">se_at</span>(co[[<span class="st">"lo"</span>]]), a<span class="sc">$</span>sensitivity, oc_lo_se), <span class="dv">4</span>),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Rule-in cut-off</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(co[[<span class="st">"hi"</span>]], b<span class="sc">$</span>optimal_cutpoint, oc_hi_c), <span class="dv">4</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Spec at it</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">sp_at</span>(co[[<span class="st">"hi"</span>]]), b<span class="sc">$</span>specificity, oc_hi_sp), <span class="dv">4</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">caption =</span> <span class="st">"Same targets, three tools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Same targets, three tools</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">Rule-out cut-off</th>
+<th style="text-align: right;">Sens at it</th>
+<th style="text-align: right;">Rule-in cut-off</th>
+<th style="text-align: right;">Spec at it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">hand</td>
+<td style="text-align: right;">0.1772</td>
+<td style="text-align: right;">0.9408</td>
+<td style="text-align: right;">0.3715</td>
+<td style="text-align: right;">0.9322</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cutpointr</td>
+<td style="text-align: right;">0.1791</td>
+<td style="text-align: right;">0.9408</td>
+<td style="text-align: right;">0.3738</td>
+<td style="text-align: right;">0.9346</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OptimalCutpoints</td>
+<td style="text-align: right;">0.1791</td>
+<td style="text-align: right;">0.9408</td>
+<td style="text-align: right;">0.3689</td>
+<td style="text-align: right;">0.9298</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Sensitivity is identical across the three at the rule-out step. The rule-in cut-offs can differ by one observation depending on each tool’s tie and boundary convention (≥ versus &gt;); the hand version fixes the FDA convention (positive if &gt; cut-off). [Y]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(train<span class="sc">$</span>x)), <span class="cf">function</span>(t)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">t =</span> t, <span class="at">Sensitivity =</span> <span class="fu">mean</span>(train<span class="sc">$</span>x[train<span class="sc">$</span>y <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">&gt;</span> t), <span class="at">Specificity =</span> <span class="fu">mean</span>(train<span class="sc">$</span>x[train<span class="sc">$</span>y <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">&lt;=</span> t))))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>gl <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">data.frame</span>(<span class="at">t =</span> g<span class="sc">$</span>t, <span class="at">value =</span> g<span class="sc">$</span>Sensitivity, <span class="at">Measure =</span> <span class="st">"Sensitivity (x &gt; t)"</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">data.frame</span>(<span class="at">t =</span> g<span class="sc">$</span>t, <span class="at">value =</span> g<span class="sc">$</span>Specificity, <span class="at">Measure =</span> <span class="st">"Specificity (x &lt;= t)"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gl, <span class="fu">aes</span>(t, value, <span class="at">colour =</span> Measure)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">unlist</span>(co), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> co[[<span class="st">"lo"</span>]], <span class="at">xmax =</span> co[[<span class="st">"hi"</span>]], <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">ymax =</span> <span class="dv">1</span>, <span class="at">alpha =</span> .<span class="dv">08</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Threshold (pg/mL, log scale)"</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">subtitle =</span> <span class="st">"TG-ROC: shaded = intermediate zone"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="day06-cutoffs_files/figure-html/tgroc-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For comparison, a single Youden cut-off on the same data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>yc <span class="ot">&lt;-</span> <span class="fu">cutpointr</span>(train, x, y, <span class="at">pos_class =</span> <span class="dv">1</span>, <span class="at">neg_class =</span> <span class="dv">0</span>, <span class="at">direction =</span> <span class="st">"&gt;="</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> maximize_metric, <span class="at">metric =</span> youden)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">cutoff =</span> yc<span class="sc">$</span>optimal_cutpoint, <span class="at">sens =</span> yc<span class="sc">$</span>sensitivity, <span class="at">spec =</span> yc<span class="sc">$</span>specificity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              cutoff      sens      spec
+sensitivity 0.316743 0.8292683 0.8958838</code></pre>
+</div>
+</div>
+</section>
+<section id="lock-then-validate" class="level3">
+<h3 class="anchored" data-anchor-id="lock-then-validate">Lock, then validate</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(valid<span class="sc">$</span>x, valid<span class="sc">$</span>y, co[[<span class="st">"lo"</span>]], co[[<span class="st">"hi"</span>]])</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fm <span class="ot">&lt;-</span> <span class="cf">function</span>(v) <span class="fu">sprintf</span>(<span class="st">"%.1f (%.1f-%.1f)"</span>, <span class="dv">100</span> <span class="sc">*</span> v[[<span class="st">"est"</span>]], <span class="dv">100</span> <span class="sc">*</span> v[[<span class="st">"lower"</span>]], <span class="dv">100</span> <span class="sc">*</span> v[[<span class="st">"upper"</span>]])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">addmargins</span>(p<span class="sc">$</span>table), <span class="at">caption =</span> <span class="st">"Validation cohort, cut-offs locked from the derivation cohort"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Validation cohort, cut-offs locked from the derivation cohort</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">D+</th>
+<th style="text-align: right;">D-</th>
+<th style="text-align: right;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">rule-out</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">331</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">intermediate</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">274</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rule-in</td>
+<td style="text-align: right;">295</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">345</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">393</td>
+<td style="text-align: right;">557</td>
+<td style="text-align: right;">950</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Quantity =</span> <span class="fu">c</span>(<span class="st">"Intermediate fraction"</span>, <span class="st">"Rule-out step sensitivity (not-negative among D+)"</span>, <span class="st">"Negative result NPV"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Rule-in step specificity"</span>, <span class="st">"Positive result PPV"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"PPA incl. intermediates (FDA-summary style)"</span>, <span class="st">"NPA incl. intermediates"</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Estimate % (Wilson 95% CI)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">fm</span>(p<span class="sc">$</span>intermediate), <span class="fu">fm</span>(p<span class="sc">$</span>ruleout_sens), <span class="fu">fm</span>(p<span class="sc">$</span>ruleout_npv),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">fm</span>(p<span class="sc">$</span>rulein_spec), <span class="fu">fm</span>(p<span class="sc">$</span>rulein_ppv), <span class="fu">fm</span>(p<span class="sc">$</span>ppa_incl), <span class="fu">fm</span>(p<span class="sc">$</span>npa_incl)),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 64%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: left;">Estimate % (Wilson 95% CI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intermediate fraction</td>
+<td style="text-align: left;">28.8 (26.1-31.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rule-out step sensitivity (not-negative among D+)</td>
+<td style="text-align: left;">95.7 (93.2-97.3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Negative result NPV</td>
+<td style="text-align: left;">94.9 (91.9-96.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rule-in step specificity</td>
+<td style="text-align: left;">91.0 (88.4-93.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Positive result PPV</td>
+<td style="text-align: left;">85.5 (81.4-88.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PPA incl.&nbsp;intermediates (FDA-summary style)</td>
+<td style="text-align: left;">75.1 (70.6-79.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NPA incl.&nbsp;intermediates</td>
+<td style="text-align: left;">56.4 (52.2-60.4)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>How to state the claim when a result can be indeterminate (the FDA summary’s practice [S]): report the <strong>fraction</strong> of intermediates, performance of each category, and PPA/NPA with intermediates counted as not-agreeing; the “excluding intermediates” figures alone flatter the test. [Y]</p>
+</section>
+<section id="prevalence-and-spectrum-change-the-zones" class="level3">
+<h3 class="anchored" data-anchor-id="prevalence-and-spectrum-change-the-zones">Prevalence and spectrum change the zones</h3>
+<p>Same locked cut-offs, three populations: primary care (prev 20%), secondary (40%), memory clinic (60%).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="fl">0.20</span>, <span class="fl">0.40</span>, <span class="fl">0.60</span>), <span class="cf">function</span>(pv) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> <span class="fu">sim_cohort</span>(<span class="dv">20000</span>, pv, <span class="dv">63</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(v<span class="sc">$</span>x, v<span class="sc">$</span>y, co[[<span class="st">"lo"</span>]], co[[<span class="st">"hi"</span>]])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Prevalence =</span> pv, <span class="st">`</span><span class="at">Intermediate %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>intermediate[[<span class="st">"est"</span>]], <span class="dv">1</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">PPV positive %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>rulein_ppv[[<span class="st">"est"</span>]], <span class="dv">1</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">NPV negative %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>ruleout_npv[[<span class="st">"est"</span>]], <span class="dv">1</span>), <span class="at">check.names =</span> <span class="cn">FALSE</span>)}))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res, <span class="at">caption =</span> <span class="st">"Sens/spec per class unchanged; predictive values and zone fractions move"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sens/spec per class unchanged; predictive values and zone fractions move</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Prevalence</th>
+<th style="text-align: right;">Intermediate %</th>
+<th style="text-align: right;">PPV positive %</th>
+<th style="text-align: right;">NPV negative %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">31.8</td>
+<td style="text-align: right;">73.5</td>
+<td style="text-align: right;">98.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">88.3</td>
+<td style="text-align: right;">96.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">24.8</td>
+<td style="text-align: right;">94.4</td>
+<td style="text-align: right;">91.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The FDA summary itself reports lower PV of positive results in primary care (78.3%, 36/46) than secondary/tertiary (90.2%, 249/276) and a footnote about lower PPV in low-prevalence settings [S: FDA-DS pp.3, 32].</p>
+</section>
+<section id="kidney-function-as-a-covariate-assumed-effect" class="level3">
+<h3 class="anchored" data-anchor-id="kidney-function-as-a-covariate-assumed-effect">Kidney function as a covariate (assumed effect)</h3>
+<p>The FDA summary has <strong>no eGFR-stratified analysis</strong> (only a kidney-disease comorbidity subgroup of N = 24) [S]. Hortsch et al.&nbsp;report higher pTau217 with worse kidney function in their prototype data [S]. Here: an <em>assumed</em> upward shift of the log marker in amyloid-negative <em>and</em> positive subjects with lower eGFR (+0.10 log10 for eGFR 30-59, +0.30 below 30); cut-offs stay locked.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kv <span class="ot">&lt;-</span> <span class="fu">sim_cohort</span>(<span class="dv">40000</span>, <span class="fl">0.40</span>, <span class="dv">64</span>, <span class="at">egfr_shift =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>kv<span class="sc">$</span>stage <span class="ot">&lt;-</span> <span class="fu">cut</span>(kv<span class="sc">$</span>egfr, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="cn">Inf</span>), <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"&lt;30"</span>, <span class="st">"30-59"</span>, <span class="st">"&gt;=60"</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">levels</span>(kv<span class="sc">$</span>stage), <span class="cf">function</span>(s) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> kv[kv<span class="sc">$</span>stage <span class="sc">==</span> s, ]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> <span class="fu">two_cut_performance</span>(v<span class="sc">$</span>x, v<span class="sc">$</span>y, co[[<span class="st">"lo"</span>]], co[[<span class="st">"hi"</span>]])</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">eGFR =</span> s, <span class="at">n =</span> <span class="fu">nrow</span>(v), <span class="st">`</span><span class="at">Intermediate %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>intermediate[[<span class="st">"est"</span>]], <span class="dv">1</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Rule-in specificity %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>rulein_spec[[<span class="st">"est"</span>]], <span class="dv">1</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">PPV positive %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>rulein_ppv[[<span class="st">"est"</span>]], <span class="dv">1</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Rule-out sensitivity %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> q<span class="sc">$</span>ruleout_sens[[<span class="st">"est"</span>]], <span class="dv">1</span>), <span class="at">check.names =</span> <span class="cn">FALSE</span>) }))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab, <span class="at">caption =</span> <span class="st">"Effect of an assumed eGFR-dependent shift on locked cut-offs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Effect of an assumed eGFR-dependent shift on locked cut-offs</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 17%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">eGFR</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Intermediate %</th>
+<th style="text-align: right;">Rule-in specificity %</th>
+<th style="text-align: right;">PPV positive %</th>
+<th style="text-align: right;">Rule-out sensitivity %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&lt;30</td>
+<td style="text-align: right;">560</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;">60.7</td>
+<td style="text-align: right;">59.2</td>
+<td style="text-align: right;">99.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">30-59</td>
+<td style="text-align: right;">7321</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">86.5</td>
+<td style="text-align: right;">81.6</td>
+<td style="text-align: right;">98.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;=60</td>
+<td style="text-align: right;">32119</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">93.0</td>
+<td style="text-align: right;">88.3</td>
+<td style="text-align: right;">96.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Reading: lower eGFR pushes controls into the intermediate and positive zones (specificity of the rule-in step and PPV fall) while sensitivity rises. Options to discuss: eGFR-stratified cut-offs, a flag on the report, or a pre-specified eGFR subgroup analysis in the SAP (Day 9). The size of the shift is my assumption. [Y]</p>
+</section>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">6</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> Describe the Elecsys pTau217 cleared cut-off scheme and what it reported.</p>
+<blockquote class="blockquote">
+<p>FDA K261686 (decision 2026-08-19): negative &lt;= 0.223, intermediate &gt; 0.223 to &lt;= 0.378, positive &gt; 0.378 pg/mL. Pivotal N = 958 vs amyloid PET visual read (6 blinded readers): PV of positive 88.5% (285/322), NPV of negative 95.3% (424/445), intermediate 19.9% (191/958); PPA 75.4% and NPA 73.1% with intermediates counted as misses. Indication: aid in identifying amyloid pathology, age &gt;= 55 with cognitive decline, with other clinical information.</p>
+</blockquote>
+<p><strong>Q2. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Why is the PPA only 75% if the test is called good?</p>
+<blockquote class="blockquote">
+<p>Intermediates count as non-agreement: 72 of 378 PET+ fall in the intermediate zone and 21 in the negative zone. Excluding the 19.9% intermediates would flatter the numbers. The real information is in the category-specific predictive values and likelihood ratios (LR+ 11.8 for positive, 0.08 for negative).</p>
+</blockquote>
+<p><strong>Q3.</strong> What determines the width of the intermediate zone?</p>
+<blockquote class="blockquote">
+<p>Separation of the group distributions (AUC), variability of the marker (biological and analytical), and the target performance for the two steps. Better separation or looser targets narrow it. It also depends on the population spectrum, not just the assay (Coste and Pouchot 2003).</p>
+</blockquote>
+<p><strong>Q4. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How would you derive two cut-offs, and why lock them?</p>
+<blockquote class="blockquote">
+<p>On a derivation cohort: rule-out cut-off = highest value keeping sensitivity &gt;= target; rule-in cut-off = lowest value keeping specificity &gt;= target. Freeze them in the plan and evaluate once on an independent validation cohort, otherwise performance is optimistic (selection bias on the same data).</p>
+</blockquote>
+<p><strong>Q5.</strong> What did the FDA summary say about how 0.223 and 0.378 were chosen?</p>
+<blockquote class="blockquote">
+<p>They were derived on 687 banked samples (286 PET+), but the target sensitivity/specificity or selection rule is not stated in the summary text I read (not verified). In an interview say what the public data show and that the rule is not disclosed.</p>
+</blockquote>
+<p><strong>Q6.</strong> How do you state performance when results can be indeterminate?</p>
+<blockquote class="blockquote">
+<p>Report the indeterminate fraction, performance of each category (PV, LR), and PPA/NPA both with indeterminates counted as misses and, if useful, excluding them, being clear which is which. FDA’s summary reports the intermediate row explicitly and counts it as non-agreement in PPA/NPA.</p>
+</blockquote>
+<p><strong>Q7.</strong> Same cut-offs, primary vs specialist care - what changes?</p>
+<blockquote class="blockquote">
+<p>Sensitivity and specificity per class are roughly constant (given the same spectrum), but PPV falls and NPV rises as prevalence falls; the zone fractions shift with spectrum. FDA reports PV of positive 78.3% in primary care vs 90.2% in secondary/tertiary, and a footnote about lower PPV in low-prevalence settings.</p>
+</blockquote>
+<p><strong>Q8. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How does kidney function affect plasma pTau217, and what does the FDA data show?</p>
+<blockquote class="blockquote">
+<p>Prototype-assay data (Hortsch et al.&nbsp;2026) show higher pTau217 with worse kidney function, with false positives in advanced CKD. The FDA decision summary has no eGFR-stratified analysis, only a kidney-disease comorbidity subgroup of N = 24, too small to conclude. A pre-specified eGFR subgroup analysis or eGFR-aware reporting would be a sensible plan item.</p>
+</blockquote>
+<p><strong>Q9.</strong> How do Hibar 2026 and Hortsch 2026 relate to the cleared test?</p>
+<blockquote class="blockquote">
+<p>Both use a prototype assay and do not report the cleared cut-offs. Hibar: five cohorts, N = 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone. Hortsch: N = 588, centiloid reference, exploratory 90%/90% double cut-off, 5.78% indeterminate at CL 30. They are supportive evidence, not the pivotal data.</p>
+</blockquote>
+<p><strong>Q10.</strong> Is monitoring a claim for the cleared test?</p>
+<blockquote class="blockquote">
+<p>Roche’s 24 Aug 2026 release states it is not intended as a stand-alone test and that safety and effectiveness are not established for predicting dementia or for monitoring therapy. This appears in the release, not in the decision summary text I read; I have not seen the labelling.</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>FDA K261686 numbers (✔ re-checked against the PDF), Hibar and Hortsch citations, Coste &amp; Pouchot, and the unverified items (cut-off selection rule, PPA/NPA CI method, labelling) are in the ledger.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day05-diagnostic-accuracy.html" class="pagination-link" aria-label="Day 5. Diagnostic accuracy of binary and continuous tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/day07-sample-size.html" class="pagination-link" aria-label="Day 7. Sample size and power for diagnostic studies">
+        <span class="nav-page-text"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

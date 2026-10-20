@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../interview_bank.html" rel="next">
+<link href="../chapters/day09-sap.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day10-reference-longitudinal.html"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-regulatory-anchor" id="toc-b-regulatory-anchor" class="nav-link" data-scroll-target="#b-regulatory-anchor">(b) Regulatory anchor</a></li>
+  <li><a href="#c-r-lab" id="toc-c-r-lab" class="nav-link" data-scroll-target="#c-r-lab">(c) R lab</a>
+  <ul class="collapse">
+  <li><a href="#direct-reference-interval-nonparametric-with-cis" id="toc-direct-reference-interval-nonparametric-with-cis" class="nav-link" data-scroll-target="#direct-reference-interval-nonparametric-with-cis">1. Direct reference interval (nonparametric) with CIs</a></li>
+  <li><a href="#indirect-method-with-refiner-on-mixed-routine-data" id="toc-indirect-method-with-refiner-on-mixed-routine-data" class="nav-link" data-scroll-target="#indirect-method-with-refiner-on-mixed-routine-data">2. Indirect method with <code>refineR</code> on mixed routine data</a></li>
+  <li><a href="#reference-change-value-from-a-mixed-model" id="toc-reference-change-value-from-a-mixed-model" class="nav-link" data-scroll-target="#reference-change-value-from-a-mixed-model">3. Reference change value from a mixed model</a></li>
+  <li><a href="#trajectory-modelling-mmrm-versus-completers" id="toc-trajectory-modelling-mmrm-versus-completers" class="nav-link" data-scroll-target="#trajectory-modelling-mmrm-versus-completers">4. Trajectory modelling: MMRM versus completers</a></li>
+  <li><a href="#why-monitoring-is-a-separate-intended-use-y" id="toc-why-monitoring-is-a-separate-intended-use-y" class="nav-link" data-scroll-target="#why-monitoring-is-a-separate-intended-use-y">Why “monitoring” is a separate intended use [Y]</a></li>
+  <li><a href="#timed-rehearsal-30-random-questions" id="toc-timed-rehearsal-30-random-questions" class="nav-link" data-scroll-target="#timed-rehearsal-30-random-questions">Timed rehearsal: 30 random questions</a></li>
+  </ul></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis, <strong>[A]</strong> simulation assumption. Data simulated.</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reference interval (RI)</td>
+<td>central 95% of a <em>healthy reference population</em>: 2.5th and 97.5th percentiles, each with its own CI</td>
+</tr>
+<tr class="even">
+<td>Direct method</td>
+<td>recruit and test healthy reference individuals (nonparametric percentiles)</td>
+</tr>
+<tr class="odd">
+<td>Indirect method</td>
+<td>mine routine patient data and statistically separate the healthy component (<code>refineR</code>)</td>
+</tr>
+<tr class="even">
+<td>Partitioning</td>
+<td>separate RIs by sex/age if the groups differ enough to matter</td>
+</tr>
+<tr class="odd">
+<td>Reference change value (RCV)</td>
+<td>smallest difference between two serial results in one person that exceeds analytical + biological noise</td>
+</tr>
+<tr class="even">
+<td>Monitoring claim</td>
+<td>evidence that <em>changes within a person</em> are measured reliably and mean something clinically: a <strong>separate intended use</strong> from a one-time diagnostic aid</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-regulatory-anchor" class="level2">
+<h2 class="anchored" data-anchor-id="b-regulatory-anchor">(b) Regulatory anchor</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Verified fact</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EP28</td>
+<td><strong>EP28-A3c (Ed3), 2010-10-19, reaffirmed 2020-04</strong>: protocol for defining, establishing and verifying reference intervals, incl.&nbsp;subject selection, preanalytical/analytical factors, calculation, transference</td>
+<td>[S] clsi.org</td>
+</tr>
+<tr class="even">
+<td>Minimum n (the often-quoted 120 per partition)</td>
+<td><em>not verified: paywalled</em></td>
+<td>–</td>
+</tr>
+<tr class="odd">
+<td>IVDR Annex I 9.1(b)</td>
+<td>“expected values in normal and affected populations” is among the clinical-performance parameters</td>
+<td>[S]</td>
+</tr>
+<tr class="even">
+<td>pTau217 label</td>
+<td>The Roche 24 Aug 2026 release states the test is not intended as stand-alone and that safety and effectiveness are not established for predicting dementia or <strong>monitoring</strong> effect of therapeutic products; this appears in the release, not in the FDA decision summary text; labelling not seen</td>
+<td>[S] ROCHE-0824</td>
+</tr>
+<tr class="odd">
+<td>FDA decision summary, cognitively normal reference interval</td>
+<td>N = 167 (age 55-80): 95% reference interval 0.0832-0.628 pg/mL; 68.3% ≤ 0.223, 22.8% in 0.223-0.378, 8.98% &gt; 0.378 (FDA-DS p.36; not re-checked by me)</td>
+<td>[S] via notes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-r-lab" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab">(c) R lab</h2>
+<section id="direct-reference-interval-nonparametric-with-cis" class="level3">
+<h3 class="anchored" data-anchor-id="direct-reference-interval-nonparametric-with-cis">1. Direct reference interval (nonparametric) with CIs</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">240</span>                                        <span class="co"># assumed &gt;= 120 per partition is typical practice; EP28 text not verified</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(n, <span class="fu">log</span>(<span class="fl">1.0</span>), <span class="fl">0.25</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x, <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">type =</span> <span class="dv">6</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CI 1: bootstrap percentile</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bs <span class="ot">&lt;-</span> <span class="fu">boot</span>(x, <span class="cf">function</span>(d, i) <span class="fu">quantile</span>(d[i], <span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="at">type =</span> <span class="dv">6</span>), <span class="at">R =</span> <span class="dv">4000</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ci_boot <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">boot.ci</span>(bs, <span class="at">type =</span> <span class="st">"perc"</span>, <span class="at">index =</span> <span class="dv">1</span>)<span class="sc">$</span>percent[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>], <span class="fu">boot.ci</span>(bs, <span class="at">type =</span> <span class="st">"perc"</span>, <span class="at">index =</span> <span class="dv">2</span>)<span class="sc">$</span>percent[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># CI 2: distribution-free order-statistic CI (binomial ranks)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>rank_ci <span class="ot">&lt;-</span> <span class="cf">function</span>(x, p, <span class="at">conf =</span> <span class="fl">0.95</span>) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x); s <span class="ot">&lt;-</span> <span class="fu">sort</span>(x)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  lo <span class="ot">&lt;-</span> <span class="fu">qbinom</span>((<span class="dv">1</span> <span class="sc">-</span> conf) <span class="sc">/</span> <span class="dv">2</span>, n, p); hi <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> conf) <span class="sc">/</span> <span class="dv">2</span>, n, p) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(s[<span class="fu">max</span>(lo, <span class="dv">1</span>)], s[<span class="fu">min</span>(hi, n)])</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ci_rank <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">rank_ci</span>(x, .<span class="dv">025</span>), <span class="fu">rank_ci</span>(x, .<span class="dv">975</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>true <span class="ot">&lt;-</span> <span class="fu">qlnorm</span>(<span class="fu">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="fu">log</span>(<span class="dv">1</span>), .<span class="dv">25</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Limit =</span> <span class="fu">c</span>(<span class="st">"2.5th"</span>, <span class="st">"97.5th"</span>), <span class="at">Estimate =</span> np, <span class="st">`</span><span class="at">Bootstrap CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.3f - %.3f"</span>, ci_boot[, <span class="dv">1</span>], ci_boot[, <span class="dv">2</span>]),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Order-statistic CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.3f - %.3f"</span>, ci_rank[, <span class="dv">1</span>], ci_rank[, <span class="dv">2</span>]), <span class="st">`</span><span class="at">True value</span><span class="st">`</span> <span class="ot">=</span> true, <span class="at">check.names =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Limit</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: left;">Bootstrap CI</th>
+<th style="text-align: left;">Order-statistic CI</th>
+<th style="text-align: right;">True value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2.5th</td>
+<td style="text-align: right;">0.599</td>
+<td style="text-align: left;">0.579 - 0.659</td>
+<td style="text-align: left;">0.560 - 0.658</td>
+<td style="text-align: right;">0.613</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">97.5th</td>
+<td style="text-align: right;">1.561</td>
+<td style="text-align: left;">1.474 - 1.636</td>
+<td style="text-align: left;">1.474 - 1.704</td>
+<td style="text-align: right;">1.632</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Two independent CI methods agree broadly; the upper-tail CI is much wider than the lower one because the tail is sparse and skewed. With n = 240, each limit rests on about 6 observations. [Y]</p>
+<p><strong>Coverage check of the order-statistic CI</strong> (1000 repeats):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">102</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, { z <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(n, <span class="fu">log</span>(<span class="dv">1</span>), .<span class="dv">25</span>); r <span class="ot">&lt;-</span> <span class="fu">rank_ci</span>(z, .<span class="dv">975</span>); true[<span class="dv">2</span>] <span class="sc">&gt;=</span> r[<span class="dv">1</span>] <span class="sc">&amp;&amp;</span> true[<span class="dv">2</span>] <span class="sc">&lt;=</span> r[<span class="dv">2</span>] })</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">coverage_97.5th =</span> <span class="fu">mean</span>(cv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>coverage_97.5th 
+          0.956 </code></pre>
+</div>
+</div>
+</section>
+<section id="indirect-method-with-refiner-on-mixed-routine-data" class="level3">
+<h3 class="anchored" data-anchor-id="indirect-method-with-refiner-on-mixed-routine-data">2. Indirect method with <code>refineR</code> on mixed routine data</h3>
+<p>3,000 routine results: 85% from healthy people (lognormal, same as above), 15% pathological with a shifted distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">103</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">2550</span>, <span class="fu">log</span>(<span class="fl">1.0</span>), <span class="fl">0.25</span>); p <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">450</span>, <span class="fu">log</span>(<span class="fl">2.0</span>), <span class="fl">0.35</span>); allx <span class="ot">&lt;-</span> <span class="fu">c</span>(h, p)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>cache <span class="ot">&lt;-</span> <span class="st">"../cache/refiner_fit.rds"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(cache)) fit <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(cache) <span class="cf">else</span> { fit <span class="ot">&lt;-</span> <span class="fu">findRI</span>(<span class="at">Data =</span> allx, <span class="at">NBootstrap =</span> <span class="dv">30</span>, <span class="at">seed =</span> <span class="dv">1</span>); <span class="fu">saveRDS</span>(fit, cache) }</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ri <span class="ot">&lt;-</span> <span class="fu">getRI</span>(fit, <span class="at">RIperc =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">CIprop =</span> <span class="fl">0.95</span>, <span class="at">pointEst =</span> <span class="st">"fullDataEst"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"True healthy limits"</span>, <span class="st">"Naive percentiles of ALL data"</span>, <span class="st">"refineR (indirect)"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">2.5th</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(true[<span class="dv">1</span>], <span class="fu">quantile</span>(allx, .<span class="dv">025</span>), ri<span class="sc">$</span>PointEst[<span class="dv">1</span>]),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">97.5th</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(true[<span class="dv">2</span>], <span class="fu">quantile</span>(allx, .<span class="dv">975</span>), ri<span class="sc">$</span>PointEst[<span class="dv">2</span>]), <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">2.5th</th>
+<th style="text-align: right;">97.5th</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">True healthy limits</td>
+<td style="text-align: right;">0.613</td>
+<td style="text-align: right;">1.632</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Naive percentiles of ALL data</td>
+<td style="text-align: right;">0.642</td>
+<td style="text-align: right;">2.903</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">refineR (indirect)</td>
+<td style="text-align: right;">0.612</td>
+<td style="text-align: right;">1.645</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The naive upper limit is inflated by the pathological component; <code>refineR</code> recovers the healthy limits. It assumes the healthy component is (Box-Cox) normal and dominant; it replaces recruitment but does not replace judgement on population and preanalytics, and I make no claim that a regulator accepts it in place of EP28-style direct studies. [Y]</p>
+</section>
+<section id="reference-change-value-from-a-mixed-model" class="level3">
+<h3 class="anchored" data-anchor-id="reference-change-value-from-a-mixed-model">3. Reference change value from a mixed model</h3>
+<p>Log-scale model: <code>log y = subject mean + noise</code>. Analytical CV 4%, biological within-subject CV 8% [A], 150 stable subjects, 4 samples each.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">104</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="dv">150</span>; k <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sd_b <span class="ot">&lt;-</span> <span class="fl">0.30</span>; sd_w <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fl">0.04</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.08</span><span class="sc">^</span><span class="dv">2</span>)                        <span class="co"># log scale approximations of CVs</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">rep</span>(<span class="fu">seq_len</span>(ns), <span class="at">each =</span> k))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>ly <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(ns, <span class="dv">0</span>, sd_b)[dd<span class="sc">$</span>id] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(dd), <span class="dv">0</span>, sd_w)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lmer</span>(ly <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> id), dd)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>vc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">VarCorr</span>(m)); s_w <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(vc<span class="sc">$</span>vcov[vc<span class="sc">$</span>grp <span class="sc">==</span> <span class="st">"Residual"</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>rcv_model <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">down =</span> <span class="fu">exp</span>(<span class="sc">-</span>z <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> s_w) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="fu">exp</span>(z <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> s_w) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># second way: SD of paired differences of consecutive results</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>dif <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">tapply</span>(dd<span class="sc">$</span>ly, dd<span class="sc">$</span>id, <span class="cf">function</span>(v) <span class="fu">diff</span>(v)))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>rcv_pairs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">down =</span> <span class="fu">exp</span>(<span class="sc">-</span>z <span class="sc">*</span> <span class="fu">sd</span>(dif)) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="fu">exp</span>(z <span class="sc">*</span> <span class="fu">sd</span>(dif)) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># third: truth</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>rcv_true <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">down =</span> <span class="fu">exp</span>(<span class="sc">-</span>z <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> sd_w) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">up =</span> <span class="fu">exp</span>(z <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> sd_w) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">rbind</span>(<span class="st">`</span><span class="at">lmer within-subject SD</span><span class="st">`</span> <span class="ot">=</span> rcv_model, <span class="st">`</span><span class="at">SD of paired differences</span><span class="st">`</span> <span class="ot">=</span> rcv_pairs, <span class="st">`</span><span class="at">true (simulation)</span><span class="st">`</span> <span class="ot">=</span> rcv_true) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">1</span>, <span class="at">caption =</span> <span class="st">"RCV (% change), two-sided 95%: RCV = exp(+-1.96 sqrt(2) SD_within) - 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>RCV (% change), two-sided 95%: RCV = exp(+-1.96 sqrt(2) SD_within) - 1</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">down</th>
+<th style="text-align: right;">up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">lmer within-subject SD</td>
+<td style="text-align: right;">-22.0</td>
+<td style="text-align: right;">28.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SD of paired differences</td>
+<td style="text-align: right;">-21.9</td>
+<td style="text-align: right;">28.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">true (simulation)</td>
+<td style="text-align: right;">-22.0</td>
+<td style="text-align: right;">28.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># false-flag rate in stable people</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nw <span class="ot">&lt;-</span> <span class="dv">20000</span>; a <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nw, <span class="dv">0</span>, sd_w); b <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nw, <span class="dv">0</span>, sd_w)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">false_flag_rate =</span> <span class="fu">mean</span>(b <span class="sc">-</span> a <span class="sc">&gt;</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> rcv_true[<span class="st">"up"</span>]) <span class="sc">|</span> b <span class="sc">-</span> a <span class="sc">&lt;</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> rcv_true[<span class="st">"down"</span>])))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>false_flag_rate 
+         0.0504 </code></pre>
+</div>
+</div>
+<p>The log-scale formula gives a slightly asymmetric interval (about −22% / +28% here). Detection of a <em>true</em> change: [Y]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">105</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="fl">0.20</span>, <span class="fl">0.50</span>, <span class="fl">1.00</span>), <span class="cf">function</span>(ch) <span class="fu">mean</span>(<span class="fu">rnorm</span>(nw, <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> ch), <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> sd_w) <span class="sc">&gt;</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> rcv_true[<span class="st">"up"</span>])))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.30835 0.89095 0.99965</code></pre>
+</div>
+</div>
+<p>(true increase of 20%, 50%, 100%: about 31%, 89% and 100% of individuals flagged). A genuine 20% rise is missed about two times in three: the RCV suits detection of large changes, not subtle ones. [Y]</p>
+</section>
+<section id="trajectory-modelling-mmrm-versus-completers" class="level3">
+<h3 class="anchored" data-anchor-id="trajectory-modelling-mmrm-versus-completers">4. Trajectory modelling: MMRM versus completers</h3>
+<p>Two-arm trial; change from baseline at months 6 and 12; unstructured covariance; control declines 1.0/2.0, drug 0.7/1.4 (true effect 0.6 at month 12); SD 2, correlation 0.6 [A].</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">106</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>nper <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sim_mmrm <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">dropout =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  trt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">each =</span> nper); id <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(trt)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  S <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="fl">2.4</span>, <span class="fl">2.4</span>, <span class="dv">4</span>), <span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="sc">-</span><span class="fl">1.0</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> trt, <span class="sc">-</span><span class="fl">2.0</span> <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">*</span> trt)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> mu <span class="sc">+</span> MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(<span class="fu">length</span>(trt), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), S)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  miss12 <span class="ot">&lt;-</span> <span class="cf">if</span> (dropout) <span class="fu">rbinom</span>(<span class="fu">length</span>(trt), <span class="dv">1</span>, <span class="fu">plogis</span>(<span class="sc">-</span><span class="fl">1.2</span> <span class="sc">-</span> <span class="fl">0.9</span> <span class="sc">*</span> y[, <span class="dv">1</span>] <span class="sc">-</span> <span class="fl">0.6</span> <span class="sc">*</span> trt)) <span class="sc">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="fu">length</span>(trt))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">rep</span>(id, <span class="dv">2</span>), <span class="at">trt =</span> <span class="fu">rep</span>(trt, <span class="dv">2</span>), <span class="at">visit =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"6"</span>, <span class="st">"12"</span>), <span class="at">each =</span> <span class="fu">length</span>(trt)), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"6"</span>, <span class="st">"12"</span>)),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">vnum =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="fu">length</span>(trt)), <span class="at">chg =</span> <span class="fu">c</span>(y[, <span class="dv">1</span>], <span class="fu">ifelse</span>(miss12, <span class="cn">NA</span>, y[, <span class="dv">2</span>])))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>fit_mmrm <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> d[<span class="fu">order</span>(d<span class="sc">$</span>id, d<span class="sc">$</span>vnum), ]; d <span class="ot">&lt;-</span> d[<span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>chg), ]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">gls</span>(chg <span class="sc">~</span> trt <span class="sc">*</span> visit, <span class="at">data =</span> d, <span class="at">correlation =</span> <span class="fu">corSymm</span>(<span class="at">form =</span> <span class="sc">~</span> vnum <span class="sc">|</span> id), <span class="at">weights =</span> <span class="fu">varIdent</span>(<span class="at">form =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> visit),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">na.action =</span> na.omit)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">coef</span>(f); <span class="fu">c</span>(<span class="st">`</span><span class="at">month 6</span><span class="st">`</span> <span class="ot">=</span> b[[<span class="st">"trt"</span>]], <span class="st">`</span><span class="at">month 12</span><span class="st">`</span> <span class="ot">=</span> b[[<span class="st">"trt"</span>]] <span class="sc">+</span> b[[<span class="st">"trt:visit12"</span>]])</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>d0 <span class="ot">&lt;-</span> <span class="fu">sim_mmrm</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>t12 <span class="ot">&lt;-</span> <span class="fu">with</span>(d0[d0<span class="sc">$</span>visit <span class="sc">==</span> <span class="st">"12"</span>, ], <span class="fu">mean</span>(chg[trt <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(chg[trt <span class="sc">==</span> <span class="dv">0</span>]))</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Estimate =</span> <span class="fu">c</span>(<span class="st">"MMRM, complete data"</span>, <span class="st">"t-test difference, complete data"</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                 <span class="st">`</span><span class="at">Month 12 effect</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">fit_mmrm</span>(d0)[[<span class="st">"month 12"</span>]], t12)), <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Estimate</th>
+<th style="text-align: right;">Month.12.effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MMRM, complete data</td>
+<td style="text-align: right;">0.4035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t-test difference, complete data</td>
+<td style="text-align: right;">0.4035</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">abs</span>(<span class="fu">fit_mmrm</span>(d0)[[<span class="st">"month 12"</span>]] <span class="sc">-</span> t12) <span class="sc">&lt;</span> <span class="fl">1e-6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With balanced complete data, unstructured-covariance MMRM equals the per-visit mean difference (exact check above). With dropout related to earlier worsening (MAR), MMRM uses the month-6 data of dropouts; completers do not:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">replicate</span>(R, { d <span class="ot">&lt;-</span> <span class="fu">sim_mmrm</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  cc <span class="ot">&lt;-</span> d[d<span class="sc">$</span>visit <span class="sc">==</span> <span class="st">"12"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>chg), ]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">MMRM =</span> <span class="fu">fit_mmrm</span>(d)[[<span class="st">"month 12"</span>]], <span class="at">completers =</span> <span class="fu">mean</span>(cc<span class="sc">$</span>chg[cc<span class="sc">$</span>trt <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(cc<span class="sc">$</span>chg[cc<span class="sc">$</span>trt <span class="sc">==</span> <span class="dv">0</span>])) }))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">Estimator =</span> <span class="fu">colnames</span>(res), <span class="st">`</span><span class="at">Mean estimate (truth 0.6)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">colMeans</span>(res), <span class="st">`</span><span class="at">Bias</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">colMeans</span>(res) <span class="sc">-</span> <span class="fl">0.6</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">SD =</span> <span class="fu">apply</span>(res, <span class="dv">2</span>, sd), <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Estimator</th>
+<th style="text-align: right;">Mean estimate (truth 0.6)</th>
+<th style="text-align: right;">Bias</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MMRM</td>
+<td style="text-align: right;">0.586</td>
+<td style="text-align: right;">-0.014</td>
+<td style="text-align: right;">0.273</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">completers</td>
+<td style="text-align: right;">0.413</td>
+<td style="text-align: right;">-0.187</td>
+<td style="text-align: right;">0.285</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="why-monitoring-is-a-separate-intended-use-y" class="level3">
+<h3 class="anchored" data-anchor-id="why-monitoring-is-a-separate-intended-use-y">Why “monitoring” is a separate intended use [Y]</h3>
+<p>A diagnostic aid shows a result <em>discriminates</em> amyloid-positive from negative at one time. A monitoring claim needs: within-person precision and RCV in the target population (above), evidence the marker <em>changes</em> with treatment or disease course (responsiveness), evidence that changes relate to clinical or imaging change, stability of the assay over time and lots, and a defined action rule. None follows from AUC. That is why the Roche release states that effectiveness for monitoring is not established.</p>
+</section>
+<section id="timed-rehearsal-30-random-questions" class="level3">
+<h3 class="anchored" data-anchor-id="timed-rehearsal-30-random-questions">Timed rehearsal: 30 random questions</h3>
+<p>Draw with <code>draw_questions()</code> (one per day at least), answer aloud in about 90 seconds each, score 0/1/2 (missed/partial/solid), then <code>score_rehearsal()</code> appends the misses to <code>flashcards.csv</code>.</p>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">read_questions</span>(<span class="st">"../interview_questions.csv"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>drawn <span class="ot">&lt;-</span> <span class="fu">draw_questions</span>(q, <span class="dv">30</span>, <span class="at">seed =</span> <span class="dv">2026</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(drawn))) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"**%d. (Day %d)** %s</span><span class="sc">\n\n</span><span class="st">"</span>, i, drawn<span class="sc">$</span>day[i], drawn<span class="sc">$</span>question[i]))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'::: {.callout-note collapse="true" title="Model answer"}</span><span class="sc">\n</span><span class="st">'</span>, <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, drawn<span class="sc">$</span>answer[i]), <span class="st">'</span><span class="sc">\n</span><span class="st">:::</span><span class="sc">\n\n</span><span class="st">'</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>1. (Day 4)</strong> What does an EP26-style lot-to-lot evaluation test and why use patient samples?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Whether new-lot minus old-lot differences exceed a medically acceptable difference; patient samples because control materials may not be commutable. Stage 1 sets the acceptable difference and risk; Stage 2 is the routine per-lot check (EP26 Ed2, 2022).</p>
+</div>
+</div>
+</div>
+<p><strong>2. (Day 5)</strong> How do you compare sensitivity of two tests run on the same subjects?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Restrict to the diseased subjects and use McNemar’s test on the discordant pairs (b vs c); same for specificity in the non-diseased. A confidence interval for the paired difference uses the same discordant counts. Unpaired two-proportion tests ignore the correlation and lose power.</p>
+</div>
+</div>
+</div>
+<p><strong>3. (Day 8)</strong> What else matters in a bridging study beyond concordance?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reagent lot and site effects on classification near the cut-off, precision at the cut-off (C5/C95), sample type/handling differences, prevalence and spectrum of the bridging samples relative to the intended-use population.</p>
+</div>
+</div>
+</div>
+<p><strong>4. (Day 2)</strong> How is within-laboratory precision computed from the components?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Add the variances, not the SDs - within-lab SD = sqrt(var_day + var_run + var_repeatability). CV% = 100 x SD / grand mean at that level. Components estimated by ANOVA (method of moments) or REML; identical for balanced data.</p>
+</div>
+</div>
+</div>
+<p><strong>5. (Day 4)</strong> What does Bland-Altman add, and what are its limits?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Visualises agreement and the distribution of differences with limits of agreement; use relative differences when error scales with level. It does not provide bias at specific levels with CIs and mixes constant and proportional bias.</p>
+</div>
+</div>
+</div>
+<p><strong>6. (Day 6)</strong> What determines the width of the intermediate zone?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Separation of the group distributions (AUC), variability of the marker (biological and analytical), and the target performance for the two steps. Better separation or looser targets narrow it. It also depends on the population spectrum, not just the assay (Coste and Pouchot 2003).</p>
+</div>
+</div>
+</div>
+<p><strong>7. (Day 8)</strong> How would you frame the estimand for a CDx claim?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Population: CDx+ per the intended-use setting; treatment policy; summary measure risk or hazard ratio in CDx+; intercurrent events handled per ICH E9(R1) by analogy; add how missing bridging samples and discordant CTA/CDx subjects are handled.</p>
+</div>
+</div>
+</div>
+<p><strong>8. (Day 9)</strong> How does your SAP deal with indeterminate results?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Report them as their own category with the fraction, count them as non-agreement in PPA/NPA (as the public FDA summary does), give PV and LR per category, and add a sensitivity analysis excluding them if useful. Decide before unblinding.</p>
+</div>
+</div>
+</div>
+<p><strong>9. (Day 3)</strong> How do you define LoQ?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lowest level where a predefined goal is met: CV &lt;= goal (functional sensitivity), or total error bias + 1.96 SD &lt;= allowable error, using a precision profile across levels. The goal is clinical, not statistical, and must be set before the study.</p>
+</div>
+</div>
+</div>
+<p><strong>10. (Day 2)</strong> How do you get a CI for a variance component or for the within-lab SD?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Chi-square intervals with Satterthwaite-approximated degrees of freedom for the sum of mean squares (what VCA::VCAinference does in its ‘SAS’ mode). The effective df of within-lab SD is ~70 for 20x2x2 - lower than the 80 observations suggest, because day carries only 19 df.</p>
+</div>
+</div>
+</div>
+<p><strong>11. (Day 1)</strong> Why are companion diagnostics class C, and what is special about their conformity assessment?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Annex VIII Rule 3(f) lists devices ‘to be used as companion diagnostics’ under class C. Beyond a notified body, the NB must consult a medicines authority (a competent authority under Directive 2001/83/EC or the EMA, as applicable) on suitability of the CDx for the medicinal product - Art 48(7) for class C via Annex IX 5.2, Art 48(8) via Annex X 3(k). (The brief says Rule 3(f), class C: confirmed.)</p>
+</div>
+</div>
+</div>
+<p><strong>12. (Day 1)</strong> Which documents guide the design of a clinical performance study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>IVDR Annex XIII Part A 2.3.2 (the plan items incl.&nbsp;statistical design, endpoints, population size, method for determining true clinical status), ISO 20916:2019 (good study practice for clinical performance studies using specimens from human subjects), MDCG 2022-2 (general principles of clinical evidence for IVDs, Jan 2022), plus FDA guidance and STARD 2015 for reporting.</p>
+</div>
+</div>
+</div>
+<p><strong>13. (Day 6)</strong> Is monitoring a claim for the cleared test?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Roche’s 24 Aug 2026 release states it is not intended as a stand-alone test and that safety and effectiveness are not established for predicting dementia or for monitoring therapy. This appears in the release, not in the decision summary text I read; I have not seen the labelling.</p>
+</div>
+</div>
+</div>
+<p><strong>14. (Day 9)</strong> What of CDISC applies to a device study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>CDISC publishes SDTMIG for Medical Devices (v1.1, 2019) and ADaMIG for Medical Devices (v1.0, 2021). I found no IVD-specific standard and nothing verifying that CDISC is mandated for IVDR submissions; ADaM-style subject-level and performance datasets are used by analogy.</p>
+</div>
+</div>
+</div>
+<p><strong>15. (Day 10)</strong> Why is monitoring a separate intended use from diagnosis?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It needs within-person precision and RCV, responsiveness to change, relationship of change to clinical or imaging change, long-term assay stability and an action rule, none of which an AUC shows. The Roche 24 Aug 2026 pTau217 release says safety and effectiveness are not established for monitoring effect of therapeutic products; this is in the release, not the decision summary text.</p>
+</div>
+</div>
+</div>
+<p><strong>16. (Day 5)</strong> What if the reference standard is imperfect?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sensitivity and specificity are biased (usually toward 0.5 if errors are independent of the test). Options: composite/expert-panel reference blinded to the index test (as in the pTau217 pivotal reader panel), latent class models, report as agreement. Document in the SAP.</p>
+</div>
+</div>
+</div>
+<p><strong>17. (Day 1)</strong> How would you map a question like ‘Is a new reagent lot acceptable?’ to a CLSI document?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>EP26 Ed2 (2022) - user evaluation of acceptability of a reagent lot change. In general EP19 Ed3 (2022) is the framework that points to the EP documents; I know it is organised around the Test Life Phases Model but its full TOC is paywalled.</p>
+</div>
+</div>
+</div>
+<p><strong>18. (Day 8)</strong> Why report PPA/NPA between CTA and CDx instead of sensitivity and specificity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Neither assay is a reference standard; FDA 2007 guidance says sensitivity and specificity are inappropriate for comparisons to a non-reference. PPA/NPA depend on which assay is the comparator and on the prevalence/spectrum of the bridging samples.</p>
+</div>
+</div>
+</div>
+<p><strong>19. (Day 6)</strong> How do Hibar 2026 and Hortsch 2026 relate to the cleared test?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both use a prototype assay and do not report the cleared cut-offs. Hibar: five cohorts, N = 2,148, single rule-out cut-off 0.189 pg/mL, no intermediate zone. Hortsch: N = 588, centiloid reference, exploratory 90%/90% double cut-off, 5.78% indeterminate at CL 30. They are supportive evidence, not the pivotal data.</p>
+</div>
+</div>
+</div>
+<p><strong>20. (Day 3)</strong> A claimed LoD is 1.9 pg/mL but the clinical cut-off is 220 pg/mL. Why does it matter little?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>LoD matters when the decision level is near zero. At cut-offs far above LoD, precision and bias at the cut-off (EP05, EP09) matter more than detection capability.</p>
+</div>
+</div>
+</div>
+<p><strong>21. (Day 5)</strong> What are STARD 2015 and QUADAS-2 for?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>STARD 2015 is a 30-item reporting checklist for diagnostic accuracy studies. QUADAS-2 assesses risk of bias and applicability (patient selection, index test, reference standard, flow and timing), used in systematic reviews and as a design checklist.</p>
+</div>
+</div>
+</div>
+<p><strong>22. (Day 2)</strong> A level has repeatability CV 2.2% and within-lab CV 2.5%. What do you conclude about the dominant source?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Repeatability contributes ~77% of total variance here (2.2<sup>2/2.5</sup>2 ~ 0.77): most imprecision is within-run noise, not day/run drift. Comparing variances, not CVs, makes the shares additive.</p>
+</div>
+</div>
+</div>
+<p><strong>23. (Day 7)</strong> Why does a precision study need many days?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Df for the day component is days-1; within-lab SD CI is driven by that df. 20 days with 2x2 per day gives about 70 Satterthwaite df and an expected 95% CI of about 0.85-1.22 times the estimate in my example (0.80-1.35 with 10 days).</p>
+</div>
+</div>
+</div>
+<p><strong>24. (Day 1)</strong> What do Articles 47-48 versus Annex I cover? A colleague says they are the safety requirements.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Art 47 = classification of devices; Art 48 = conformity assessment procedures. General safety and performance requirements (GSPR) are Annex I; the analytical-performance list is Annex I 9.1(a) (sensitivity, specificity, trueness, precision, LoD/LoQ, measuring range, linearity, cut-off) and clinical is 9.1(b) (diagnostic sensitivity/specificity, PPV, NPV, likelihood ratio, expected values).</p>
+</div>
+</div>
+</div>
+<p><strong>25. (Day 7)</strong> Why does prevalence inflate sample size for sensitivity but not for specificity?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sensitivity uses only cases, specificity only non-cases. Total n = n_cases/prev for sensitivity and n_controls/(1-prev) for specificity. At low prevalence cases are scarce. Fix: enriched sampling, with PPV/NPV reweighted to the true prevalence.</p>
+</div>
+</div>
+</div>
+<p><strong>26. (Day 4)</strong> How is a shelf life set from a stability study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Regress response on time, compute a one-sided 95% bound for the mean, and take the time where the bound meets the acceptance limit. EP25 Ed2 (2023) is regression-based; its exact acceptance rules are paywalled (not verified).</p>
+</div>
+</div>
+</div>
+<p><strong>27. (Day 10)</strong> How do you establish a reference interval directly?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Recruit a well-defined healthy reference population, standardise preanalytics, measure, check outliers and partitions, take the nonparametric 2.5th and 97.5th percentiles with CIs (bootstrap or order-statistic), as in EP28-A3c (2010, reaffirmed 2020). The often-quoted n &gt;= 120 is not verified (paywalled).</p>
+</div>
+</div>
+</div>
+<p><strong>28. (Day 7)</strong> How do you size a study to show sensitivity exceeds an 80% performance goal?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Choose the expected true sensitivity (say 90%), one-sided alpha (0.025), power (80%); use the exact binomial test: about 94-113 cases depending on alpha (0.05 -&gt; 94, 0.025 -&gt; 113 in my calculation). Check by simulation and note the sawtooth in exact power.</p>
+</div>
+</div>
+</div>
+<p><strong>29. (Day 9)</strong> What goes into a SAP for a diagnostic clinical performance study?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Objectives and hypotheses with performance goals; intended use population; reference standard and timing; locked cut-offs and the rule for indeterminates; analysis populations; primary and secondary endpoints with CI methods; sample size; missing and invalid data; subgroups; multiplicity; sensitivity analyses; data standards; software and QC; table shells. IVDR Annex XIII Part A 2.3.2 lists plan items including statistical design, endpoints, population size and the method for determining true clinical status.</p>
+</div>
+</div>
+</div>
+<p><strong>30. (Day 2)</strong> Describe the single-site EP05-A3 precision design and what it estimates.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Model answer">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Model answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>20 operating days x 2 runs/day x 2 replicates per sample (EP05-A3, 2014 [S: CLSI press release]). A nested (day &gt; run &gt; replicate) random-effects model gives repeatability (within-run), between-run, between-day and within-laboratory (total single-site) imprecision. Note EP05 is now Ed4 (Dec 2025); I know the Ed4 design only as ‘not verified: paywalled’.</p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After the session (not run here): 30 scores, one per question in the order above</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">score_rehearsal</span>(drawn, <span class="at">scores =</span> <span class="fu">c</span>(...), <span class="at">flashcards =</span> <span class="st">"flashcards.csv"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>pct; res<span class="sc">$</span>by_day; res<span class="sc">$</span>added</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">10</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> How do you establish a reference interval directly?</p>
+<blockquote class="blockquote">
+<p>Recruit a well-defined healthy reference population, standardise preanalytics, measure, check outliers and partitions, take the nonparametric 2.5th and 97.5th percentiles with CIs (bootstrap or order-statistic), as in EP28-A3c (2010, reaffirmed 2020). The often-quoted n &gt;= 120 is not verified (paywalled).</p>
+</blockquote>
+<p><strong>Q2.</strong> Why are the CIs of the reference limits so different at the two ends?</p>
+<blockquote class="blockquote">
+<p>The tails of a skewed distribution are sparse; with n = 240 each limit rests on about 6 observations and the upper tail of a lognormal is stretched, so its CI is wide.</p>
+</blockquote>
+<p><strong>Q3.</strong> What is the indirect method and when would you use it?</p>
+<blockquote class="blockquote">
+<p>Use routine patient data and statistically isolate the non-pathological component (refineR: Box-Cox-transformed normal fitted to the dominant part). Useful when recruiting healthy subjects is hard (children, elderly, rare analytes). Assumes the healthy component dominates; judgement on population and preanalytics is still needed.</p>
+</blockquote>
+<p><strong>Q4.</strong> When do you partition reference intervals by sex or age?</p>
+<blockquote class="blockquote">
+<p>When the subgroup distributions differ enough to change clinical decisions, not merely statistically (large n makes tiny differences significant). Each partition needs adequate n for its own CI.</p>
+</blockquote>
+<p><strong>Q5. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How do you compute a reference change value?</p>
+<blockquote class="blockquote">
+<p>Within-subject SD from a mixed model (analytical + biological), RCV = +/- 1.96 sqrt(2) SD (log scale gives an asymmetric percent interval). In my simulation with CV 4% analytical and 8% biological: about -22%/+28%. Verified three ways: lmer, SD of paired differences, simulation (false flag rate about 5% in stable people).</p>
+</blockquote>
+<p><strong>Q6. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Why is monitoring a separate intended use from diagnosis?</p>
+<blockquote class="blockquote">
+<p>It needs within-person precision and RCV, responsiveness to change, relationship of change to clinical or imaging change, long-term assay stability and an action rule, none of which an AUC shows. The Roche 24 Aug 2026 pTau217 release says safety and effectiveness are not established for monitoring effect of therapeutic products; this is in the release, not the decision summary text.</p>
+</blockquote>
+<p><strong>Q7. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> What is an MMRM and why use it for longitudinal biomarker or clinical endpoints?</p>
+<blockquote class="blockquote">
+<p>A mixed model for repeated measures: categorical visit, treatment-by-visit interaction, unstructured covariance, using all available data. Valid under MAR dropout; with balanced complete data it equals per-visit mean differences (exact in my check). Completer analysis is biased when dropout depends on earlier outcomes.</p>
+</blockquote>
+<p><strong>Q8.</strong> Random-intercept versus MMRM for repeated biomarker measurements?</p>
+<blockquote class="blockquote">
+<p>Random intercept (or intercept and slope) models assume a parametric covariance structure and suit irregular timing and continuous time; MMRM with unstructured covariance makes fewer assumptions for fixed visits. Check covariance fit (AIC) and the impact of the choice on the contrast of interest.</p>
+</blockquote>
+<p><strong>Q9.</strong> Summarise the whole regulated-diagnostics map in one minute.</p>
+<blockquote class="blockquote">
+<p>Analytical: precision EP05/EP15, detection EP17, linearity EP06, comparison EP09c, interference EP07, stability EP25, lots EP26. Clinical: binary EP12, ROC EP24, FDA 2007 PPA/NPA language, cut-offs locked, two-cut-off with intermediate zone. Regulatory: IVDR Annex I GSPR, Annex VIII classes (CDx Rule 3(f), class C), Art 48(7)/(8) consultation, Annex XIII PEP/PER/PMPF, ISO 20916, MDCG 2022-2; FDA 510(k)/De Novo/PMA. Plan: SAP with goals, populations, subgroups, sensitivity analyses, QC.</p>
+</blockquote>
+<p><strong>Q10.</strong> What would you tell the interviewer you do not know yet?</p>
+<blockquote class="blockquote">
+<p>The paywalled details: CLSI design counts in EP05 Ed4, EP17-A2, EP28; FDA labelling of pTau217 and the rule behind its cut-offs. I know where each is stated and how I would derive the statistics myself, and I flag clearly what is verified versus synthesis.</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>EP28-A3c edition and scope, IVDR Annex I 9.1(b), the Roche monitoring statement and the FDA reference-interval numbers are in the ledger. RCV and MMRM results are simulation-based and my synthesis.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day09-sap.html" class="pagination-link" aria-label="Day 9. The statistical analysis plan for a diagnostic clinical performance study">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../interview_bank.html" class="pagination-link" aria-label="Interview bank">
+        <span class="nav-page-text"><span class="chapter-title">Interview bank</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

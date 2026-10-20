@@ -1,17 +1,19 @@
+# Quarto / R
 _book/
 .quarto/
-*_files/
+_freeze/
 /.Rproj.user
 .Rhistory
 .RData
 renv/library/
 renv/staging/
-
-/.quarto/
+# standalone renders outside the book
 mock_sap/*.html
 mock_sap/*_files/
-_freeze/
-.Rhistory
 cheatsheet_pdf/.quarto/
-*.html
 cheatsheet_pdf/cheatsheet.pdf
+# figure folders of standalone renders (the book in docs/ keeps its own)
+*_files/
+!docs/**/*_files/
+
+/.quarto/

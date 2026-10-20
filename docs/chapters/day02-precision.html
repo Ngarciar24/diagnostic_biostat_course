@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Day 2. Precision and variance components (EP05, EP15) – Regulated Diagnostic Biostatistics: a ten-day crash course</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/day03-detection-linearity.html" rel="next">
+<link href="../chapters/day01-landscape.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2e4c97a43803ed481078bdef9528fe0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/day02-precision.html"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Regulated Diagnostic Biostatistics: a ten-day crash course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">How to use this course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day01-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day02-precision.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day03-detection-linearity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day04-method-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 4. Method comparison, bias, interference, stability, lots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day05-diagnostic-accuracy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 5. Diagnostic accuracy of binary and continuous tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day06-cutoffs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 6. Cut-offs, two-cut-off designs and the intermediate zone</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day07-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 7. Sample size and power for diagnostic studies</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day08-companion-diagnostics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 8. Companion diagnostics and bridging statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day09-sap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 9. The statistical analysis plan for a diagnostic clinical performance study</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/day10-reference-longitudinal.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Day 10. Reference intervals, longitudinal biomarkers, and the rehearsal</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../interview_bank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interview bank</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cheatsheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cheat sheet: regulated diagnostic biostatistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_template.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">SAP template: diagnostic clinical performance study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/sap_ptau217_mock.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistical Analysis Plan (mock): clinical performance study SIM-217-001</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mock_sap/r_environment_note.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One page: a SAP in a regulated R environment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-concept" id="toc-a-concept" class="nav-link active" data-scroll-target="#a-concept">(a) Concept</a></li>
+  <li><a href="#b-regulatory-anchor" id="toc-b-regulatory-anchor" class="nav-link" data-scroll-target="#b-regulatory-anchor">(b) Regulatory anchor</a></li>
+  <li><a href="#c-r-lab-simulate-and-analyse-an-ep05-style-study" id="toc-c-r-lab-simulate-and-analyse-an-ep05-style-study" class="nav-link" data-scroll-target="#c-r-lab-simulate-and-analyse-an-ep05-style-study">(c) R lab: simulate and analyse an EP05-style study</a>
+  <ul class="collapse">
+  <li><a href="#three-estimators-one-answer-cross-check-required-by-rule-4" id="toc-three-estimators-one-answer-cross-check-required-by-rule-4" class="nav-link" data-scroll-target="#three-estimators-one-answer-cross-check-required-by-rule-4">Three estimators, one answer (cross-check required by rule 4)</a></li>
+  <li><a href="#the-standard-precision-table" id="toc-the-standard-precision-table" class="nav-link" data-scroll-target="#the-standard-precision-table">The standard precision table</a></li>
+  <li><a href="#verification-against-a-claim-ep15-logic-y" id="toc-verification-against-a-claim-ep15-logic-y" class="nav-link" data-scroll-target="#verification-against-a-claim-ep15-logic-y">Verification against a claim (EP15 logic, [Y])</a></li>
+  <li><a href="#bayesian-version-brms" id="toc-bayesian-version-brms" class="nav-link" data-scroll-target="#bayesian-version-brms">Bayesian version (brms)</a></li>
+  </ul></li>
+  <li><a href="#d-ten-interview-questions" id="toc-d-ten-interview-questions" class="nav-link" data-scroll-target="#d-ten-interview-questions">(d) Ten interview questions</a></li>
+  <li><a href="#e-claims" id="toc-e-claims" class="nav-link" data-scroll-target="#e-claims">(e) Claims</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Day 2. Precision and variance components (EP05, EP15)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tags: <strong>[S]</strong> primary public source, <strong>[Y]</strong> my synthesis (standard theory, not quoted).</p>
+<section id="a-concept" class="level2">
+<h2 class="anchored" data-anchor-id="a-concept">(a) Concept</h2>
+<ul>
+<li><strong>Repeatability</strong> = within-run noise. <strong>Between-run</strong>, <strong>between-day</strong> add drift. <strong>Within-laboratory</strong> precision = all three together (one site, one instrument).</li>
+<li>Variances add; SDs do not. <code>SD_within-lab = sqrt(σ²_day + σ²_run + σ²_rep)</code>. [Y]</li>
+<li>CV% = 100·SD/mean <em>at a given level</em>. Always report at medical decision levels.</li>
+</ul>
+</section>
+<section id="b-regulatory-anchor" class="level2">
+<h2 class="anchored" data-anchor-id="b-regulatory-anchor">(b) Regulatory anchor</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Statement</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EP05 current edition</td>
+<td><strong>Ed4, published 2025-12-11</strong> (supersedes EP05-A3, 2014)</td>
+<td>[S] clsi.org</td>
+</tr>
+<tr class="even">
+<td>EP05-A3 single-site design</td>
+<td>20 days × 2 runs × 2 replicates per sample</td>
+<td>[S] CLSI 2014 press release</td>
+</tr>
+<tr class="odd">
+<td>EP05 Ed4 design</td>
+<td><em>not verified: paywalled</em></td>
+<td>–</td>
+</tr>
+<tr class="even">
+<td>EP15</td>
+<td>EP15-A3 (2014, reaffirmed 2019), no newer edition listed; completed within 5 working days; bias: ≥25 measurements over ≥5 days</td>
+<td>[S] clsi.org</td>
+</tr>
+<tr class="odd">
+<td>What is reported</td>
+<td>Repeatability and within-lab SD and CV% with 95% CI, per level</td>
+<td>[Y]</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-r-lab-simulate-and-analyse-an-ep05-style-study" class="level2">
+<h2 class="anchored" data-anchor-id="c-r-lab-simulate-and-analyse-an-ep05-style-study">(c) R lab: simulate and analyse an EP05-style study</h2>
+<p>True values: day SD 1.2, run SD 1.5, repeatability SD 2.0 at a mean of 100.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="dv">20</span>; R <span class="ot">&lt;-</span> <span class="dv">2</span>; K <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">rep =</span> <span class="dv">1</span><span class="sc">:</span>K, <span class="at">run =</span> <span class="dv">1</span><span class="sc">:</span>R, <span class="at">day =</span> <span class="dv">1</span><span class="sc">:</span>D)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">+</span> <span class="fu">rnorm</span>(D, <span class="dv">0</span>, <span class="fl">1.2</span>)[d<span class="sc">$</span>day] <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(D <span class="sc">*</span> R, <span class="dv">0</span>, <span class="fl">1.5</span>)[(d<span class="sc">$</span>day <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> R <span class="sc">+</span> d<span class="sc">$</span>run] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(d), <span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>day <span class="ot">&lt;-</span> <span class="fu">factor</span>(d<span class="sc">$</span>day); d<span class="sc">$</span>run <span class="ot">&lt;-</span> <span class="fu">factor</span>(d<span class="sc">$</span>run)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="three-estimators-one-answer-cross-check-required-by-rule-4" class="level3">
+<h3 class="anchored" data-anchor-id="three-estimators-one-answer-cross-check-required-by-rule-4">Three estimators, one answer (cross-check required by rule 4)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fit_vca <span class="ot">&lt;-</span> <span class="fu">anovaVCA</span>(y <span class="sc">~</span> day<span class="sc">/</span>run, d)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vca <span class="ot">&lt;-</span> fit_vca<span class="sc">$</span>aov.tab[<span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"day:run"</span>, <span class="st">"error"</span>), <span class="st">"VC"</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hand <span class="ot">&lt;-</span> <span class="fu">ep05_anova</span>(d<span class="sc">$</span>y, d<span class="sc">$</span>day, d<span class="sc">$</span>run, K)[<span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"run"</span>, <span class="st">"repeatability"</span>)]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lmer</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> day) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> day<span class="sc">:</span>run), d)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>vc <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">VarCorr</span>(m))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>reml <span class="ot">&lt;-</span> vc<span class="sc">$</span>vcov[<span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"day:run"</span>, <span class="st">"Residual"</span>), vc<span class="sc">$</span>grp)]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>cmp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">component =</span> <span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"run"</span>, <span class="st">"repeatability"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">hand_ANOVA =</span> <span class="fu">unname</span>(hand), <span class="at">VCA_anovaVCA =</span> vca, <span class="at">lme4_REML =</span> reml)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(cmp, <span class="at">digits =</span> <span class="dv">4</span>, <span class="at">caption =</span> <span class="st">"Variance components: three estimators"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Variance components: three estimators</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">component</th>
+<th style="text-align: right;">hand_ANOVA</th>
+<th style="text-align: right;">VCA_anovaVCA</th>
+<th style="text-align: right;">lme4_REML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">day</td>
+<td style="text-align: left;">day</td>
+<td style="text-align: right;">1.0697</td>
+<td style="text-align: right;">1.0697</td>
+<td style="text-align: right;">1.0697</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day:run</td>
+<td style="text-align: left;">run</td>
+<td style="text-align: right;">0.4096</td>
+<td style="text-align: right;">0.4096</td>
+<td style="text-align: right;">0.4096</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">error</td>
+<td style="text-align: left;">repeatability</td>
+<td style="text-align: right;">4.8088</td>
+<td style="text-align: right;">4.8088</td>
+<td style="text-align: right;">4.8088</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isTRUE</span>(<span class="fu">all.equal</span>(cmp<span class="sc">$</span>hand_ANOVA, cmp<span class="sc">$</span>VCA_anovaVCA, <span class="at">tolerance =</span> <span class="fl">1e-8</span>)),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="fu">isTRUE</span>(<span class="fu">all.equal</span>(cmp<span class="sc">$</span>VCA_anovaVCA, cmp<span class="sc">$</span>lme4_REML, <span class="at">tolerance =</span> <span class="fl">1e-4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Balanced data: ANOVA and REML coincide unless a component is truncated at 0.</p>
+</section>
+<section id="the-standard-precision-table" class="level3">
+<h3 class="anchored" data-anchor-id="the-standard-precision-table">The standard precision table</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>inf <span class="ot">&lt;-</span> <span class="fu">VCAinference</span>(fit_vca, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">VarVC =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>y)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sdt <span class="ot">&lt;-</span> inf<span class="sc">$</span>ConfInt<span class="sc">$</span>SD<span class="sc">$</span>TwoSided</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cvt <span class="ot">&lt;-</span> inf<span class="sc">$</span>ConfInt<span class="sc">$</span>CV<span class="sc">$</span>TwoSided</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sdest <span class="ot">&lt;-</span> fit_vca<span class="sc">$</span>aov.tab[, <span class="st">"SD"</span>]; <span class="fu">names</span>(sdest) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(fit_vca<span class="sc">$</span>aov.tab)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Component =</span> <span class="fu">c</span>(<span class="st">"Repeatability"</span>, <span class="st">"Between-run"</span>, <span class="st">"Between-day"</span>, <span class="st">"Within-laboratory"</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD  =</span> sdest[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>)],</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">SD 95% CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.2f - %.2f"</span>, sdt[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>), <span class="st">"LCL"</span>],</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                        sdt[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>), <span class="st">"UCL"</span>]),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">CV%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">100</span> <span class="sc">*</span> sdest[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>)] <span class="sc">/</span> mu,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">CV% 95% CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%.2f - %.2f"</span>, cvt[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>), <span class="st">"LCL"</span>],</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                         cvt[<span class="fu">c</span>(<span class="st">"error"</span>, <span class="st">"day:run"</span>, <span class="st">"day"</span>, <span class="st">"total"</span>), <span class="st">"UCL"</span>]),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">NULL</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">caption =</span> <span class="fu">sprintf</span>(<span class="st">"Precision at mean %.1f (n = %d, %d days)"</span>, mu, <span class="fu">nrow</span>(d), D))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Precision at mean 99.9 (n = 80, 20 days)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: left;">SD 95% CI</th>
+<th style="text-align: right;">CV%</th>
+<th style="text-align: left;">CV% 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Repeatability</td>
+<td style="text-align: right;">2.19</td>
+<td style="text-align: left;">1.80 - 2.81</td>
+<td style="text-align: right;">2.20</td>
+<td style="text-align: left;">1.80 - 2.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Between-run</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">0.00 - 1.56</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">0.00 - 1.57</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Between-day</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: left;">0.00 - 1.69</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: left;">0.00 - 1.70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within-laboratory</td>
+<td style="text-align: right;">2.51</td>
+<td style="text-align: left;">2.15 - 3.01</td>
+<td style="text-align: right;">2.51</td>
+<td style="text-align: left;">2.15 - 3.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Note the lower CI limit of 0 for day and run: with 19 and 20 df the data cannot exclude zero. The within-lab row has ~70 effective df (Satterthwaite), not 79. [Y]</p>
+</section>
+<section id="verification-against-a-claim-ep15-logic-y" class="level3">
+<h3 class="anchored" data-anchor-id="verification-against-a-claim-ep15-logic-y">Verification against a claim (EP15 logic, [Y])</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretend a manufacturer claims repeatability SD = 2.0; we ran 5 days x 5 replicates (df = 20)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s_obs <span class="ot">&lt;-</span> <span class="fl">2.3</span>; nu <span class="ot">&lt;-</span> <span class="dv">20</span>; claim <span class="ot">&lt;-</span> <span class="fl">2.0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>uvl <span class="ot">&lt;-</span> claim <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">qchisq</span>(<span class="fl">0.95</span>, nu) <span class="sc">/</span> nu)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(claim, <span class="at">observed =</span> s_obs, <span class="at">df =</span> nu, <span class="at">UVL =</span> <span class="fu">round</span>(uvl, <span class="dv">3</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">verified =</span> s_obs <span class="sc">&lt;=</span> uvl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  claim observed df   UVL verified
+1     2      2.3 20 2.506     TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="bayesian-version-brms" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-version-brms">Bayesian version (brms)</h3>
+<p>Weakly informative half-normal priors on all SDs; fitted once and cached in <code>cache/</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cache <span class="ot">&lt;-</span> <span class="st">"../cache/ep05_brms_draws.rds"</span>           <span class="co"># posterior draws only (a few KB); delete to refit (about 2 min)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(cache)) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  dr <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(cache)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">brm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> day) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> day<span class="sc">:</span>run), d, <span class="at">chains =</span> <span class="dv">2</span>, <span class="at">iter =</span> <span class="dv">2000</span>, <span class="at">cores =</span> <span class="dv">2</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">100</span>, <span class="dv">20</span>), <span class="at">class =</span> Intercept),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="at">class =</span> sd),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="at">class =</span> sigma)),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">backend =</span> <span class="st">"rstan"</span>, <span class="at">seed =</span> <span class="dv">1</span>, <span class="at">refresh =</span> <span class="dv">0</span>, <span class="at">silent =</span> <span class="dv">2</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  dr <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as_draws_df</span>(b))[, <span class="fu">c</span>(<span class="st">"b_Intercept"</span>, <span class="st">"sd_day__Intercept"</span>, <span class="st">"sd_day:run__Intercept"</span>, <span class="st">"sigma"</span>)]</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(dr, cache)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sd_draws <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">day =</span> dr<span class="sc">$</span>sd_day__Intercept, <span class="at">run =</span> dr<span class="sc">$</span><span class="st">`</span><span class="at">sd_day:run__Intercept</span><span class="st">`</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rep =</span> dr<span class="sc">$</span>sigma)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>wl <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>(sd_draws<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sprintf</span>(<span class="st">"%.2f (%.2f - %.2f)"</span>, <span class="fu">median</span>(x), <span class="fu">quantile</span>(x, .<span class="dv">025</span>), <span class="fu">quantile</span>(x, .<span class="dv">975</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Component =</span> <span class="fu">c</span>(<span class="st">"Between-day"</span>, <span class="st">"Between-run"</span>, <span class="st">"Repeatability"</span>, <span class="st">"Within-lab"</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Bayes median SD (95% CrI)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">q</span>(sd_draws[, <span class="st">"day"</span>]), <span class="fu">q</span>(sd_draws[, <span class="st">"run"</span>]),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">q</span>(sd_draws[, <span class="st">"rep"</span>]), <span class="fu">q</span>(wl)),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Frequentist SD</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">c</span>(sdest[<span class="st">"day"</span>], sdest[<span class="st">"day:run"</span>], sdest[<span class="st">"error"</span>], sdest[<span class="st">"total"</span>]), <span class="dv">2</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>), <span class="at">caption =</span> <span class="st">"Bayes vs ANOVA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Bayes vs ANOVA</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Bayes median SD (95% CrI)</th>
+<th style="text-align: right;">Frequentist SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">day</td>
+<td style="text-align: left;">Between-day</td>
+<td style="text-align: left;">0.95 (0.11 - 1.92)</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day:run</td>
+<td style="text-align: left;">Between-run</td>
+<td style="text-align: left;">0.75 (0.04 - 1.69)</td>
+<td style="text-align: right;">0.64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">error</td>
+<td style="text-align: left;">Repeatability</td>
+<td style="text-align: left;">2.20 (1.82 - 2.71)</td>
+<td style="text-align: right;">2.19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">total</td>
+<td style="text-align: left;">Within-lab</td>
+<td style="text-align: left;">2.60 (2.22 - 3.18)</td>
+<td style="text-align: right;">2.51</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Differences to discuss.</strong> The Bayesian SDs for day and run are never exactly 0 and are pulled by the prior when levels are few. Credible ≠ confidence interval. For a <em>claim</em> a regulator expects the CLSI-style estimate; use Bayes sparingly, as supportive or as a way to borrow strength across levels or sites. [Y]</p>
+</section>
+</section>
+<section id="d-ten-interview-questions" class="level2">
+<h2 class="anchored" data-anchor-id="d-ten-interview-questions">(d) Ten interview questions</h2>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_questions</span>(<span class="dv">2</span>, <span class="st">"../interview_questions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Q1.</strong> Describe the single-site EP05-A3 precision design and what it estimates.</p>
+<blockquote class="blockquote">
+<p>20 operating days x 2 runs/day x 2 replicates per sample (EP05-A3, 2014 [S: CLSI press release]). A nested (day &gt; run &gt; replicate) random-effects model gives repeatability (within-run), between-run, between-day and within-laboratory (total single-site) imprecision. Note EP05 is now Ed4 (Dec 2025); I know the Ed4 design only as ‘not verified: paywalled’.</p>
+</blockquote>
+<p><strong>Q2.</strong> How is within-laboratory precision computed from the components?</p>
+<blockquote class="blockquote">
+<p>Add the variances, not the SDs - within-lab SD = sqrt(var_day + var_run + var_repeatability). CV% = 100 x SD / grand mean at that level. Components estimated by ANOVA (method of moments) or REML; identical for balanced data.</p>
+</blockquote>
+<p><strong>Q3.</strong> Why can a variance-component estimate be negative, and what do you report?</p>
+<blockquote class="blockquote">
+<p>In ANOVA, (MS_between - MS_within)/k can be &lt; 0 by sampling noise when the true component is near 0. Report it as 0 (truncate) for the total, state that, and note CI lower limits are constrained at 0. REML/Bayesian estimators cannot go below 0 by construction.</p>
+</blockquote>
+<p><strong>Q4. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> How do you get a CI for a variance component or for the within-lab SD?</p>
+<blockquote class="blockquote">
+<p>Chi-square intervals with Satterthwaite-approximated degrees of freedom for the sum of mean squares (what VCA::VCAinference does in its ‘SAS’ mode). The effective df of within-lab SD is ~70 for 20x2x2 - lower than the 80 observations suggest, because day carries only 19 df.</p>
+</blockquote>
+<p><strong>Q5.</strong> How does user verification (EP15) differ from the manufacturer’s EP05 study?</p>
+<blockquote class="blockquote">
+<p>EP05 establishes imprecision claims (manufacturer, large). EP15 is a short lab-level study (public page: completed within five working days; bias needs &gt;= 25 measurements over &gt;= 5 days) that checks whether the lab’s imprecision is consistent with the claim, using an upper verification limit from a chi-square argument [S: clsi.org EP15 page; the UVL formula is my synthesis, text not reproduced].</p>
+</blockquote>
+<p><strong>Q6. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Show the upper verification limit logic for a claimed repeatability SD.</p>
+<blockquote class="blockquote">
+<p>If observed SD s has df = nu, then s^2<em>nu/sigma_claim^2 ~ chi2(nu). Verification passes if s &lt;= sigma_claim </em> sqrt(chi2_{0.95,nu}/nu) (one-sided 5% test of H0: sigma = claim). Larger nu -&gt; UVL closer to the claim. Synthesis of standard theory.</p>
+</blockquote>
+<p><strong>Q7.</strong> Why 20 days instead of, say, 5 runs on one day?</p>
+<blockquote class="blockquote">
+<p>Day-to-day (calibration, reagent, environment) variance is typically the biggest source of lab imprecision and is only estimable from many independent days; replicates inside a day tell you almost nothing about it. Df for day drives the CI width of within-lab SD.</p>
+</blockquote>
+<p><strong>Q8. <e2>&lt;98&gt;&lt;85&gt;</e2></strong> Where does your Bayesian hierarchical variance model map onto EP05, and where does it differ?</p>
+<blockquote class="blockquote">
+<p>Same model structure: day and run random effects around a mean, residual = repeatability. Differences: priors on SDs (shrinkage with few levels, never exactly zero), credible not confidence intervals, no closed-form df, and sensitivity to prior choice. Regulators expect CLSI-style ANOVA/REML estimates for claims; Bayesian is acceptable as a supportive or exploratory analysis, preferably with the frequentist result alongside.</p>
+</blockquote>
+<p><strong>Q9.</strong> How do multi-site / multi-instrument extensions change the model?</p>
+<blockquote class="blockquote">
+<p>Add random effects for site (or instrument/lot) above day: reproducibility = within-lab + between-site. Few sites (3) means very few df for site variance, so the reproducibility CI is wide and CLSI-style designs ask for &gt;= 3 sites/lots as a pragmatic compromise. Exact counts for EP05 Ed4: not verified.</p>
+</blockquote>
+<p><strong>Q10.</strong> A level has repeatability CV 2.2% and within-lab CV 2.5%. What do you conclude about the dominant source?</p>
+<blockquote class="blockquote">
+<p>Repeatability contributes ~77% of total variance here (2.2<sup>2/2.5</sup>2 ~ 0.77): most imprecision is within-run noise, not day/run drift. Comparing variances, not CVs, makes the shares additive.</p>
+</blockquote>
+</section>
+<section id="e-claims" class="level2">
+<h2 class="anchored" data-anchor-id="e-claims">(e) Claims</h2>
+<p>Appended to <code>claims_ledger.csv</code> (chapter = 2): edition of EP05, EP05-A3 design, EP15 public facts; everything marked [Y] above is synthesis and not in the ledger as a sourced claim.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/day01-landscape.html" class="pagination-link" aria-label="Day 1. The landscape and the vocabulary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Day 1. The landscape and the vocabulary</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/day03-detection-linearity.html" class="pagination-link" aria-label="Day 3. Detection capability (EP17) and linearity (EP06)">
+        <span class="nav-page-text"><span class="chapter-title">Day 3. Detection capability (EP17) and linearity (EP06)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
